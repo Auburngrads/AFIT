@@ -16,10 +16,9 @@ Archs: i386, x64
 Depends: R (>= 3.0.0)
 Imports:
     utils,
-    yaml
+    yaml,
+    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Suggests: 
-    knitr,
-    rmarkdown
+Suggests: knitr
