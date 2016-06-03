@@ -15,7 +15,7 @@
 #' }
 #'
 #' @export
-acm_article <- function(...) {
+afit_thesis <- function(...) {
   pdf_document_format(...,
                       format = "afit_thesis",
                       template = "template.tex",

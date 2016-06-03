@@ -1,4 +1,8 @@
-#' @importFrom utils getFromNamespace
+#' Helper function to find a file for a named template
+#' 
+#' @param template A named template folder
+#' @param file the name of the file to search for within the \code{template} folder
+#' @export
 
 find_file <- function(template, file) {
   template <- system.file("rmarkdown", "templates", template, file,
@@ -9,6 +13,14 @@ find_file <- function(template, file) {
 
   template
 }
+
+#' Helper function to find a resource for a named template
+#' 
+#' @param template A named template folder
+#' @param file Name of the  resource file to search for within the \code{template} folder
+#' 
+#' @importFrom utils getFromNamespace
+#' @export
 
 find_resource <- function(template, file) {
   find_file(template, file.path("resources", file))
@@ -25,16 +37,12 @@ output_asis <- knitr_fun('output_asis')
 #' @param metadata A named list containing metadata to pass to template.
 #' @param template Path to a pandoc template.
 #' @param output Path to save output.
+#' @param verbose Should extensive details be provided?
 #' @return (Invisibly) The path of the generate file.
-#' @examples
-#' x <- AFIT:::template_pandoc(
-#'   list(preamble = "%abc", filename = "wickham"),
-#'   rticles:::find_resource("rjournal_article", "RJwrapper.tex"),
-#'   tempfile()
-#' )
-#' if (interactive()) file.show(x)
-#' @noRd
+
 #' @importFrom rmarkdown pandoc_convert
+#' @importFrom yaml as.yaml
+#' @export
 template_pandoc <- function(metadata, template, output, verbose = FALSE) {
   tmp <- tempfile(fileext = ".md")
   on.exit(unlink(tmp))
@@ -51,16 +59,25 @@ template_pandoc <- function(metadata, template, output, verbose = FALSE) {
 }
 
 
-# Call rmarkdown::pdf_document and mark the return value as inheriting pdf_document
+#' Inherits properties from an existing pdf document
+#' @description Calls rmarkdown::pdf_document and marks the return value as inheriting pdf_document
 #' @importFrom rmarkdown pdf_document
+#' @param ... arguments sent to \code{rmarkdown::pdf_document}
+
 inherit_pdf_document <- function(...) {
   fmt <- rmarkdown::pdf_document(...)
   fmt$inherits <- "pdf_document"
   fmt
 }
 
-# Helper function to create a custom format derived from pdf_document
-# that includes a custom LaTeX template and custom CSL definition
+#' Create a custom format derived from pdf_document
+#' @description Helper function to create a custom format derived from pdf_document that includes a custom LaTeX template and custom CSL definition
+#' 
+#' @param ... arguments sent to \code{inherit_pdf_document} 
+#' @param format Named format folder
+#' @param template Named template folder
+#' @param csl Named style file for a given \code{template} 
+#' @export
 pdf_document_format <- function(..., format, template, csl) {
 
   # base format
@@ -76,7 +93,3 @@ pdf_document_format <- function(..., format, template, csl) {
   # return format
   fmt
 }
-
-
-
-
