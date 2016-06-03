@@ -11,16 +11,15 @@ Maintainer: <jason.freels@afit.edu>
 Description:
     This package simplifies many of the tasks involved in generating an AFIT thesis or dissertation using the rmarkdown framework.
     Using the LaTeX documents, this package builds off of that base.  There are also functions for importing reference metadata from works published to DTIC.
-License: License: MIT + file LICENSE
+License: MIT + file LICENSE
 Archs: i386, x64
 Depends: R (>= 3.0.0)
 Imports:
-    rmarkdown,
     utils,
-    knitr,
     yaml
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Suggests: knitr,
+Suggests: 
+    knitr,
     rmarkdown
