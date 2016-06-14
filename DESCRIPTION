@@ -4,21 +4,18 @@ Title: Functions to simplify the process of generating AFIT theses and dissertat
 Version: 1.0
 Date: 2016-05-24
 Authors@R: c(
-    person("Jason", "Freels", , "jason.freels@afit.edu", role = c("aut", "cre")),
+    person("Jason", "Freels" , , "jason.freels@afit.edu"  , role = c("aut", "cre")),
     person("Corey", "Degroot", , "corey.degroot@us.af.mil", role = "aut"),
     person("Diane", "Schultz", , "diane.schultz@us.af.mil", role = "aut"))
-Maintainer: <jason.freels@afit.edu>
+Maintainer: Jason Freels <jason.freels@afit.edu>
 Description:
     This package simplifies many of the tasks involved in generating an AFIT thesis or dissertation using the rmarkdown framework.
     Using the LaTeX documents, this package builds off of that base.  There are also functions for importing reference metadata from works published to DTIC.
 License: MIT + file LICENSE
 Archs: i386, x64
 Depends: R (>= 3.0.0)
-Imports:
-    utils,
-    yaml,
-    rmarkdown
+Imports: utils,yaml,rmarkdown,knitr
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Suggests: knitr
+Suggests: testthat
