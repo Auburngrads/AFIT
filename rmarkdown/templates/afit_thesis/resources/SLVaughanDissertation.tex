@@ -1,0 +1,114 @@
+% TBD TODO List:
+% Title!!
+% Finish SF298
+% search for all tbd and todo
+% search for all we, our, I
+% reorder all multiple author citations
+% 'paper' -> 'dissertation
+% 'research' -> 'dissertation
+% search for all \citep{%%
+
+% remove figures not used
+% Ensure no/limited quotes
+% Citations in Figures or table captions, are OK!
+% Proper use of i.e., and e.g.,
+% Decide on CMN/Narrative reference
+
+% Ensure proper use of 'that' and 'which'
+% remove referenced to 'events' - use 'experiences' instead.
+% ensure all glossary entries are captured
+% glossaries - all entries hava a main/definition - see abductive
+% Glossaries - remove redundant page numbers
+% fix overfull/underfull boxes
+% Remove NAG
+%\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage{../afitStyleFiles/afitThesis}
+\usepackage{../afitStyleFiles/sf298}
+\graphicspath{{../Figures/}}
+\input{preambleAddedBySLV}
+
+\input{Customize/titlepage}
+\include{Glossary/Glossary}
+
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\fancyhf{}
+%\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+\begin{document}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\intextsep}{40pt} % Vertical space above & below [h] floats
+\setlength{\textfloatsep}{40pt} % Vertical space below (above) [t] ([b]) floats
+\setlength{\floatsep}{20pt} % Vertical distance between two floats
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{5pt}
+\input{Front/myFigures}
+%\input{Front/nomenclature}
+\frontmatter
+	\hypersetup{pageanchor=false}   %%this suppresses error message: pdfTeX warning (ext4): destination with the same identifier
+                                    %%(name{page.1}) has been already used, duplicate ignored
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \setlength{\headheight}{20pt}
+    %\fancyhf{}
+    %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+
+    \flyleaf
+	\disclaimerpage
+	\titlepageAFIT
+    \hypersetup{pageanchor=true}
+    %\pagestyle{fancy}
+    %\renewcommand{\headrulewidth}{0.4pt}
+    %\setlength{\headheight}{20pt}
+    %\fancyhf{}
+    %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+	%\approvalpage - SLV not used in afitThesis.sty
+	\input{Front/abstract}
+	%\input{Front/dedication}
+	%\input{Front/acknowledgements}
+	\tableofcontents
+	\listoffigures
+    \listoftables
+	
+\mainmatter
+\include{Chapters/Chapter1/Introduction}
+\include{Chapters/Chapter2/LitReview}
+\include{Chapters/Chapter3/Methodology}
+\include{Chapters/Chapter4/ResultsAndAnalysis}
+\include{Chapters/Chapter5/Conclusion}
+\appendix
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+    \include{Appendices/Reasoning/Reasoning}
+    %\include{Appendices/InSilico/InSilico}%%
+    \include{Appendices/PolyhedralDynamics/PolyhedralDynamics}
+    %\include{Appendices/ApproachesToCogArch/ApproachesToCogArch}%%
+    \include{Appendices/ACT-R/ACT-R}
+    \include{Appendices/MLConcepts/MLConcepts}%%
+    \include{Appendices/DistanceMeasures/DistanceMeasures}	
+    \include{Appendices/DistanceMeasures/DistanceMeasuresTable}
+    \bibliographystyleDIS{apalike}
+    \bibliographyDIS{../../References/Bib/Distance_Bibliography}
+    \include{Appendices/Malware/MalwareDataSet}	
+    \bibliographystyleMAL{apalike}
+    \bibliographyMAL{../../References/Bib/Malware_Bibliography}
+
+%\clearpage
+%\include{Back/acronyms}
+
+\backmatter
+    \setcounter{chapter}{8} %sets Appendix 'H' for glossary.
+    \printglossary[type=main,title=Glossary of Acronyms{,} Cognitive and Technical Terms, toctitle=Glossary of Acronyms{,} Cognitive and Technical Terms]
+    \clearpage
+    \input{Customize/SF298}
+	\singlespace
+	%\bibliographystyle{aiaa} %This is defualt provided with template
+
+    \bibliographystyle{apalike}
+    \bibliography{../../References/Bib/Central_Bibliography}
+
+	\clearpage
+\end{document}

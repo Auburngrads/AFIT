@@ -1,0 +1,117 @@
+% TBD TODO List:
+% Title!!
+% Finish SF298
+% search for all tbd and todo
+% search for all we, our, I
+% reorder all multiple author citations
+% 'paper' -> 'dissertation
+% 'research' -> 'dissertation
+% search for all \citep{%%
+
+% remove figures not used
+% Ensure no/limited quotes
+% Citations in Figures or table captions, are OK!
+% Proper use of i.e., and e.g.,
+% Decide on CMN/Narrative reference
+
+% Ensure proper use of 'that' and 'which'
+% remove referenced to 'events' - use 'experiences' instead.
+% ensure all glossary entries are captured
+% glossaries - all entries hava a main/definition - see abductive
+% Glossaries - remove redundant page numbers
+% fix overfull/underfull boxes
+% Remove NAG
+%\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage{files/afitThesis} % Styling in accordance with the AFIT Style Guide (date)
+\graphicspath{{../Figures/}}
+\input{files/preamble}
+
+\$doctype$
+
+\author{
+$for(author)$$author.name$$author.rank$$sep$ \And $endfor$
+}
+%\rank{}  % If a civilian, comment out this line.
+
+\docdesignator{$designator$}
+\department{Department of Electrical and Computer Engineering}
+\graduationdate{$graddate$}
+
+\flytitle{A Novel Machine Learning Classifier Based on a Qualia Modeling Agent (QMA)}
+\title{\MakeUppercase{A Novel Machine Learning Classifier Based on a}
+        \MakeUppercase{Qualia Modeling Agent (QMA)}} % second line of required
+                             % Note, if you use \MakeUppercase to put
+                             % the title in all uppercase as the style
+                             % guide demands, understand that the
+                             % command does not allow page breaks ``\\''
+                             % within its brackets.
+\previousdegrees{BS, MS}
+\acdegree{Doctor of Philosophy}
+
+\committee{{$advisor.name$\\Chairman},
+           {$reader1.name$\\Member},
+           {$reader2.name$\\Member},
+           {$reader3.name$\\Member}
+}
+
+\address{2950 Hobson Way\\ Air Force Institute of Technology \\
+Wright-Patterson AFB, OH 45433}
+
+\distribution{DISTRIBUTION STATEMENT A\\[-10pt]
+\MakeUppercase{Approved for Public Release; distribution unlimited.}}
+%\MakeUppercase{Not Approved for Public Release.}}
+
+\disclaimer{The views expressed in this document are those of the
+author and do not reflect the official policy or position of the
+United States Air Force, the United States Department of Defense or
+the United States Government.  This material is declared a work of the
+U.S. Government and is not subject to copyright protection in the
+United States.}
+\include{files/Glossary}
+
+\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\fancyhf{}
+%\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+\begin{document}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+\setlength{\intextsep}{40pt} % Vertical space above & below [h] floats
+\setlength{\textfloatsep}{40pt} % Vertical space below (above) [t] ([b]) floats
+\setlength{\floatsep}{20pt} % Vertical distance between two floats
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{5pt}
+\input{Front/myFigures}
+%\input{Front/nomenclature}
+\frontmatter
+	\hypersetup{pageanchor=false}   %%this suppresses error message: pdfTeX warning (ext4): destination with the same identifier
+                                    %%(name{page.1}) has been already used, duplicate ignored
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \setlength{\headheight}{20pt}
+    %\fancyhf{}
+    %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+
+    \flyleaf
+	\disclaimerpage
+	\titlepageAFIT
+    \hypersetup{pageanchor=true}
+    %\pagestyle{fancy}
+    %\renewcommand{\headrulewidth}{0.4pt}
+    %\setlength{\headheight}{20pt}
+    %\fancyhf{}
+    %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
+	%\approvalpage - SLV not used in afitThesis.sty
+	\Abstract{$abstract$}
+	%\input{Front/dedication}
+	%\input{Front/acknowledgements}
+	\tableofcontents
+	\listoffigures
+    \listoftables
+	
+
+\end{document}
