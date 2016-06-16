@@ -4,7 +4,7 @@
 \alias{pdf_document_format}
 \title{Create a custom format derived from pdf_document}
 \usage{
-pdf_document_format(..., format, template, csl)
+pdf_document_format(..., format, template, csl, sty)
 }
 \arguments{
 \item{...}{arguments sent to \code{inherit_pdf_document}}

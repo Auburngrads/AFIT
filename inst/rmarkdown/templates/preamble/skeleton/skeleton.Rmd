@@ -38,7 +38,7 @@ keywords:
   plain:     [keywords, not capitalized, Java]
 preamble: >
   \usepackage{amsmath}
-output: afit::preamble
+output: AFIT::preamble
 ---
 
 # Introduction
