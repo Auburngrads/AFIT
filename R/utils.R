@@ -78,7 +78,7 @@ inherit_pdf_document <- function(...) {
 #' @param template Named template folder
 #' @param csl Named style file for a given \code{template} 
 #' @export
-pdf_document_format <- function(..., format, template, csl) {
+pdf_document_format <- function(..., format, template, csl, sty) {
 
   # base format
   fmt <- inherit_pdf_document(..., template = find_resource(format, template))
@@ -89,6 +89,11 @@ pdf_document_format <- function(..., format, template, csl) {
                        "--csl",
                        rmarkdown::pandoc_path_arg(find_resource(format, csl)))
 
+  # add sty to pandoc_args
+  #' @importFrom rmarkdown pandoc_path_arg
+  fmt$pandoc$args <- c(fmt$pandoc$args,
+                       "--sty",
+                       rmarkdown::pandoc_path_arg(find_resource(format, sty)))
 
   # return format
   fmt
