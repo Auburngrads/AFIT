@@ -37,8 +37,17 @@ keywords:
   formatted: [keywords, not capitalized, "\\proglang{Java}"]
   plain:     [keywords, not capitalized, Java]
 preamble: >
+<<<<<<< HEAD
   \usepackage{`r system.file('files','afitThesis.sty', package = 'AFIT')`}
+=======
+<<<<<<< HEAD
+  \usepackage{amsmath}
+output: AFIT::prospectus
+=======
+  \usepackage{`r system.file('files','afitThesis', package = 'AFIT')`}
+>>>>>>> abd7ee659e5f87f9764c07dcdfb5d4bc2740a1db
 output: AFIT::preamble
+>>>>>>> a8df78b96cefb20aabff5a193eca5b1bb6563a33
 ---
 
 # Introduction
