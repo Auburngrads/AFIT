@@ -91,9 +91,9 @@ pdf_document_format <- function(..., format, template, csl = NULL, sty = NULL) {
 
   # add sty to pandoc_args
   #' @importFrom rmarkdown pandoc_path_arg
-  if(!is.null(sty)) { fmt$pandoc$args <- c(fmt$pandoc$args,
-                       "--sty",
-                       rmarkdown::pandoc_path_arg(find_resource(format, sty))) }
+  # if(!is.null(sty)) { fmt$pandoc$args <- c(fmt$pandoc$args,
+  #                      "--sty",
+  #                      rmarkdown::pandoc_path_arg(find_resource(format, sty))) }
 
   # return format
   fmt
