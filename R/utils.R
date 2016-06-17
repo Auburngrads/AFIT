@@ -65,7 +65,7 @@ template_pandoc <- function(metadata, template, output, verbose = FALSE) {
 #' @param ... arguments sent to \code{rmarkdown::pdf_document}
 
 inherit_pdf_document <- function(...) {
-  fmt <- rmarkdown::pdf_document(...)
+  fmt <- rmarkdown::pdf_document(...,includes = rmarkdown::includes(in_header = system.file('files','afitThesis.sty', package = 'AFIT')) )
   fmt$inherits <- "pdf_document"
   fmt
 }

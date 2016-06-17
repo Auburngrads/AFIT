@@ -20,12 +20,14 @@
 preamble <- function(...,
                      keep_tex = TRUE,
                      md_extensions = c("-autolink_bare_uris"),
-                     fig_caption = TRUE) {
+                     fig_caption = TRUE,
+                     toc = TRUE) {
   
   pdf_document_format(...,
                       format = "preamble",
                       template = "template.tex",
                       fig_caption = fig_caption,
-                      keep_tex = keep_tex)
+                      keep_tex = keep_tex,
+                      toc = toc)
 }
 

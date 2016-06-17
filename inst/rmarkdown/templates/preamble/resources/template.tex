@@ -1,43 +1,138 @@
-% TBD TODO List:
-% Title!!
-% Finish SF298
-% search for all tbd and todo
-% search for all we, our, I
-% reorder all multiple author citations
-% 'paper' -> 'dissertation
-% 'research' -> 'dissertation
-% search for all \citep{%%
-
-% remove figures not used
-% Ensure no/limited quotes
-% Citations in Figures or table captions, are OK!
-% Proper use of i.e., and e.g.,
-% Decide on CMN/Narrative reference
-
-% Ensure proper use of 'that' and 'which'
-% remove referenced to 'events' - use 'experiences' instead.
-% ensure all glossary entries are captured
-% glossaries - all entries hava a main/definition - see abductive
-% Glossaries - remove redundant page numbers
-% fix overfull/underfull boxes
-% Remove NAG
 %\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
 \documentclass[12pt,letterpaper,oneside]{book}
-\usepackage{files/afitThesis} % Styling in accordance with the AFIT Style Guide (date)
+\usepackage{afitThesis}
+\usepackage{hyperref}
+% \usepackage[font={bf,footnotesize},labelsep=period]{caption}
+% \usepackage{geometry}
+% \usepackage{setspace}
+% \usepackage{indentfirst}
+% \usepackage{float}
+% \usepackage{flafter}
+% \usepackage{amssymb,amsmath,amsfonts}
+% \usepackage{theorem}
+% %\usepackage[square]{natbib}
+% \usepackage{varioref}
+% \usepackage{tocbibind}
+% \usepackage{listings}
+% \usepackage{xspace}
+% \usepackage{fixltx2e}
+% \usepackage{threeparttable}
+% \usepackage{booktabs}
+% \usepackage{color}
+% \usepackage{url}
+% \usepackage{ifpdf}
+% \usepackage{hyperref}
+% 
+% \ifpdf
+% \usepackage[pdftex]{graphicx}
+% \DeclareGraphicsExtensions{.jpg, .pdf, .png}
+% \else
+% \usepackage{graphicx}
+% \DeclareGraphicsExtensions{.eps}
+% \fi
+% 
+% 
+% %% Define default document values
+% \geometry{top=1in,bottom=1.25in,left=1.25in,right=1.25in}
+% \def\afittocfootskip{0.41in}      %if above margins change, routines
+%                                   %using this command may require
+%                                   %retuning (alm)
+% \def\tocSpace{0.0em}
+% \def\lofSpace{1.0em plus 1pt}
+% \def\tocStart{1.0em plus 1pt}
+% \def\lofStart{0.0in}
+% 
+% \makeindex
+% \doublespacing  % options include \singlespacing, \onehalfspacing,
+%                 % \doublespacing or \setstretch{baselinestretch}
+% \pagestyle{plain}
+% 
+% % Some color definitions...
+% \definecolor{LemonChiffon}{rgb}{1.,0.98,0.8}
+% \definecolor{LightBlue}{rgb}{0.68,0.85,0.9}
+% \definecolor{USAFblue}{rgb}{.1,.1,.6}
+% \definecolor{Pink}{rgb}{1,0.75,0.8}
+% \definecolor{Gold}{rgb}{1,0.84,0}
+% \definecolor{Reda}{rgb}{0.9,0.3,0.7}
+% \definecolor{Redb}{rgb}{0.9,0.3,1}
+% \definecolor{Beige}{rgb}{0.96,0.96,0.86}
+% \definecolor{Yellow}{rgb}{1,0.84,0.8}
+% \definecolor{LightCyan}{rgb}{0.88,1,1}
+% \definecolor{FireOrange}{rgb}{0.9,0.4,0}
+% \definecolor{gray}{rgb}{0.5,0.5,0.5}
+% \definecolor{LTgray}{gray}{0.8}
+% \definecolor{DKgray}{gray}{0.3}
+% \definecolor{Green}{rgb}{0,0.4,0}
+% 
+% 
+% %==================================================================
+% %
+% %		COMPONENTS OF THESIS or DISSERTATION
+% %
+% %	Items below this section implement style complying with the
+% %	STYLE GUIDE for AFIT DISSERTATIONS, THESES and GRADUATE
+% %	RESEARCH PAPERS (July 2011)
+% %
+% %==================================================================
+% 
+% %==================================================================
+% %
+% %		THESIS TYPE DEFAULT VALUES
+% %
+% %==================================================================
+% %
+% \def\THESISTYPE{THESIS}\def\thesistype{thesis}
+% \def\doctype{\THESISTYPE}
+% 
+% \def\doctypeDisseration{DISSERTATION}
+% \def\doctypeThesis{THESIS}
+% 
+% 
+% \def\diss@flag{dissertation}
+% \def\report@flag{report}
+% \def\thesis@flag{thesis}
+% 
+% \def\afitthesis{%
+% 	\def\THESISTYPE{THESIS}\def\th@sistype{thesis}
+% 	\def\doctype{\THESISTYPE}
+% }
+% \def\afitreport{%
+% 	\def\THESISTYPE{REPORT}\def\thesistype{report}
+% 	\def\doctype{\THESISTYPE}
+% }
+% \def\dissertation{%
+% 	\def\THESISTYPE{DISSERTATION}\def\thesistype{dissertation}
+% 	\def\doctype{\THESISTYPE}
+% }
+% \def\prospectus{%
+% 	\def\THESISTYPE{PROSPECTUS}\def\thesistype{prospectus}
+% 	\def\doctype{\THESISTYPE}
+% }
+% 
+%  \newcommand{\flytitle}[1]{$title.plain$}
+%  \newcommand{\rank}[1]{$author.rank$}
+%  \newcommand{\designator}[1]{$designator$}
+%  \newcommand{\prevdegrees}[1]{$author.prevdegree$}
+%  \newcommand{\acdegree}[1]{$author.thisdegree$}
+%  \newcommand{\department}[1]{Department\;of\;Electrical\;and\;Computer\;Engineering}
+%  \newcommand{\graddate}[1]{$graddate$}
+%  \newcommand{\address}[1]{2950 Hobson Way\\ Air Force Institute of Technology \\
+% Wright-Patterson AFB, OH 45433}
+%  \newcommand{\disclaimer}[1]{The views expressed in this document are those of the author and do not reflect the official policy or position of the United States Air Force, the United States Department of Defense or the United States Government.  This material is declared a work of the U.S. Government and is not subject to copyright protection in the United States.}
 
 
 \$doctype$
 
 \author{
-$for(author)$$author.name$$author.rank$$sep$ \And $endfor$
+$for(author)$$author.name$, $author.rank$ $endfor$
 }
 %\rank{}  % If a civilian, comment out this line.
 
-\docdesignator{$designator$}
-\department{Department of Electrical and Computer Engineering}
-\graduationdate{$graddate$}
+% \designator
+% \department
+% \graddate
 
-\flytitle{A Novel Machine Learning Classifier Based on a Qualia Modeling Agent (QMA)}
+% \flytitle{A Novel Machine Learning Classifier Based on a Qualia Modeling Agent (QMA)}
 \title{\MakeUppercase{A Novel Machine Learning Classifier Based on a}
         \MakeUppercase{Qualia Modeling Agent (QMA)}} % second line of required
                              % Note, if you use \MakeUppercase to put
@@ -83,7 +178,7 @@ United States.}
 \setlength{\floatsep}{20pt} % Vertical distance between two floats
 \setlength{\abovecaptionskip}{10pt}
 \setlength{\belowcaptionskip}{5pt}
-\input{Front/myFigures}
+%\input{Front/myFigures}
 %\input{Front/nomenclature}
 \frontmatter
 	\hypersetup{pageanchor=false}   %%this suppresses error message: pdfTeX warning (ext4): destination with the same identifier
@@ -94,7 +189,7 @@ United States.}
     %\fancyhf{}
     %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
 
-    \flyleaf
+  \flyleaf
 	\disclaimerpage
 	\titlepageAFIT
     \hypersetup{pageanchor=true}
@@ -104,7 +199,9 @@ United States.}
     %\fancyhf{}
     %\fancyhead[L]{DRAFT - Unclassified, but not approved for public release.}
 	%\approvalpage - SLV not used in afitThesis.sty
-	\Abstract{$abstract$}
+	\begin{abstract}
+	$abstract$
+	\end{abstract}
 	%\input{Front/dedication}
 	%\input{Front/acknowledgements}
 	\tableofcontents
