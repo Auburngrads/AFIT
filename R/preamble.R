@@ -26,7 +26,6 @@ preamble <- function(...,
                       format = "preamble",
                       template = "template.tex",
                       fig_caption = fig_caption,
-                      keep_tex = keep_tex,
-                      sty = 'afitThesis.sty')
+                      keep_tex = keep_tex)
 }
 
