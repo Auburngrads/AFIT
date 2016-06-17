@@ -1,39 +1,48 @@
 ---
 author:
-  - name: 'Jason K. Freels'
-    department: Office Symbol # Use three-letter designator
-    rank: 'Major'
+  name: 'Jason K. Freels'
+  department: 'Department of Systems Engineering and Management'
+  rank: 'Major'
+  service: 'usaf' # Use abbreviation - leave blank if NA
+  prevdegree: 'BS, MS'
 advisor:
-  - name: 'Robert F. Mills, PhD'
-    department: Office Symbol # Use three-letter designator
-    rank: 'Civilian'
+  name: 'Robert F. Mills, PhD'
+  department: Office Symbol # Use three-letter designator
+  rank: 'Civilian'
+  service: 'usaf' # Use abbreviation - leave blank if NA
+  prevdegree: 'BS, MS'
 reader1:
-  - name: 'Michael R. Grimaila, PhD'  # First Reader
-    department: Office Symbol # Use three-letter designator
-    rank: 'Colonel'
+  name: 'Michael R. Grimaila, PhD'  # First Reader
+  department: Office Symbol # Use three-letter designator
+  rank: 'Colonel'
+  service: 'usaf' # Use abbreviation - leave blank if NA
+  prevdegree: 'BS, MS'
 reader2:
-  - name: 'Gilbert L. Peterson, PhD'  # Second Reader
-    department: Office Symbol # Use three-letter designator
-    rank: 'Lieutenant Colonel'
+  name: 'Gilbert L. Peterson, PhD'  # Second Reader
+  department: Office Symbol # Use three-letter designator
+  rank: 'Lieutenant Colonel'
+  service: 'usaf' # Use abbreviation - leave blank if NA
+  prevdegree: 'BS, MS'
 reader3:
-  - name: 'Steven K. Rogers, PhD'  # Third Reader
-    department: Office Symbol # Use three-letter designator
-    rank: 'Major'
+  name: 'Steven K. Rogers, PhD'  # Third Reader
+  department: Office Symbol # Use three-letter designator
+  rank: 'Major'
+  service: 'usaf' # Use abbreviation - leave blank if NA
+  prevdegree: 'BS, MS'
 title:
-  formatted: "A Capitalized Title: Something about a Package \\pkg{foo}"
+  formatted: "A Capitalized Title: Something about a Package"
   # If you use tex in the formatted title, also supply version without
   plain:     "A Capitalized Title: Something about a Package foo"
   # For running headers, if needed
-  short:     "\\pkg{foo}: A Capitalized Title"
+  short:     "A Capitalized Title"
 abstract: >
   The abstract of the thesis.
 dedication: >
   The dedication.
-doctype: 'afitthesis'
+doctype: 'Thesis'
 designator: 'AFIT-ENG-DS-16-J-009'
 graddate: '16 June 2016'
-thisdegree: 'Doctor of Philosophy'
-prevdegree: 'BS, MS'
+thisdegree: 'Doctor of Philosophy in Systems Engineering'
 output: AFIT::preamble
 ---
 
