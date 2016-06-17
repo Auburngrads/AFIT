@@ -34,16 +34,16 @@
 \geometry{top=1in,bottom=1.25in,left=1.25in,right=1.25in}
 
 
-% \flytitle{$title.plain$}
-% \title{$title.formatted$}
-% \author{$author.name$}
-% \rank{$author.rank$}
-% \docdesignator{$designator$}
-% \previousdegrees{$prevdegree$}
-% \acdegree{$thisdegree$}
-% \department{$author.department$}
-% \graduationdate{$graddate$}
-% \doctype{$doctype$}
+% \flytitle{A Capitalized Title: Something about a Package foo}
+% \title{A Capitalized Title: Something about a Package}
+% \author{Jason K. Freels}
+% \rank{Major}
+% \docdesignator{AFIT-ENG-DS-16-J-009}
+% \previousdegrees{}
+% \acdegree{Doctor of Philosophy in Systems Engineering}
+% \department{Department of Systems Engineering and Management}
+% \graduationdate{16 June 2016}
+% \doctype{Thesis}
 % \address{2950 Hobson Way\\ Air Force Institute of Technology \\
 % Wright-Patterson AFB, OH 45433}
 
@@ -71,14 +71,14 @@
 	    \centerline{
 	      \begin{minipage}[t]{4.0in}\singlespace
 		\begin{center} 
-		    {\bf{\MakeUppercase{$title.plain$}}}  
+		    {\bf{\MakeUppercase{A Capitalized Title: Something about a Package foo}}}  
 		\end{center}
 	      \end{minipage}
 	     }
 	    \vspace*{0.40 in}
-	    \MakeUppercase{$doctype$}\\[20pt]
-	    $author.name$, $author.rank$\\
-	    $designator$\\[30pt]
+	    \MakeUppercase{Thesis}\\[20pt]
+	    Jason K. Freels, Major\\
+	    AFIT-ENG-DS-16-J-009\\[30pt]
 	    \begin{bfseries}
 		\textsf{DEPARTMENT OF THE AIR FORCE}\\
 		\textsf{AIR UNIVERSITY}\\[20pt]
@@ -87,14 +87,9 @@
 		\rule{5.8in}{0.3mm}\\[10pt]
 		\textsf{Wright-Patterson Air Force Base, Ohio}\\[15pt]
 	    \end{bfseries}
-	    $if(distribution)$
-	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\ 
-	    \MakeUppercase{approved for public release; distribution unlimited}
-	    $else$
-	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
+	    	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
 	    \MakeUppercase{Approved for Public Release; distribution unlimited}
-	    $endif$
-	\end{center}%
+	    	\end{center}%
 	\vfill
 	\newpage 
 	\pagestyle{plain}
@@ -121,35 +116,30 @@ United States
 %==================================================================
     \begin{titlepage}
 	\thispagestyle{empty}
-	\noindent $designator$  
+	\noindent AFIT-ENG-DS-16-J-009  
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title.formatted$}\par
+	    \MakeUppercase{A Capitalized Title: Something about a Package}\par
 	    \vskip 1cm
-	    \MakeUppercase{$doctype$}\par
+	    \MakeUppercase{Thesis}\par
 	    \vskip 1cm
 	    Presented to the Faculty\\
-	    $author.department$\\
+	    Department of Systems Engineering and Management\\
 	    Graduate School of Engineering and Management~\\
 	    Air Force Institute of Technology~\\
 	    Air University~\\
 	    Air Education and Training Command~\\
 	    in Partial Fulfillment of the Requirements for the~\\
-	    Degree of $thisdegree$\\
+	    Degree of Doctor of Philosophy in Systems Engineering\\
 	    \vskip 1cm
-	    {$author.name$, $prevdegree$\par}
-	    {$author.rank$$if(author.service)$, \MakeUppercase{$author.service$}$endif$}
+	    {Jason K. Freels, \par}
+	    {Major, \MakeUppercase{usaf}}
 	    \vskip 1cm
-	    $graddate$
+	    16 June 2016
 	    \vskip 1cm
-	    $if(distribution)$
-	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\ 
-	    \MakeUppercase{approved for public release; distribution unlimited}
-	    $else$
-	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
+	    	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
 	    \MakeUppercase{Approved for Public Release; distribution unlimited}
-	    $endif$	    
-	    \vfill
+	    	    \vfill
 	\end{center}
 	\newpage 
 	\pagestyle{plain}
@@ -159,16 +149,16 @@ United States
 %==================================================================
 	\thispagestyle{empty}
 	\setcounter{page}{3}
-	\noindent $designator$
+	\noindent AFIT-ENG-DS-16-J-009
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title.formatted$}\\[10pt]
-	    \MakeUppercase{$doctype$}\\[10pt]
+	    \MakeUppercase{A Capitalized Title: Something about a Package}\\[10pt]
+	    \MakeUppercase{Thesis}\\[10pt]
 	    
 	    \begingroup
   \singlespace
-    $author.name$, $author.prevdegree$\\ 
-    $if(author.rank)$$author.rank$$endif$
+    Jason K. Freels, BS, MS\\ 
+    Major
     \par
   \endgroup
   
@@ -178,32 +168,32 @@ United States
 	
 	\begingroup
   \singlespace
-    $advisor.name$, $advisor.prevdegree$\\ 
-    $if(advisor.rank)$$advisor.rank$$endif$
+    Robert F. Mills, PhD, BS, MS\\ 
+    Civilian
     \par
   \endgroup
   \bigskip\bigskip
   
   \begingroup
   \singlespace
-    $reader1.name$, $reader1.prevdegree$\\ 
-    $if(reader1.rank)$$reader1.rank$$endif$
+    Michael R. Grimaila, PhD, BS, MS\\ 
+    Colonel
     \par
   \endgroup
   \bigskip\bigskip
   
   \begingroup
   \singlespace
-    $reader2.name$, $reader2.prevdegree$\\ 
-    $if(reader2.rank)$$reader2.rank$$endif$
+    Gilbert L. Peterson, PhD, BS, MS\\ 
+    Lieutenant Colonel
     \par
   \endgroup
   \bigskip\bigskip
   
   \begingroup
   \singlespace
-    $reader3.name$, $reader3.prevdegree$\\ 
-    $if(reader3.rank)$$reader3.rank$$endif$
+    Steven K. Rogers, PhD, BS, MS\\ 
+    Major
     \par
   \endgroup
 	\end{center}

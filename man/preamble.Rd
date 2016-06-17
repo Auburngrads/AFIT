@@ -5,7 +5,7 @@
 \title{Air Force Institute of Technology Preamble}
 \usage{
 preamble(..., keep_tex = TRUE, md_extensions = c("-autolink_bare_uris"),
-  fig_caption = TRUE)
+  fig_caption = TRUE, toc = TRUE)
 }
 \arguments{
 \item{...}{Arguments to \code{rmarkdown::pdf_document}}
@@ -17,14 +17,16 @@ default definition or R Markdown. See the \code{\link{rmarkdown_format}} for
 additional details.}
 
 \item{fig_caption}{\code{TRUE} to render figures with captions}
+
+\item{toc}{\code{TRUE} to include a table of contents in the output}
 }
 \value{
 R Markdown output format to pass to \code{\link[rmarkdown:render]{render}}
 }
 \description{
-Format for creating the initial pages of AFIT theses, dissertations, and reports.
-Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-\href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
+Format for creating the initial pages of AFIT theses, dissertations, and reports.  
+
+Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015 \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 }
 \examples{
 
