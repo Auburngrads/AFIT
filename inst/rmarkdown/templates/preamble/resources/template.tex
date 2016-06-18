@@ -1,10 +1,10 @@
 %\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
-\documentclass[12pt,letterpaper,oneside]{report}
+\documentclass[12pt,letterpaper,toc=flat,oneside]{book}
 \usepackage{afitThesis}
-\def\tightlist{}
-\def\proglang{}
-\def\pkg{}
-\def\code{}
+% \def\tightlist{}
+% \def\proglang{}
+% \def\pkg{}
+% \def\code{}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
@@ -218,16 +218,19 @@ $endif$
 %==================================================================
 %    		Table of Contents              
 %==================================================================
+\renewcommand\contentsname{\hfill \bfseries\Large Table of Contents\hfill}
 \tableofcontents
 \newpage
 %==================================================================
 %    		List of Tables              
 %==================================================================
+\renewcommand\listtablename{\hfill \bfseries\Large List of Tables\hfill}
 \listoftables
 \newpage
 %==================================================================
 %    		List of Figures              
 %==================================================================
+\renewcommand\listfigurename{\hfill \bfseries\Large List of Figures\hfill}
 \listoffigures
 \newpage
 %==================================================================
