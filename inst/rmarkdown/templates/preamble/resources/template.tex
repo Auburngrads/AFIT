@@ -1,6 +1,8 @@
 %\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
 \documentclass[12pt,letterpaper,toc=flat,oneside]{book}
 \usepackage{afitThesis}
+\usepackage{sf298}
+\usepackage{enumerate}
 % \def\tightlist{}
 % \def\proglang{}
 % \def\pkg{}
@@ -214,88 +216,91 @@ $endif$
     \end{center}
     \vspace{2em}
     $abstract$
-    \newpage
 %==================================================================
 %    		Table of Contents              
 %==================================================================
-\renewcommand\contentsname{\hfill \bfseries\Large Table of Contents\hfill}
+\renewcommand\contentsname{\hfill \bfseries\large Table of Contents\hfill}
 \tableofcontents
 \newpage
 %==================================================================
 %    		List of Tables              
 %==================================================================
-\renewcommand\listtablename{\hfill \bfseries\Large List of Tables\hfill}
+\renewcommand\listtablename{\hfill \bfseries\large List of Tables\hfill}
 \listoftables
 \newpage
 %==================================================================
 %    		List of Figures              
 %==================================================================
-\renewcommand\listfigurename{\hfill \bfseries\Large List of Figures\hfill}
+\renewcommand\listfigurename{\hfill \bfseries\large List of Figures\hfill}
 \listoffigures
 \newpage
 %==================================================================
+%    		Document Body              
+%==================================================================
+$body$
+%==================================================================
+%    		Vita              
+%==================================================================
+$if(vita)$
+    \addtocontents{toc}{\protect\addvspace{10pt}}
+    \addcontentsline{toc}{chapter}{Vita}
+    \addtocontents{toc}{\protect\addvspace{10pt}}
+    \begin{center}
+	\bfseries $vita$
+    \end{center}
+    \vspace{2em}
+    \newpage
+$endif$
+%==================================================================
 %    		SF298              
 %==================================================================
-\date{$date$}
-% \ReportDate{10--02--2013} \ReportType{Master's Thesis}
-% \DatesCovered{Sept 2011 --- Mar 2013}
-% 
-% \Title{\centering \MakeUppercase{AFIT/ENP Thesis Primer:}\\
-%                   \MakeUppercase{ a document in \LaTeX}}
-% 
-% %\Title{\centering \MakeUppercase{Evaluation of Interplanetary
-% %Magnetic Field Tracing Models Using Impulsive SEP's}}
-% 
-% %\ContractNumber{DACA99--99--C--9999}
-% 
-% %\GrantNumber{}
-% %\ProgramElementNumber{}
-% %\ProjectNumber{09ENP???}
-% %\TaskNumber{}
-% %\WorkUnitNumber{}
-% 
-% \Author{Amy L. Magnus}
-% 
-% \PerformingOrg{Air Force Institute of Technology\\[-1pt]
-%     Graduate School of Engineering and Management (AFIT/EN)\\[-1pt]
-%     2950 Hobson Way\\[-1pt]
-%     WPAFB OH 45433-7765}
-% 
-% \POReportNumber{AFIT/GAP/ENP/11-S01}
-% 
-% \SponsoringAgency{Department of Engineering Physics\\[-1pt]
-% 2950 Hobson Way\\[-1pt]
-% WPAFB OH 45433-7765\\[-1pt]
-% DSN 271-0690, COMM 937-255-3636\\[-1pt]
-% Email: amy.magnus@afit.edu }
-% 
-% \Acronyms{AFWA}
-% %\SMReportNumber{}
-% \DistributionStatement{DISTRIBUTION STATEMENT A:\\
-% \MakeUppercase{Approved for Public Release; distribution unlimited.}}
-% 
-% \Abstract{This primer aids the AFIT student in generating the first draft of
-% their thesis using \Latex. The primer is produced according the tenets
-% described within the document.  All source code is provided in a zip
-% file posted to \primerAddress.  The file structure of this zip file
-% demonstrates a practical way to organize a thesis with its supporting
-% materials and---further---illustrates how your document can be produced
-% with version control.
-% }
-% 
-% \SubjectTerms{LaTeX,Thesis,typesetting}
-% 
-% \NumberPages{27}
-% %\ReportClassification{}
-% %\PageClassification{}
-% %\AbstractClassification{}
-% \AbstractLimitation{U}
-% 
-% \ResponsiblePerson{Dr. I. M. Smart, AFIT/ENP}
-% 
-% \RPTelephone{(937) 255-3636, x4555; amy.magnus@afit.edu}
-% 
-% \MakeRptDocPage
+\ReportDate{$date$} \ReportType{Master's Thesis}
+\DatesCovered{Sept 2011 --- Mar 2013}
+
+\Title{\centering \MakeUppercase{$title.formatted$}}
+
+$if(contractnum)$\ContractNumber{$contractnum$}$endif$
+$if(grantnum)$\GrrantNumber{$grantnum$}$endif$
+$if(programnum)$\ProgramElementNumber{$programnum$}$endif$
+$if(projectnum)$\ProjectNumber{$projectnum$}$endif$
+$if(tasknum)$\TaskNumber{$tasknum$}$endif$
+$if(workunitnum)$\WorkUnitNumber{$workunitnum$}$endif$
+
+\Author{$author.name$}
+
+\PerformingOrg{Air Force Institute of Technology\\[-1pt]
+    Graduate School of Engineering and Management (AFIT/EN)\\[-1pt]
+    2950 Hobson Way\\[-1pt]
+    WPAFB OH 45433-7765}
+
+\POReportNumber{$designator$}
+
+\SponsoringAgency{Department of Engineering Physics\\[-1pt]
+2950 Hobson Way\\[-1pt]
+WPAFB OH 45433-7765\\[-1pt]
+DSN 271-0690, COMM 937-255-3636\\[-1pt]
+Email: amy.magnus@afit.edu }
+
+\Acronyms{AFWA}
+%\SMReportNumber{}
+\DistributionStatement{DISTRIBUTION STATEMENT A:\\
+\MakeUppercase{Approved for Public Release; distribution unlimited.}}
+
+\Abstract{$abstract$}
+
+\SubjectTerms{$keywords$}
+
+\NumberPages{$pages$}
+%\ReportClassification{}
+%\PageClassification{}
+%\AbstractClassification{}
+\AbstractLimitation{U}
+
+\ResponsiblePerson{$advisor.name$}
+
+\RPTelephone{$advisor.phone$, \small{$advisor.email$}}
+
+\MakeRptDocPage
 
 
 \end{document}

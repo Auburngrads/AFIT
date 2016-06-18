@@ -11,6 +11,8 @@ advisor:
   rank: 'Civilian'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
+  phone: '937-255-3636 x4676'
+  email: 'jason.freels@afit.edu'
 reader1:
   name: 'Michael R. Grimaila, PhD'  # First Reader
   department: Office Symbol # Use three-letter designator
@@ -39,10 +41,22 @@ abstract: >
   The abstract of the thesis.
 dedication: >
   The dedication.
+acknowledge: >
+  The acknowledgement.
+vita: >
+  The vita.
 doctype: 'Thesis'
 designator: 'AFIT-ENG-DS-16-J-009'
+pages: 30
 graddate: '16 June 2016'
 thisdegree: 'Doctor of Philosophy in Systems Engineering'
+contractnum: 'DACA99--99--C--9999'
+grantnum: ''
+programnum: ''
+projectnum: ''
+tasknum: ''
+workunitnum: ''
+keywords: 'LaTeX,Thesis,typesetting'
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT::preamble
 ---

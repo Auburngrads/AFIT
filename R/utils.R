@@ -63,12 +63,12 @@ template_pandoc <- function(metadata, template, output, verbose = FALSE) {
 #' @description Calls rmarkdown::pdf_document and marks the return value as inheriting pdf_document
 #' @importFrom rmarkdown pdf_document
 #' @param ... arguments sent to \code{rmarkdown::pdf_document}
-
 inherit_pdf_document <- function(...) {
-  fmt <- rmarkdown::pdf_document(...,includes = rmarkdown::includes(in_header = system.file('files','afitThesis.sty', package = 'AFIT')) )
+  fmt <- rmarkdown::pdf_document(...)
   fmt$inherits <- "pdf_document"
   fmt
 }
+
 
 #' Create a custom format derived from pdf_document
 #' @description Helper function to create a custom format derived from pdf_document that includes a custom LaTeX template and custom CSL definition
@@ -78,7 +78,7 @@ inherit_pdf_document <- function(...) {
 #' @param template Named template folder
 #' @param csl Named style file for a given \code{template} 
 #' @export
-pdf_document_format <- function(..., format, template, csl = NULL, sty = NULL) {
+pdf_document_format <- function(..., format, template, csl = NULL) {
 
   # base format
   fmt <- inherit_pdf_document(..., template = find_resource(format, template))
@@ -88,12 +88,6 @@ pdf_document_format <- function(..., format, template, csl = NULL, sty = NULL) {
   if(!is.null(csl)) { fmt$pandoc$args <- c(fmt$pandoc$args,
                        "--csl",
                        rmarkdown::pandoc_path_arg(find_resource(format, csl))) }
-
-  # add sty to pandoc_args
-  #' @importFrom rmarkdown pandoc_path_arg
-  # if(!is.null(sty)) { fmt$pandoc$args <- c(fmt$pandoc$args,
-  #                      "--sty",
-  #                      rmarkdown::pandoc_path_arg(find_resource(format, sty))) }
 
   # return format
   fmt
