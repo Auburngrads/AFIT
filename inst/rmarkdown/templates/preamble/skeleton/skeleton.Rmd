@@ -43,6 +43,7 @@ doctype: 'Thesis'
 designator: 'AFIT-ENG-DS-16-J-009'
 graddate: '16 June 2016'
 thisdegree: 'Doctor of Philosophy in Systems Engineering'
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT::preamble
 ---
 
