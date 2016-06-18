@@ -1,53 +1,10 @@
 %\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
 \documentclass[12pt,letterpaper,oneside]{book}
-%\usepackage{afitThesis}
-\usepackage{hyperref}
-\usepackage[font={bf,footnotesize},labelsep=period]{caption}
-\usepackage{geometry}
-\usepackage{setspace}
-\usepackage{indentfirst}
-\usepackage{float}
-\usepackage{flafter}
-\usepackage{amssymb,amsmath,amsfonts}
-\usepackage{theorem}
-%\usepackage[square]{natbib}
-\usepackage{varioref} 
-\usepackage{tocbibind} 
-\usepackage{listings} 
-\usepackage{xspace}
-\usepackage{fixltx2e}
-\usepackage{threeparttable}
-\usepackage{booktabs}
-\usepackage{color}
-\usepackage{url}
-\usepackage{ifpdf}
-
-\ifpdf
-\usepackage[pdftex]{graphicx}
-\DeclareGraphicsExtensions{.jpg, .pdf, .png}
-\else
-\usepackage{graphicx}
-\DeclareGraphicsExtensions{.eps}
-\fi
-
-%% Define default document values
-\geometry{top=1in,bottom=1.25in,left=1.25in,right=1.25in}
-
-
-% \flytitle{$title.plain$}
-% \title{$title.formatted$}
-% \author{$author.name$}
-% \rank{$author.rank$}
-% \docdesignator{$designator$}
-% \previousdegrees{$prevdegree$}
-% \acdegree{$thisdegree$}
-% \department{$author.department$}
-% \graduationdate{$graddate$}
-% \doctype{$doctype$}
-% \address{2950 Hobson Way\\ Air Force Institute of Technology \\
-% Wright-Patterson AFB, OH 45433}
-
-
+\usepackage{afitThesis}
+\def\tightlist{}
+\def\proglang{}
+\def\pkg{}
+\def\code{}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
@@ -67,7 +24,7 @@
 \begin{titlepage}
 	\vfill
 	\begin{center}
-	    \includegraphics[width=2.8in]{afitlogo}\\[10pt]
+	    \includegraphics[width=2.8in]{afitlogo}\\
 	    \centerline{
 	      \begin{minipage}[t]{4.0in}\singlespace
 		\begin{center} 
@@ -76,22 +33,22 @@
 	      \end{minipage}
 	     }
 	    \vspace*{0.40 in}
-	    \MakeUppercase{$doctype$}\\[20pt]
-	    $author.name$, $author.rank$\\
-	    $designator$\\[30pt]
+	    \MakeUppercase{$doctype$}\\[15pt]
+	    $author.name$, $author.rank$\\[-8pt]
+	    $designator$\\[20pt]
 	    \begin{bfseries}
 		\textsf{DEPARTMENT OF THE AIR FORCE}\\
 		\textsf{AIR UNIVERSITY}\\[20pt]
-		\textsl{\Large AIR FORCE INSTITUTE OF TECHNOLOGY}\\[-8pt]
-		\rule{5.8in}{0.8mm}\\[-10pt]
-		\rule{5.8in}{0.3mm}\\[10pt]
+		\textsl{\Large AIR FORCE INSTITUTE OF TECHNOLOGY}\\[-19pt]
+		\rule{5.8in}{0.8mm}\\[-19pt]
+		\rule{5.8in}{0.3mm}\\[-5pt]
 		\textsf{Wright-Patterson Air Force Base, Ohio}\\[15pt]
 	    \end{bfseries}
 	    $if(distribution)$
-	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\ 
+	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\[-8pt]
 	    \MakeUppercase{approved for public release; distribution unlimited}
 	    $else$
-	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
+	    \MakeUppercase{\textbf{distribution statement a.}}\\[-8pt]
 	    \MakeUppercase{Approved for Public Release; distribution unlimited}
 	    $endif$
 	\end{center}%
@@ -143,10 +100,10 @@ United States
 	    $graddate$
 	    \vskip 1cm
 	    $if(distribution)$
-	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\ 
+	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\[-8pt]
 	    \MakeUppercase{approved for public release; distribution unlimited}
 	    $else$
-	    \MakeUppercase{\textbf{distribution statement a.}}\\ 
+	    \MakeUppercase{\textbf{distribution statement a.}}\\[-8pt]
 	    \MakeUppercase{Approved for Public Release; distribution unlimited}
 	    $endif$	    
 	    \vfill
@@ -207,9 +164,75 @@ United States
     \par
   \endgroup
 	\end{center}
-
 	\vfill
 	\newpage
+%==================================================================
+%    		Dedication Environment              
+%==================================================================
+$if(dedication)$
+       \noindent 
+       $designator$
+       \vfill
+       \begin{center}
+	   \em{$dedication$}
+	   \end{center}
+	   \vfill
+      \newpage
+$endif$
+%==================================================================
+%    	        ACKNOWLEDGEMENTS           
+%==================================================================
+$if(acknowledgements)$
+\newenvironment{acknowledgements}{\ackhead}{\acktail}
+\newenvironment{acknowledgments}{\ackhead}{\acktail}
 
+ \def\ackhead{\chapter*{Acknowledgements}
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+ }
+ \def\acktail{\par \null\vspace*{.75in}\hspace*{3in} \@author \newpage} 
+$endif$
+%==================================================================
+%    	        PREFACE           
+%==================================================================
+$if(preface)$
+\newenvironment{preface}{
+\chapter*{Preface}     
+\addcontentsline{toc}{chapter}{Preface}
+\addtocontents{toc}{\protect\addvspace{10\p@}}
+}{}
+$endif$
+%==================================================================
+%    		ABSTRACT Environment              
+%==================================================================
+    \thispagestyle{plain}
+    \addcontentsline{toc}{chapter}{Abstract}
+    \addtocontents{toc}{\protect\addvspace{10pt}}
+    \noindent $designator$
+    \begin{center}
+	\large\bfseries Abstract
+    \end{center}
+    \vspace{2em}
+    $abstract$
+    \newpage
+%==================================================================
+%    		Table of Contents              
+%==================================================================
+\tableofcontents
+\newpage
+%==================================================================
+%    		List of Tables              
+%==================================================================
+\listoftables
+\newpage
+%==================================================================
+%    		List of Figures              
+%==================================================================
+\listoffigures
+\newpage
+%==================================================================
+%    		Document body              
+%==================================================================
+$body$
 
 \end{document}
