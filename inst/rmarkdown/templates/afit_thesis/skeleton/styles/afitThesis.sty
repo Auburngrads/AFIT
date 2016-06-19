@@ -29,7 +29,11 @@
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.eps}
 \fi
-
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\let\proglang=\textsf
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
+%\DefineVerbatimEnvironment{Code}{Verbatim}{}
 %% Define default document values
 \geometry{top=1in,bottom=1.25in,left=1.25in,right=1.25in}
 \def\afittocfootskip{0.41in}      %if above margins change, routines 
