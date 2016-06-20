@@ -1,5 +1,6 @@
 %\RequirePackage[l2tabu, orthodox]{nag} %this package checks for obsolete LaTex syntax
 \documentclass[12pt,letterpaper,toc=flat,oneside]{book}
+\newcommand{\mytitle}{$title$}
 \usepackage{styles/afitThesis}
 \usepackage{styles/sf298}
 \usepackage{enumerate}
@@ -237,6 +238,10 @@ $endif$
 %==================================================================
 $body$
 \newpage
+%==================================================================
+%    		Bibliography              
+%==================================================================
+\bibliography
 %==================================================================
 %    		Vita              
 %==================================================================
