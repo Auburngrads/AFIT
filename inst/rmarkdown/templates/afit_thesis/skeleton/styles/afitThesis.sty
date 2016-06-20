@@ -264,8 +264,8 @@
     \gdef\thechapter{\@Alph\c@chapter}
     }
 %==================================================================
-%    		 CHAPTERS             
-%==================================================================   
+%    		 CHAPTERS
+%==================================================================
 % Rewrite \chapter to add proper punctuation in Table of Contents
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
@@ -299,7 +299,7 @@
          \@afterheading
       \fi}
 %==================================================================
-%  	Standardize all chapter heads with an exception for Chapter I             
+%  	Standardize all chapter heads with an exception for Chapter I
 %==================================================================
 \def\@makechapterhead#1{%
     {\parindent 0pt
@@ -311,7 +311,7 @@
 	\ifnum\value{chapter}=1
 	  \vspace*{2 pc}
 	  \doublespacing
-	  {$title$}\\
+	  \MakeUppercase{\Large{{\mytitle}}}\\
 	  \vspace*{1 pc}
 	\fi
 	\large{\bfseries \thechapter.\ \ #1}
@@ -320,4 +320,240 @@
      \end{center}
     }
   }%
-%\titleformat{\chapter}[block]{\centering\MakeUppercase{\LARGE\selectfont}}{}{0em}{}
+\def\@makeschapterhead#1{%
+    {\parindent 0pt%
+     \begin{center}%
+   \baselineskip=18.5pt%
+   \large {\bfseries #1}%
+   \vspace*{1 pc}
+     \end{center}%
+     \nobreak%
+    }}
+%==================================================================
+%		SECTIONS, SUBSECTIONS, etc.              
+%==================================================================
+
+\newcommand{\headingAfterskip}{2.3ex \@plus .2ex}
+
+\renewcommand\section{\@startsection 
+			{section}                           % name
+			{1}                                 % level
+			{\z@}                               % indent
+			{-3.5ex\@plus -1ex \@minus -.2ex}   % beforeskip
+			{\headingAfterskip}                 % afterskip
+			{\normalfont\normalsize\bfseries}}  % style
+\renewcommand\subsection{\@startsection{subsection}{2}{\parindent}%
+			{-3.25ex\@plus -1ex \@minus -.2ex}%
+			{1.5ex \@plus .2ex}%
+			 {\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{2\parindent}%
+			{-3.25ex\@plus -1ex \@minus -.2ex}%
+			{1.5ex \@plus .2ex}%
+			{\normalfont\normalsize\bfseries}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{2\parindent}%
+			{3.25ex \@plus 1ex \@minus.2ex}%
+			{-1em}%
+			{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{3\parindent}%
+			{3.25ex \@plus 1ex \@minus .2ex}%
+			{-1em}%
+			{\normalfont\normalsize\bfseries}}
+
+% Set depth of section numbering here; use a number from -1 to 3
+\setcounter{secnumdepth}{1}
+
+% Modified \@sect from latex.ltx code to supply a period for subsections and below 
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+  \ifnum #2>\c@secnumdepth
+    \let\@svsec\@empty
+  \else
+    \refstepcounter{#1}%
+    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+  \fi
+  \@tempskipa #5\relax
+  \ifdim \@tempskipa>\z@
+  \ifnum #2>1                                
+    \begingroup
+      #6{%
+	\@hangfrom{\hskip #3\relax\@svsec}%
+	  \interlinepenalty \@M #8\@.\@@par}%
+    \endgroup
+   \else
+   \begingroup
+     #6{%
+       \@hangfrom{\hskip #3\relax\@svsec}%
+	 \interlinepenalty \@M #8\@@par}%
+   \endgroup
+   \fi
+    \csname #1mark\endcsname{#7}%
+    \addcontentsline{toc}{#1}{%
+      \ifnum #2>\c@secnumdepth \else
+	\protect\numberline{\csname the#1\endcsname}%
+      \fi
+      #7}%
+  \else
+    \def\@svsechd{%
+      #6{\hskip #3\relax
+      \@svsec #8\@.}%
+      \csname #1mark\endcsname{#7}%
+      \addcontentsline{toc}{#1}{%
+	\ifnum #2>\c@secnumdepth \else
+	  \protect\numberline{\csname the#1\endcsname}%
+	\fi
+	#7}}%
+  \fi
+  \@xsect{#5}}
+
+  % starred sections use this macro
+  \def\@ssect#1#2#3#4#5{%
+  \@tempskipa #3\relax
+  \ifdim \@tempskipa>\z@
+  \ifx #3\headingAfterskip
+    \begingroup
+      #4{%
+	\@hangfrom{\hskip #1}%
+	  \interlinepenalty \@M #5\@@par}%
+    \endgroup
+    \else
+    \begingroup
+      #4{%
+	\@hangfrom{\hskip #1}%
+	  \interlinepenalty \@M #5\@.\@@par}%
+    \endgroup
+    \fi
+  \else
+    \def\@svsechd{#4{\hskip #1\relax #5\@.}}%
+  \fi
+  \@xsect{#3}}
+% =====================  LIST OF SYMBOLS  =======================
+\newcommand\listsymbolname{List of Symbols}
+ 
+\def\listofsymbols{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listsymbolname}%
+  \def\listEntry{Symbol}
+  \addcontentsline{toc}{chapter}{List of Symbols}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+
+  \thispagestyle{afittoc}
+
+  \baselineskip=14pt  
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}    
+  {\hbox to \hsize{Symbol\hfil Page} \vskip 0.0em\par\vskip-\parskip}%
+  
+  \@starttoc{los}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+   \if@restonecol\twocolumn\fi
+  \baselineskip=\normalbaselineskip 
+  \thispagestyle{plain}
+}%
+  
+\def\l@symbol{\pagebreak[3]
+ \vskip \lofSpace
+ \@dottedtocline{1}{0em}{5em}}
+
+%add symbol to los and in text with optional definition in the los
+ \def\symbol{\@ifnextchar[{\@symboldef}{\@symbolnodef}}
+ \def\@symboldef[#1]#2{#2\addcontentsline{los}{symbol}{\numberline{#2}{#1}}}
+ \def\@symbolnodef#1{#1\addcontentsline{los}{symbol}{#1}}
+
+% =====================  LIST OF ABBREVIATIONS  =======================
+\newcommand\listabbrevename{List of Abbreviations}
+
+\def\listofabbreviations{%
+  \@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn\fi
+  \chapter*{\listabbrevename}%
+  \renewcommand\listEntry{Abbreviation}
+  \addcontentsline{toc}{chapter}{List of Abbreviations}
+  \addtocontents{toc}{\protect\addvspace{10\p@}}
+
+  \thispagestyle{afittoc}
+  \baselineskip=14pt   
+  \def\tocSkip{\vskip \lofSpace}
+  \def\tocSkipStart{\vskip \lofStart}    
+  {\hbox to \hsize{Abbreviation\hfil Page} \vskip 0.0em \par\vskip-\parskip}%
+  
+  \@starttoc{loabb}%
+    \newpage   
+    \ifx\@tocboxa\@empty 
+    \else
+      \thispagestyle{afittocn}
+      \unvbox\@tocboxa
+      \newpage
+    \fi 
+  \if@restonecol\twocolumn\fi
+  \baselineskip=\normalbaselineskip 
+  \thispagestyle{plain}
+}%
+  
+\def\l@abbreviation{\pagebreak[3]
+ \vskip \lofSpace 
+ \@dottedtocline{1}{0em}{7em}}
+
+%add abbreviation to loabb and in text with optional definition in the loabb
+ \def\abbreviation{\@ifnextchar[{\@abbreviationdef}{\@abbreviationnodef}}
+ \def\@abbreviationdef[#1]#2{#2\addcontentsline{loabb}{abbreviation}{\numberline{#2}{#1}}}
+ \def\@abbreviationnodef#1{#1\addcontentsline{loabb}{abbreviation}{#1}}
+ 
+%use \abbreviationFull as an alternate to \abbreviation when you wish
+%to include the definition followed by its abbreviation in parentheses
+%in the text.
+ \def\abbreviationFull{\@ifnextchar[{\@fullAbbreviationdef}{\@abbreviationnodef}}
+ \def\@fullAbbreviationdef[#1]#2{#1 (#2)\addcontentsline{loabb}{abbreviation}{\numberline{#2}{#1}}}
+%==================================================================
+%		Bibliography             
+%==================================================================
+%    Change the default of square brackets to arabic numbers
+
+\renewcommand\@biblabel[1]{#1.}
+
+%==================================================================
+%   		Comment Environment
+%==================================================================
+% EXTREMELY important topics need something to bring them out from
+% the rest of the text.  Given examples from numerous other texts,
+% Todd Hale created this environment.
+\newcounter{com}[chapter]
+\newenvironment{comment}
+    {\begin{sloppypar}
+	 \noindent
+	 \begin{quote}
+	       \framebox[2\totalheight]{\Large!}
+	       \sffamily
+	       \stepcounter{com}
+		    \hspace*{\fill}
+	 \end{quote}
+      \end{sloppypar}
+      \index{comments}
+     }
+%==================================================================
+%	QUOTATION OR QUOTE ENVIRONMENTS
+%==================================================================
+%  QUOTATION -- Fills lines, indents paragraph, singlespace
+
+\renewenvironment{quotation}
+	       {\list{}{\listparindent 1.5em%
+			\itemindent    \listparindent
+			\rightmargin   \leftmargin
+			\parsep        \z@ \@plus\p@}%
+		\medskip\singlespace\item\relax}
+	       {\endlist}
+
+% QUOTE -- Same as quotation except no paragraph indentation
+%
+\renewenvironment{quote}
+ {\list{}{\rightmargin\leftmargin}%
+  \smallskip\singlespace\item\relax}
+ {\endlist}
+
+
+
+%% AFIT THESIS STYLE 2014
+%% End of afitThesis.sty

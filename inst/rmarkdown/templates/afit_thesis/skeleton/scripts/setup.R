@@ -1,9 +1,6 @@
-if(!'knitcitations'%in%library()$results) install.packages('knitcitations', repos = 'http://cran.rstudio.com')
 if(!'knitr'%in%library()$results)         install.packages('knitr', repos = 'http://cran.rstudio.com')
 if(!'stringr'%in%library()$results)       install.packages('stringr', repos = 'http://cran.rstudio.com')
 if(!'devtools'%in%library()$results)      install.packages('devtools', repos = 'http://cran.rstudio.com')
-
-knitcitations::cite_options(cite.style = "numeric", citation_format = 'pandoc')
 
 knitr::knit_hooks$set(
   
