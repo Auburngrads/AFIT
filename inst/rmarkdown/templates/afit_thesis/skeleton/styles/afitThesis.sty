@@ -269,7 +269,7 @@
 % Rewrite \chapter to add proper punctuation in Table of Contents
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
-      \thispagestyle{plain}
+      %\thispagestyle{plain}
       \global\@topnum\z@
       \@afterindentfalse
       \secdef\@chapter\@schapter}
@@ -298,12 +298,13 @@
          \@makechapterhead{#2}
          \@afterheading
       \fi}
-
-% Standardize all chapter heads with an exception for Chapter I
+%==================================================================
+%  	Standardize all chapter heads with an exception for Chapter I             
+%==================================================================
 \def\@makechapterhead#1{%
     {\parindent 0pt
      \begin{center}
-	\singlespace 
+	\singlespace
      \ifx\@chapapp\appflag
 	\large {\bfseries \@chapapp\ \thechapter.\ \ #1}
 	\else
