@@ -28,12 +28,12 @@
 	    \centerline{
 	      \begin{minipage}[t]{4.0in}\singlespace
 		\begin{center} 
-		    {\bf{\MakeUppercase{$title.plain$}}}  
+		    {\bf{\MakeUppercase{$title$}}}  
 		\end{center}
 	      \end{minipage}
 	     }
 	    \vspace*{0.40 in}
-	    \MakeUppercase{$doctype$}\\[15pt]
+	    \MakeUppercase{thesis}\\[15pt]
 	    $author.name$, $author.rank$\\[-8pt]
 	    $designator$\\[20pt]
 	    \begin{bfseries}
@@ -81,9 +81,9 @@ United States
 	\noindent $designator$  
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title.formatted$}\par
+	    \MakeUppercase{$title$}\par
 	    \vskip 1cm
-	    \MakeUppercase{$doctype$}\par
+	    \MakeUppercase{thesis}\par
 	    \vskip 1cm
 	    Presented to the Faculty\\
 	    $author.department$\\
@@ -92,7 +92,7 @@ United States
 	    Air University~\\
 	    Air Education and Training Command~\\
 	    in Partial Fulfillment of the Requirements for the~\\
-	    Degree of $thisdegree$\\
+	    Degree of $degree$\\
 	    \vskip 1cm
 	    {$author.name$, $prevdegree$\par}
 	    {$author.rank$$if(author.service)$, \MakeUppercase{$author.service$}$endif$}
@@ -119,8 +119,8 @@ United States
 	\noindent $designator$
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title.formatted$}\\[10pt]
-	    \MakeUppercase{$doctype$}\\[10pt]
+	    \MakeUppercase{$title$}\\[10pt]
+	    \MakeUppercase{thesis}\\[10pt]
 	    
 	    \begingroup
   \singlespace
@@ -258,14 +258,14 @@ $endif$
 \ReportDate{$date$} \ReportType{Master's Thesis}
 \DatesCovered{Sept 2011 --- Mar 2013}
 
-\Title{\centering \MakeUppercase{$title.formatted$}}
+\Title{\centering \MakeUppercase{$title$}}
 
-$if(contractnum)$\ContractNumber{$contractnum$}$endif$
-$if(grantnum)$\GrrantNumber{$grantnum$}$endif$
-$if(programnum)$\ProgramElementNumber{$programnum$}$endif$
-$if(projectnum)$\ProjectNumber{$projectnum$}$endif$
-$if(tasknum)$\TaskNumber{$tasknum$}$endif$
-$if(workunitnum)$\WorkUnitNumber{$workunitnum$}$endif$
+$if(sf298.contractnum)$\ContractNumber{$sf298.contractnum$}$endif$
+$if(sf298.grantnum)$\GrrantNumber{$sf298.grantnum$}$endif$
+$if(sf298.programnum)$\ProgramElementNumber{$sf298.programnum$}$endif$
+$if(sf298.projectnum)$\ProjectNumber{$sf298.projectnum$}$endif$
+$if(sf298.tasknum)$\TaskNumber{$sf298.tasknum$}$endif$
+$if(sf298.workunitnum)$\WorkUnitNumber{$sf298.workunitnum$}$endif$
 
 \Author{$author.name$}
 
@@ -276,11 +276,11 @@ $if(workunitnum)$\WorkUnitNumber{$workunitnum$}$endif$
 
 \POReportNumber{$designator$}
 
-\SponsoringAgency{Department of Engineering Physics\\[-1pt]
-2950 Hobson Way\\[-1pt]
-WPAFB OH 45433-7765\\[-1pt]
-DSN 271-0690, COMM 937-255-3636\\[-1pt]
-Email: amy.magnus@afit.edu }
+\SponsoringAgency{$sponsor_org.org_name$\\[-1pt]
+$sponsor_org.address1$\\[-1pt]
+$sponsor_org.address2$\\[-1pt]
+$sponsor_org.phone$\\[-1pt]
+Email: $sponsor_org.email$ }
 
 \Acronyms{AFWA}
 %\SMReportNumber{}
@@ -289,7 +289,7 @@ Email: amy.magnus@afit.edu }
 
 \Abstract{$abstract$}
 
-\SubjectTerms{$keywords$}
+\SubjectTerms{$sf298.keywords$}
 
 \NumberPages{$pages$}
 %\ReportClassification{}

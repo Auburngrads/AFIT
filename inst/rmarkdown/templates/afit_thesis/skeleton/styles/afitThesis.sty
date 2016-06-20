@@ -219,3 +219,104 @@
   \baselineskip=\normalbaselineskip 
   \thispagestyle{plain}
 }%
+%==================================================================
+%    		 REMOVE FROM RESET              
+%==================================================================
+%Date: Sat, 30 Jul 1994 17:58:55 PST
+%From: Donald Arseneau <asnd@erich.triumf.ca>
+%
+%  \@removefromreset{B}{A} : Removes counter B from the list of
+%                       counters \cl@A to be reset when counter A
+%                       is stepped.  The opposite of \@addtoreset.
+
+\def\@removefromreset#1#2{\let\@tempb\@elt
+   \expandafter\let\expandafter\@tempa\csname c@#1\endcsname
+   \def\@elt##1{\expandafter\ifx\csname c@##1\endcsname\@tempa\else
+	 \noexpand\@elt{##1}\fi}%
+   \expandafter\edef\csname cl@#2\endcsname{\csname cl@#2\endcsname}%
+   \let\@elt\@tempb}
+%==================================================================
+%    	Set LEVEL, NUMBERING, and HEADING defaults              
+%==================================================================
+% LEVELS
+\renewcommand\thechapter       {\Roman{chapter}}
+\renewcommand\thesection       {\arabic{chapter}.\arabic{section}}
+\renewcommand\thesubsection    {\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+\renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
+% NUMBERING ** Set page, equation, table, and figure to 
+% STRAIGHT-THROUGH-THE-TEXT vs. BY CHAPTER numbering here
+% Currently set to straight through
+\@removefromreset{figure}{chapter}
+\@removefromreset{equation}{chapter}
+\@removefromreset{table}{chapter}
+\renewcommand\theequation{\arabic{equation}}
+\renewcommand\thefigure{\arabic{figure}}
+\renewcommand\thetable{\arabic{table}}
+
+\def\appflag{Appendix}
+
+\renewcommand\appendix{\par
+    \setcounter{chapter}{0}%
+    \setcounter{section}{0}%
+    \gdef\@chapapp{Appendix}%
+    \gdef\thechapter{\@Alph\c@chapter}
+    }
+%==================================================================
+%    		 CHAPTERS             
+%==================================================================   
+% Rewrite \chapter to add proper punctuation in Table of Contents
+
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+      \thispagestyle{plain}
+      \global\@topnum\z@
+      \@afterindentfalse
+      \secdef\@chapter\@schapter}
+      \def\@chapter[#1]#2{
+      \ifnum \c@secnumdepth >\m@ne
+         \if@mainmatter
+            \refstepcounter{chapter}
+            \typeout{\@chapapp\space\thechapter.}
+            \addtocontents{toc}{\protect\addvspace{10\p@}}
+            \ifx\@chapapp\appflag
+                \addcontentsline{toc}{appendix}{\protect\numberline{Appendix \thechapter.}#1}
+            \else
+                \addcontentsline{toc}{chapter}{\protect\numberline{\thechapter.}#1}
+            \fi
+            \addtocontents{toc}{\protect\addvspace{10\p@}}
+         \else
+            \addcontentsline{toc}{chapter}{#1}
+         \fi
+      \else
+         \addcontentsline{toc}{chapter}{#1}
+      \fi
+      \chaptermark{#1}
+      \if@twocolumn
+         \@topnewpage[\@makechapterhead{#2}]
+      \else
+         \@makechapterhead{#2}
+         \@afterheading
+      \fi}
+
+% Standardize all chapter heads with an exception for Chapter I
+\def\@makechapterhead#1{%
+    {\parindent 0pt
+     \begin{center}
+	\singlespace 
+     \ifx\@chapapp\appflag
+	\large {\bfseries \@chapapp\ \thechapter.\ \ #1}
+	\else
+	\ifnum\value{chapter}=1
+	  \vspace*{2 pc}
+	  \doublespacing
+	  {$title$}\\
+	  \vspace*{1 pc}
+	\fi
+	\large{\bfseries \thechapter.\ \ #1}
+	\vspace*{1 pc}
+       \fi
+     \end{center}
+    }
+  }%
+%\titleformat{\chapter}[block]{\centering\MakeUppercase{\LARGE\selectfont}}{}{0em}{}

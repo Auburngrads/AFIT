@@ -1,4 +1,16 @@
 ---
+title: "A Capitalized Title: Something about a Package"
+designator: 'AFIT-ENG-DS-16-J-009'
+pages: 30
+abstract: >
+  The abstract of the thesis.
+dedication: >
+  The dedication.
+acknowledge: >
+  The acknowledgement.
+vita: >
+  The vita.
+degree: 'Master of Science in Systems Engineering'
 author:
   name: 'Jason K. Freels'
   department: 'Department of Systems Engineering and Management'
@@ -31,32 +43,21 @@ reader3:
   rank: 'Major'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
-title:
-  formatted: "A Capitalized Title: Something about a Package"
-  # If you use tex in the formatted title, also supply version without
-  plain:     "A Capitalized Title: Something about a Package foo"
-  # For running headers, if needed
-  short:     "A Capitalized Title"
-abstract: >
-  The abstract of the thesis.
-dedication: >
-  The dedication.
-acknowledge: >
-  The acknowledgement.
-vita: >
-  The vita.
-doctype: 'Thesis'
-designator: 'AFIT-ENG-DS-16-J-009'
-pages: 30
-graddate: '16 June 2016'
-thisdegree: 'Doctor of Philosophy in Systems Engineering'
-contractnum: 'DACA99--99--C--9999'
-grantnum: ''
-programnum: ''
-projectnum: ''
-tasknum: ''
-workunitnum: ''
-keywords: 'LaTeX,Thesis,typesetting'
+sf298:
+  graddate: '16 June 2016'
+  contractnum: 'DACA99--99--C--9999'
+  grantnum: ''
+  programnum: ''
+  projectnum: ''
+  tasknum: ''
+  workunitnum: ''
+  keywords: 'LaTeX,Thesis,typesetting'
+sponsor_org:
+  org_name: 'Department of Engineering Physics'
+  address1: '2950 Hobson Way'
+  address2: 'WPAFB OH 45433-7765'
+  phone: 'DSN 271-0690, COMM 937-255-3636'
+  email: 'amy.magnus@afit.edu'
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT::afit_thesis
 ---
@@ -66,7 +67,9 @@ source('scripts/setup.R')
 knitcitations::cite_options(cite.style = "numeric")
 ```
 
-# Introduction
+\chapter{Introduction}
+
+# Background
 
 This template demonstrates some of the basic latex you'll need to know to create a JSS article.
 
@@ -85,3 +88,14 @@ Can be inserted in regular R markdown blocks.
 ```{r, fig.cap='A first plot'}
 plot(rnorm(100), col = 2, pch = 16)
 ```
+
+\chapter{Literature Review}
+
+
+\chapter{Methodology}
+
+
+\chapter{Analysis And Results}
+
+
+\chapter{Conclusion}
