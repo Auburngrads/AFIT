@@ -1,0 +1,5 @@
+name: afit_propectus
+description: >
+ Template for creating an AFIT prospectus document
+create_dir: true
+
