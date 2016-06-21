@@ -4,8 +4,24 @@
 \usepackage{styles/afitThesis}
 \usepackage{styles/sf298}
 \usepackage{enumerate}
+$if(listings)$
+\usepackage{listings}
+\usepackage{color}
+\lstset{ %
+  backgroundcolor=\color{white},  % choose the background color
+  basicstyle=\bf\normalsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                   % sets the caption-position to bottom
+  commentstyle=\color{blue},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  lineskip=-.5pt,
+  keywordstyle=\color{Green},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  aboveskip=\medskipamount,
+  belowskip=\medskipamount
+}
+$endif$
 \def\code{}
-\usepackage{framed}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
@@ -241,7 +257,7 @@ $body$
 %==================================================================
 %    		Bibliography              
 %==================================================================
-\bibliography
+\bibliography{final_bib}
 %==================================================================
 %    		Vita              
 %==================================================================

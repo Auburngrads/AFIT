@@ -1,4 +1,4 @@
-#' Air Force Institute of Technology Thesis Template 
+#' Air Force Institute of Technology Prospectus Template 
 #'
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
@@ -25,13 +25,17 @@ afit_thesis <- function(...,
                         toc = TRUE,
                         template = "template.tex",
                         highlight = 'tango',
-                        format = "afit_thesis") {
+                        format = "afit_report") {
   
   args <- c('--listings', rmarkdown::pandoc_highlight_args(highlight))
   
   rmarkdown::pdf_document(...,
-                          template = system.file("rmarkdown", "templates", format, 'resources',template,
-                          package = "AFIT"),
+                          template = system.file("rmarkdown", 
+                                                 "templates", 
+                                                 format, 
+                                                 'resources',
+                                                 template,
+                                                 package = "AFIT"),
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
