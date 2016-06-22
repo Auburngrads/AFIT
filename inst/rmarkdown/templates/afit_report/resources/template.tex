@@ -5,6 +5,22 @@
 \usepackage{styles/sf298}
 \usepackage{enumerate}
 \def\code{}
+\lstset{ %
+  backgroundcolor=\color{LTgray},  % choose the background color
+  basicstyle=\bf\normalsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                   % sets the caption-position to bottom
+  commentstyle=\color{blue},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  lineskip=-.5pt,
+  keywordstyle=\color{Green},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  aboveskip=\medskipamount,
+  belowskip=\medskipamount,
+  frame=single,
+  frameround=tttt,
+}
+$endif$
 \usepackage{framed}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}

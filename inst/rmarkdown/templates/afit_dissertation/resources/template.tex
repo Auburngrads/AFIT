@@ -5,6 +5,22 @@
 \usepackage{styles/sf298}
 \usepackage{enumerate}
 \def\code{}
+\lstset{ %
+  backgroundcolor=\color{LTgray},  % choose the background color
+  basicstyle=\bf\normalsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                   % sets the caption-position to bottom
+  commentstyle=\color{blue},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  lineskip=-.5pt,
+  keywordstyle=\color{Green},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  aboveskip=\medskipamount,
+  belowskip=\medskipamount,
+  frame=single,
+  frameround=tttt,
+}
+$endif$
 \usepackage{framed}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
@@ -34,7 +50,7 @@
 	      \end{minipage}
 	     }
 	    \vspace*{0.40 in}
-	    \MakeUppercase{thesis}\\[15pt]
+	    \MakeUppercase{dissertation}\\[15pt]
 	    $author.name$, $author.rank$\\[-8pt]
 	    $designator$\\[20pt]
 	    \begin{bfseries}
@@ -121,7 +137,7 @@ United States
 	\vfill
 	\begin{center}
 	    \MakeUppercase{$title$}\\[10pt]
-	    \MakeUppercase{thesis}\\[10pt]
+	    \MakeUppercase{dissertation}\\[10pt]
 	    
 	    \begingroup
   \singlespace
@@ -260,7 +276,7 @@ $endif$
 %==================================================================
 %    		SF298              
 %==================================================================
-\ReportDate{$date$} \ReportType{Master's Thesis}
+\ReportDate{$date$} \ReportType{Doctoral Dissertation}
 \DatesCovered{Sept 2011 --- Mar 2013}
 
 \Title{\centering \MakeUppercase{$title$}}
