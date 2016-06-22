@@ -6,6 +6,12 @@
 #' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
+#' @param keep_tex Should the raw TeX files be kept?
+#' @param md_extensions Extensions passed to the Markdown engine
+#' @param fig_caption Should figure captions be enabled?
+#' @param toc Should a table of contents be created?
+#' @param template The TeX template used
+#' @param format The format of the document
 #'
 #' @return R Markdown output format to pass to \code{\link[rmarkdown:render]{render}}
 #'
@@ -14,20 +20,17 @@
 #' @examples
 #'
 #' \dontrun{
-#' rmarkdown::draft("MyThesis.Rmd", template = "afit_thesis", package = "AFIT")
+#' rmarkdown::draft("MyThesis.Rmd", template = "afit_prospectus", package = "AFIT")
 #' }
 #'
 #' @export
-afit_thesis <- function(...,
-                        keep_tex = TRUE,
-                        md_extensions = c("-autolink_bare_uris"),
-                        fig_caption = TRUE,
-                        toc = TRUE,
-                        template = "template.tex",
-                        highlight = 'tango',
-                        format = "afit_prospectus") {
-  
-  args <- c('--listings', rmarkdown::pandoc_highlight_args(highlight))
+afit_prospectus <- function(...,
+                            keep_tex = TRUE,
+                            md_extensions = c("-autolink_bare_uris"),
+                            fig_caption = TRUE,
+                            toc = TRUE,
+                            template = "template.tex",
+                            format = "afit_prospectus") {
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown", 
@@ -39,5 +42,5 @@ afit_thesis <- function(...,
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
-                          pandoc_args = args)
+                          pandoc_args = c('--listings'))
 }

@@ -6,6 +6,12 @@
 #' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
+#' @param keep_tex Should the raw TeX files be kept?
+#' @param md_extensions Extensions passed to the Markdown engine
+#' @param fig_caption Should figure captions be enabled?
+#' @param toc Should a table of contents be created?
+#' @param template The TeX template used
+#' @param format The format of the document
 #'
 #' @return R Markdown output format to pass to \code{\link[rmarkdown:render]{render}}
 #'
@@ -24,10 +30,7 @@ afit_thesis <- function(...,
                         fig_caption = TRUE,
                         toc = TRUE,
                         template = "template.tex",
-                        highlight = 'tango',
                         format = "afit_thesis") {
-  
-  args <- c('--listings', rmarkdown::pandoc_highlight_args(highlight))
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown", "templates", format, 'resources',template,
@@ -35,5 +38,5 @@ afit_thesis <- function(...,
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
-                          pandoc_args = args)
+                          pandoc_args = c('--listings'))
 }

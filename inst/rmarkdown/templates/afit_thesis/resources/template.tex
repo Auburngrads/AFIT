@@ -3,12 +3,11 @@
 \newcommand{\mytitle}{$title$}
 \usepackage{styles/afitThesis}
 \usepackage{styles/sf298}
-\usepackage{enumerate}
 $if(listings)$
 \usepackage{listings}
 \usepackage{color}
 \lstset{ %
-  backgroundcolor=\color{white},  % choose the background color
+  backgroundcolor=\color{LTgray},  % choose the background color
   basicstyle=\bf\normalsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
   captionpos=b,                   % sets the caption-position to bottom
@@ -18,10 +17,11 @@ $if(listings)$
   keywordstyle=\color{Green},       % keyword style
   stringstyle=\color{mymauve},     % string literal style
   aboveskip=\medskipamount,
-  belowskip=\medskipamount
+  belowskip=\medskipamount,
+  frame=single,
+  frameround=tttt,
 }
 $endif$
-\def\code{}
 \begin{document}
 \setlength{\abovedisplayskip}{0pt}
 \setlength{\belowdisplayskip}{0pt}
