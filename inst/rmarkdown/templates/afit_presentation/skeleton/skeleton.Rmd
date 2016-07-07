@@ -1,0 +1,16 @@
+---
+title: "title"
+subtitle: "Subtitle"
+author: "me"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: AFIT::afit_presentation
+---
+
+```{r echo=FALSE,message=FALSE, warning=FALSE}
+assign('dynamic', TRUE, envir = sys.frame(),immediate = TRUE)
+#source('scripts/R/setup.R')
+```
+
+# Why Are We Here?
+
+- why?
