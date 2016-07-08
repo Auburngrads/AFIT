@@ -28,9 +28,9 @@ citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title 
 
   if( is.null(key)) {
     
-  kStart   <- regexpr('\\{', bib)[1]+1
-  kFinis   <- regexpr(','  , bib)[1]-1
-  key <- substring(bib,kStart,kFinis)
+  kStart   <- regexpr('\\{', bib[1])[1]+1
+  kFinis   <- regexpr(','  , bib[1])[1]-1
+  key <- substring(bib[1],kStart)
   
   }
   
@@ -74,13 +74,13 @@ citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title 
     
   }
   
-  RefManageR::BibEntry(bibtype = bibtype,
+  entry <- RefManageR::BibEntry(bibtype = bibtype,
                        key = key,
                        author = author,
                        title = title,
                        address = address,
                        year = year,
-                       publisher = publisher,
+                       publisher = publish,
                        isbn = isbn)
   # bib <- gsub('\\\n',paste(c('\\\n',rep(' ', Start-2)),collapse = ''), bib)
   # 
@@ -89,5 +89,5 @@ citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title 
   # writeLines(c(bib1,bib), con = bib.file)
   #
   # return(knitcitations::citet(bib))
-  
+  return(entry)
 }
