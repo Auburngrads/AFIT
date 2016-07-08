@@ -1,6 +1,6 @@
 #' Air Force Institute of Technology Thesis Template 
 #'
-#' Format for creating an AFIT theses
+#' Format for creating an annual AFIT Faculty Activity Report
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
 #' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
@@ -24,13 +24,13 @@
 #' }
 #'
 #' @export
-afit_thesis <- function(...,
+afit_far <- function(...,
                         keep_tex = TRUE,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,
                         template = "template.tex",
-                        format = "afit_thesis") {
+                        format = "afit_far") {
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown", "templates", format, 'resources',template,
