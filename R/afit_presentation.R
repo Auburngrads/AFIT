@@ -3,10 +3,19 @@
 #'
 #' Format for converting from R Markdown to a slidy presentation.
 #'
-#' @inheritParams beamer_presentation
-#' @inheritParams pdf_document
+#' @inheritParams slidy_presentation
 #' @inheritParams html_document
 #'
+#' @param ... extra stuff
+#' @param template The HTML template file
+#' @param format The type of template format type
+#' @param incremental Should bullets be revealed individually?
+#' @param fig_width The default figure width
+#' @param fig_height The default figure height
+#' @param self_contained How to handle resources
+#' @param smart Is this presentation smart
+#' @param highlight Code highlighting applied
+#' @param pandoc_args Arguments to apply to Pandoc
 #' @param duration Duration (in minutes) of the slide deck. This value is used
 #'   to add a countdown timer to the slide footer.
 #' @param footer Footer text (e.g. organization name and/or copyright)
@@ -47,7 +56,10 @@ afit_presentation <- function(...,
                                self_contained = FALSE,
                                smart = FALSE, 
                                highlight = "default", 
-                               pandoc_args = '--mathjax=none') {
+                               pandoc_args = '--mathjax=default',
+                              duration = NULL,
+                              footer = NULL,
+                              font_adjustment = NULL) {
 
 rmarkdown::slidy_presentation(...,
                           template = system.file("rmarkdown", "templates", format, 'resources',template,
@@ -57,9 +69,12 @@ rmarkdown::slidy_presentation(...,
                           fig_height = fig_height,
                           smart = smart,
                           self_contained = self_contained,
-                          css = 'resources/flat-slidy.css',
+                          css = 'resources/afit-slidy.css',
                           highlight = highlight,
-                          includes = rmarkdown::includes(before_body = system.file("rmarkdown", "templates", format, 'resources','jkf-scroll.js',
-                          package = "AFIT")),
-                          pandoc_args = pandoc_args)
+                          #includes = rmarkdown::includes(before_body = system.file("rmarkdown", "templates", format, 'resources','jkf-scroll.js',
+                          #package = "AFIT")),
+                          pandoc_args = pandoc_args,
+                          duration = duration,
+                          footer = footer,
+                          font_adjustment = font_adjustment)
 }

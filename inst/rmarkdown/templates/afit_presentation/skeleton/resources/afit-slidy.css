@@ -183,8 +183,27 @@ body
   color: Black;
   font-family: "lucida","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 44pt;
-  z-index: 12;
-  background-color: #FFF ;
+}
+
+div.slide:after
+{
+  content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    background-image: url('http://afit.imodules.com/s/1448/images/content_images/AFIT_Emblem_Blue_copy_634847723848642889.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 div.background {

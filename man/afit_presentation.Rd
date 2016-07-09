@@ -7,9 +7,30 @@
 afit_presentation(..., template = "default.html",
   format = "afit_presentation", incremental = FALSE, fig_width = 8,
   fig_height = 4.9, self_contained = FALSE, smart = FALSE,
-  highlight = "default", pandoc_args = "--mathjax=none")
+  highlight = "default", pandoc_args = "--mathjax=default",
+  duration = NULL, footer = NULL, font_adjustment = NULL)
 }
 \arguments{
+\item{...}{extra stuff}
+
+\item{template}{The HTML template file}
+
+\item{format}{The type of template format type}
+
+\item{incremental}{Should bullets be revealed individually?}
+
+\item{fig_width}{The default figure width}
+
+\item{fig_height}{The default figure height}
+
+\item{self_contained}{How to handle resources}
+
+\item{smart}{Is this presentation smart}
+
+\item{highlight}{Code highlighting applied}
+
+\item{pandoc_args}{Arguments to apply to Pandoc}
+
 \item{duration}{Duration (in minutes) of the slide deck. This value is used
 to add a countdown timer to the slide footer.}
 

@@ -1,5 +1,32 @@
-citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title = NULL,
-                     publisher = NULL,year = NULL,address = NULL,preview = TRUE,
+#' Create a BibEntry from an international standard book number (ISBN)
+#' 
+#' @importFrom RefManageR BibEntry
+#' @importFrom RCurl getURL
+#' @importFrom XML htmlTreeParse
+#' @importFrom XML xpathSApply
+#' @importFrom XML xmlValue
+#'
+#' @param isbn An international standard book number (ISBN-13 or ISBN-10)
+#' @param preview If \code{TRUE}, the bibentry is printed to the screen via \code{cat}
+#' @param bibtype The type of bibliographic element. See \code{details}
+#' @param key The bibtex key for the bibentry
+#' @param author The author for the bibentry
+#' @param title The title for the bibentry
+#' @param publisher The publisher for the bibentry
+#' @param year The year for the bibentry
+#' @param address The publisher's address for the bibentry
+#' @param style The output style of the bibentry (defaults to 'bibtex')
+#' @param ... extra stuff
+#'
+#' @description This function uses ottobib.com to generate a bibtex entry for books using the 
+#' ISBN.  The result is then formatted into a bibentry-class object using \code{RegManageR::BibEntry}and 
+#' @source http://www.ottobib.com/
+#' @details \code{isbn} may contain dashes
+#' @export
+
+
+citeISBN <- function(isbn = NULL, preview = TRUE, bibtype = NULL, key = NULL, author = NULL,
+                     title = NULL, publisher = NULL, year = NULL, address = NULL,
                      style = 'bibtex',...) {
   
   isbn <- gsub('-', '', isbn)
@@ -8,11 +35,13 @@ citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title 
   
   doc <- getURL(url)
   
-  html <- htmlTreeParse(doc, useInternal = TRUE)
+  html <- htmlTreeParse(doc, useInternalNodes = TRUE)
   
   #html <- getNodeSet(doc, useInternal = TRUE)
   
-  bib = xpathSApply(html, '//textarea', xmlValue)
+  bib = xpathSApply(html, '//textarea', fun = XML::xmlValue)
+  
+  Start   <- regexpr('\\{', bib)[1]+1
   
   if(preview) {
     cat('\nBibEntry recorded as:\n\n')
@@ -27,9 +56,8 @@ citeISBN <- function(isbn = NULL, bibtype = NULL,key = NULL,author = NULL,title 
   #if(!is.null(key)) bib <- gsub(substring(bib,Start,Finis), key, bib)
 
   if( is.null(key)) {
-    
-  kStart   <- regexpr('\\{', bib[1])[1]+1
-  kFinis   <- regexpr(','  , bib[1])[1]-1
+  
+  kStart <- regexpr('\\{', bib[1])[1]+1  
   key <- substring(bib[1],kStart)
   
   }
