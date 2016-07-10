@@ -9,8 +9,11 @@ output: AFIT::afit_presentation
 ```{r echo=FALSE,message=FALSE, warning=FALSE}
 assign('dynamic', TRUE, envir = sys.frame(),immediate = TRUE)
 #source('scripts/R/setup.R')
+library(knitcitations)
+library(AFIT)
+freels <- AFIT:::citeDTIC()
 ```
 
 # Why Are We Here?
 
-- why?
+- why `r citet(freels)`

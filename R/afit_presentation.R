@@ -59,7 +59,7 @@ afit_presentation <- function(...,
                                pandoc_args = '--mathjax=default',
                               duration = NULL,
                               footer = NULL,
-                              font_adjustment = NULL) {
+                              font_adjustment = 0) {
 
 rmarkdown::slidy_presentation(...,
                           template = system.file("rmarkdown", "templates", format, 'resources',template,

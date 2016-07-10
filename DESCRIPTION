@@ -14,8 +14,7 @@ Description:
 License: MIT + file LICENSE
 Archs: i386, x64
 Depends: R (>= 3.0.0)
-Imports: utils,yaml,rmarkdown,knitr,RCurl,RefManageR,XML
-Suggests: knitcitations
+Imports: utils,yaml,rmarkdown,knitr,RCurl,RefManageR,XML,knitcitations
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no

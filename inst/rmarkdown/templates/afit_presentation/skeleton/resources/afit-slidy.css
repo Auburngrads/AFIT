@@ -185,7 +185,7 @@ body
   font-size: 44pt;
 }
 
-div.slide:after
+/*div.slide:after
 {
   content: ' ';
     display: block;
@@ -204,7 +204,8 @@ div.slide:after
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-}
+} 
+*/
 
 div.background {
 display: none;
