@@ -8,7 +8,7 @@
 #' @export
 
 
-forms <- function(form.name = NULL) {
+getDocs <- function(form.name = NULL) {
 
   form.name <- gsub('-', '', form.name)
   form.name <- gsub(' ', '', form.name)
