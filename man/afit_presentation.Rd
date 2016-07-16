@@ -6,7 +6,7 @@
 \usage{
 afit_presentation(..., template = "default.html",
   format = "afit_presentation", incremental = FALSE, fig_width = 8,
-  fig_height = 4.9, self_contained = FALSE, smart = FALSE,
+  fig_height = 4.9, self_contained = TRUE, smart = FALSE,
   highlight = "default", pandoc_args = "--mathjax=default",
   duration = NULL, footer = NULL, font_adjustment = 0)
 }
