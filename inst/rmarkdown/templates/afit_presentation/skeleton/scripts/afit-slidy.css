@@ -219,33 +219,22 @@ div.handout {
 
 div.slide.titlepage {
   text-align: left;
-  color: #FFF;
   font-weight: normal;
-  font-size: 22pt;
+  font-size: 24pt;
   line-height: 150%;
-  background: 
-  -webkit-linear-gradient(45deg, hsl(0, 68%, 29%) 0%, transparent 70%), 
-  -webkit-linear-gradient(135deg, hsl(168, 45%, 48%) 10%, transparent 80%), 
-  -webkit-linear-gradient(225deg, hsl(254, 46%, 70%) 10%, transparent 80%), 
-  -webkit-linear-gradient(315deg, hsl(107, 47%, 17%) 50%, transparent 100%); 
-  background: 
-  -ms-linear-gradient(45deg, hsl(0, 68%, 29%) 0%, transparent 70%), 
-  -ms-linear-gradient(135deg, hsl(168, 45%, 48%) 10%, transparent 80%), 
-  -ms-linear-gradient(225deg, hsl(254, 46%, 70%) 10%, transparent 80%), 
-  -ms-linear-gradient(315deg, hsl(107, 47%, 17%) 50%, transparent 100%); 
-  background: 
-  linear-gradient(45deg, hsl(0, 68%, 29%) 0%, transparent 70%), 
-  linear-gradient(135deg, hsl(168, 45%, 48%) 10%, transparent 80%), 
-  linear-gradient(225deg, hsl(254, 46%, 70%) 10%, transparent 80%), 
-  linear-gradient(315deg, hsl(107, 47%, 17%) 50%, transparent 100%);
-  background-size: 100%;
+  /* background: url('../images/afitlogo.png');
+    background-repeat: no-repeat;
+    background-position: 85% 15%;
+    background-attachment: fixed; */
+  background-size: 25%;
+  color: #2C3E50;
 }
 
 div.slide.titlepage h1.title {
   margin-top: 25%;
   padding-top: 0;
+  color: #2C3E50;
   padding-left: 25px;
-  color: #FFF;
   margin-right: 0;
   border-bottom: none;
   background: none;
@@ -256,7 +245,17 @@ div.slide.titlepage h1.title {
   
 }
 
-
+div.slide.titlepage h1.subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 36px;
+  padding-top: 10px;
+  color: #2C3E50;
+  font-size: 30pt;
+  background: none;
+  text-transform: capitalize;
+  position: relative;
+}
 
 @media screen and (max-device-width: 1024px) {
   div.slide { font-size: 100%; }
@@ -386,18 +385,6 @@ div dd
   margin-left: 2em;
   margin-bottom: 0.5em;
   font-weight: bold;
-}
-
-div.slide.titlepage h1.subtitle {
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 30px;
-  padding-top: 10px;
-  color: #FFF;
-  font-size: 30pt;
-  background: none;
-  text-transform: capitalize;
-  position: relative;
 }
 
 ul,ol,h3,h4,h5,h6,dl,table {

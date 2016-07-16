@@ -2,7 +2,7 @@
 % Please edit documentation in R/getYAML.R
 \name{getYAML}
 \alias{getYAML}
-\title{Get YAML metadata from a file}
+\title{Extract YAML metadata from an Rmarkdown file}
 \usage{
 getYAML(file)
 }
@@ -10,6 +10,6 @@ getYAML(file)
 \item{file}{A file containing a YAML metadata header}
 }
 \description{
-Get YAML metadata from a file
+Extract YAML metadata from an Rmarkdown file
 }
 

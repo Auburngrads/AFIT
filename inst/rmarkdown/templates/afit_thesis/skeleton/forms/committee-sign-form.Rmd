@@ -32,6 +32,6 @@ author:
   service: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$author.svc`"
 output: 
   pdf_document:
-    template: ../scripts/distro.tex
+    template: ../scripts/sign.tex
     keep_tex: false
 ---

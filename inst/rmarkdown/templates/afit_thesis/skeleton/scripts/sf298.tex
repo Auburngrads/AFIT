@@ -1,0 +1,55 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+\newcommand{\mytitle}{$title$}
+\usepackage{../styles/afitThesis}
+\usepackage{../styles/sf298}
+\begin{document}
+\ReportDate{$date$} \ReportType{Master's Thesis}
+\DatesCovered{Sept 2011 --- Mar 2013}
+
+\Title{\centering \MakeUppercase{$title$}}
+
+$if(sf298.contractnum)$\ContractNumber{$sf298.contractnum$}$endif$
+$if(sf298.grantnum)$\GrantNumber{$sf298.grantnum$}$endif$
+$if(sf298.programnum)$\ProgramElementNumber{$sf298.programnum$}$endif$
+$if(sf298.projectnum)$\ProjectNumber{$sf298.projectnum$}$endif$
+$if(sf298.tasknum)$\TaskNumber{$sf298.tasknum$}$endif$
+$if(sf298.workunitnum)$\WorkUnitNumber{$sf298.workunitnum$}$endif$
+
+\Author{$author.name$}
+
+\PerformingOrg{Air Force Institute of Technology\\[-1pt]
+    Graduate School of Engineering and Management (AFIT/EN)\\[-1pt]
+    2950 Hobson Way\\[-1pt]
+    WPAFB OH 45433-7765}
+
+\POReportNumber{$designator$}
+
+\SponsoringAgency{$sponsor_org.org_name$\\[-1pt]
+$sponsor_org.address1$\\[-1pt]
+$sponsor_org.address2$\\[-1pt]
+$sponsor_org.phone$\\[-1pt]
+Email: $sponsor_org.email$ }
+
+\Acronyms{AFWA}
+%\SMReportNumber{}
+\DistributionStatement{DISTRIBUTION STATEMENT A:\\
+\MakeUppercase{Approved for Public Release; distribution unlimited.}}
+
+\Abstract{$abstract$}
+
+\SubjectTerms{$sf298.keywords$}
+
+\NumberPages{$pages$}
+%\ReportClassification{}
+%\PageClassification{}
+%\AbstractClassification{}
+\AbstractLimitation{U}
+
+\ResponsiblePerson{$advisor.name$}
+
+\RPTelephone{$advisor.phone$, \small{$advisor.email$}}
+
+\MakeRptDocPage
+
+
+\end{document}

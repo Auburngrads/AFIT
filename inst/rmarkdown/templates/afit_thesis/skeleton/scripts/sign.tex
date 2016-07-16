@@ -1,0 +1,128 @@
+\documentclass[12pt,a4paper,oneside]{letter}
+\usepackage{hyperref}
+%\usepackage{../styles/digsig}
+\usepackage{eforms}
+\usepackage[font={bf,footnotesize},labelsep=period]{caption}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{ifthen}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{helvet}
+\definecolor{USAFblue}{rgb}{.1,.1,.6}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+\chead{\ifthenelse{\value{page}=1}{\footnotesize{\MakeUppercase{AFIT Graduate School of Engineering and Management}}\\[1pt] \footnotesize{\MakeUppercase{Thesis / Dissertation Committee Approval Signature Page}}}}
+\lhead{\ifthenelse{\value{page}=1}{\hspace{-30pt}\vspace{-5pt}\includegraphics[width=1in]{../images/afit-atom.jpg}}}
+\addtolength{\headheight}{\baselineskip}
+%\setlength{\topmargin}{1in}
+\addtolength{\voffset}{15pt}
+\setlength{\headsep}{75pt}
+\setlength{\textheight}{600pt}
+
+\begin{document}
+
+% Designator Number \hspace{2pt} $if(designator)$$designator$$endif$\\[20pt]
+
+%\begin{center}
+%Title \hspace{2pt} $if(title)$\MakeUppercase{$title$}$endif$
+%\end{center} 
+%
+%\vspace{10pt}
+
+{%
+\centering
+\begin{tabular}{r|l}
+\bf\large{TITLE}& $title$\\[2pt] 
+\bf\large{AUTHOR}& $if(author.name)$$author.name$$endif$$if(author.rank)$, $author.rank$$endif$\\[2pt]
+\bf\large{DESIGNATOR}& $if(designator)$$designator$$endif$\\[2pt]
+\bf\large{DEPARTMENT}& $if(author.department)$$author.department$$endif$\\[2pt]
+\bf\large{DATE}& $if(date)$$date$$endif$
+\end{tabular}\par
+}
+
+%\begin{center}
+%Student Name/Rank \hspace{2pt} $if(author.rank)$$author.rank$$endif$ $if(author.name)$$author.name$$endif$
+%\end{center} 
+%
+\vspace{20pt}
+
+{%
+\centering
+\begin{tabularx}{\linewidth}{lclc}
+Approved: & & & \\[30pt]
+Committee Chair Signature &
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{chrsig}{5.5cm}{1cm} & 
+Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{chrdate}{1.0in}{1cm}\\[25pt]
+Committee Member Signature & 
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{mbr1sig}{5.5cm}{1cm} & 
+Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{mbr1date}{1in}{1cm}\\[25pt]
+Committee Member Signature & 
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{mbr2sig}{5.5cm}{1cm} & Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{mbr2date}{1in}{1cm}\\[25pt]
+Committee Member Signature & 
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{mbr3sig}{5.5cm}{1cm} & 
+Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{mbr3date}{1in}{1cm}\\[25pt]
+Committee Member Signature & 
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{mbr4sig}{5.5cm}{1cm} &
+Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{\large{mbr4date}}{1in}{1cm}\\[50pt]
+\hline\\[10pt]
+For Dissertations Only: & & &\\[20pt]
+\end{tabularx}\par
+}
+
+{%
+\centering
+\begin{tabularx}{\linewidth}{lllc}
+Dean's Acceptance & 
+\sigField[\BC{1 0 0}\BG{0.98 0.92 0.73}
+\textColor{0 0 0}
+]{deansig}{7.55cm}{1cm} & 
+Date &
+\textField
+[\BC{1 0 0}\BG{0.98 0.92 0.73}\textColor{0 0 0} \TU{dd mmm yyyy}
+ \V{15 Jul 2016} \textFont{helv} \textSize{12} \Q{1}]
+{deandate}{1in}{1cm}\\[8pt]
+& \small{ADEDEJI B. BADIRU}, Ph.D. & &\\[-3pt]
+& \scriptsize{Dean, Graduate School of Engineering and Management} & &
+\end{tabularx}\par
+}
+
+\end{document}
