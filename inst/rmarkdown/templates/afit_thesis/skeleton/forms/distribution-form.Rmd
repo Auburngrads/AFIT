@@ -1,5 +1,17 @@
 ---
+title:        "`r AFIT:::noTouch('metadata.yml')$document$title`"
+designator:   "`r AFIT:::noTouch('metadata.yml')$document$designator`"
+pages:        "`r AFIT:::noTouch('metadata.yml')$document$pages`"
+abstract:     "`r AFIT:::noTouch('metadata.yml')$abstract`"
+degree:       "`r AFIT:::noTouch('metadata.yml')$author$gettingDegree`"
+author:
+  name:       "`r AFIT:::noTouch('metadata.yml')$author$fullname`"
+  department: "`r AFIT:::noTouch('metadata.yml')$author$department`"
+  rank:       "`r AFIT:::noTouch('metadata.yml')$author$rank`"
+  service:    "`r AFIT:::noTouch('metadata.yml')$author$service`"
+  degree:     "`r AFIT:::noTouch('metadata.yml')$author$currentDegree`"
 distribution_statement:
+  A: false        # distribution unlimited
   B: true         # U.S. Government agencies only
   C: false        # U.S. Government agencies and their Contractors
   D: false        # DOD and DOD contractors only
@@ -22,14 +34,6 @@ distribution_statement_rationale: >
 release_authority: 'Org name'
 release_condition: >
   'Under what conditions would you release this'
-date: "`r format(Sys.Date(), '%B %d, %Y')`"
-title: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$title`"
-designator: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$desig`"
-author:
-  name: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$author.name`"
-  department: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$author.de`"
-  rank: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$author.rank`"
-  service: "`r AFIT::getYAML(list.files('..', patt = '.Rmd', full = T))$author.svc`"
 output: 
   pdf_document:
     template: ../scripts/distro.tex

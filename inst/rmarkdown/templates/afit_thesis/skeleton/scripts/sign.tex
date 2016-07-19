@@ -41,9 +41,9 @@
 {%
 \centering
 \begin{tabular}{r|l}
-\bf\large{TITLE}& $title$\\[2pt] 
+\bf\large{TITLE}& $if(document.title)$$document.title$$else$A Great Title\\[2pt] 
 \bf\large{AUTHOR}& $if(author.name)$$author.name$$endif$$if(author.rank)$, $author.rank$$endif$\\[2pt]
-\bf\large{DESIGNATOR}& $if(designator)$$designator$$endif$\\[2pt]
+\bf\large{DESIGNATOR}& $if(document.designator)$$designator$$endif$\\[2pt]
 \bf\large{DEPARTMENT}& $if(author.department)$$author.department$$endif$\\[2pt]
 \bf\large{DATE}& $if(date)$$date$$endif$
 \end{tabular}\par
