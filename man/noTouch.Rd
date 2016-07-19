@@ -4,12 +4,10 @@
 \alias{noTouch}
 \title{Extract YAML data from metadata.yml}
 \usage{
-noTouch(file = NULL, item = NULL, ...)
+noTouch(file = NULL)
 }
 \arguments{
-\item{item}{The YAML item to be extracted}
-
-\item{up}{If \code{TRUE} the search path for the file moves up one level}
+\item{file}{Path to the YAML file}
 }
 \description{
 Extract YAML data from metadata.yml
