@@ -53,7 +53,8 @@ sf298:
   workunitnum: ''
   keywords: 'LaTeX,Thesis,typesetting'
 sponsor_org:
-  org_name: 'Department of Engineering Physics'
+  org_name1: 'Air Force Institute of Technology'
+  org_name2: 'Department of Engineering Physics'
   address1: '2950 Hobson Way'
   address2: 'WPAFB OH 45433-7765'
   phone: 'DSN 271-0690, COMM 937-255-3636'

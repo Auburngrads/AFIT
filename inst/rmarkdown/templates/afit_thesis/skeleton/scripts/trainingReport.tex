@@ -37,21 +37,21 @@
 \newdimen\rhII      \rhII=0.0075\textheight
 \newdimen\rhIII     \rhIII=0.10\textheight
 \newdimen\rhIV      \rhIV=\rhI
-\newdimen\rhV       \rhV=0.035\textheight
-\newdimen\rhVI      \rhVI=0.055\textheight
+\newdimen\rhV       \rhV=0.04\textheight
+\newdimen\rhVI      \rhVI=\rhV
 \newdimen\rhVII     \rhVII=0.05\textheight
-\newdimen\rhVIII    \rhVIII=\rhVI
-\newdimen\rhIX      \rhIX=0.035\textheight
+\newdimen\rhVIII    \rhVIII=\rhV
+\newdimen\rhIX      \rhIX=\rhV
 \newdimen\rhX       \rhX=\rhI
 \newdimen\rhXI      \rhXI=0.04\textheight
 \newdimen\rhXII     \rhXII=0.02\textheight
-\newdimen\rhXIII    \rhXIII=\rhVI
+\newdimen\rhXIII    \rhXIII=0.055\textheight
 \newdimen\rhXIV     \rhXIV=\rhI
-\newdimen\rhXV      \rhXV=0.18\textheight
+\newdimen\rhXV      \rhXV=0.25\textheight
 \newdimen\rhXVI     \rhXVI=0.125\textheight
 \newdimen\rhXVII    \rhXVII=0.1\textheight
 \newdimen\rhXVIII   \rhXVIII=\rhI
-\newdimen\rhXIX     \rhXIX=0.1\textheight
+\newdimen\rhXIX     \rhXIX=0.075\textheight
 \noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|}
     \hline
@@ -95,40 +95,40 @@
 \parbox[][\rhV][c]{0.4\textwidth}{
 
 1. NAME (Last, First, Middle Initial)\\[-0.5pt]
-\textField[\TU{ }\V{$if(author.name)$$author.name$$else$Smart, Ima, B$endif$ }]{name}{0.39\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(author.trname)$$author.trname$$else$Smart, Ima, B$endif$}]{name}{0.39\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhV][c]{0.2\textwidth}{
 
 2. SSN\\[1pt]
-\textField[\TU{ }\V{$if(author.ssn)$$author.ssn$$else$123456789$endif$}]{ssn}{0.19\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(author.ssn)$$author.ssn$$else$123-45-6789$endif$}]{ssn}{0.19\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhV][c]{0.2\textwidth}{
 
 3. RANK\\[1pt]
-\textField[\TU{ }\V{$if(author.rank)$$author.rank$$else$Emperor123456789$endif$}}]{rank}{0.19\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(author.rank)$$author.rank$$else$Supreme Allied Commander$endif$}]{rank}{0.19\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhV][c]{0.2\textwidth}{
 
 4. DUTY AFSC\\[1pt]
 \textField[\TU{ }
-           \V{$if(author.afsc)$$author.afsc$$else$Emperor123456789$endif$}]{afsc}{0.19\textwidth}{0.5cm}
+           \V{$if(author.afsc)$$author.afsc$$else$OU812$endif$}]{afsc}{0.19\textwidth}{0.5cm}
 }\\
 \hline
-%==================================================================
-%    Row 6            
-%==================================================================
+% %==================================================================
+% %    Row 6            
+% %==================================================================
 \parbox[][\rhVI][c]{\textwidth}{
 
 5. ORGANIZATION, COMMAND, AND LOCATION\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{org}{0.99\textwidth}{.9cm}
+\textField[\TU{ }\V{Air Force Institute of Technology (AETC), Wright-Patterson AFB OH}]{org}{0.99\textwidth}{.6cm}
 }\\
 \hline
-%==================================================================
-%    Row 7           
-%==================================================================
+% %==================================================================
+% %    Row 7           
+% %==================================================================
 \parbox[][\rhVII][c]{0.24\textwidth}{
 
 \small 6. PERIOD OF REPORT\\[5pt]
@@ -137,7 +137,7 @@
 
 \parbox[][\rhVII][c]{0.24\textwidth}{
 \vspace{10pt}
-\small THRU: \textField[\TU{ }\V{ }]{thru}{0.17\textwidth}{0.5cm}
+\small THRU: \textField[\TU{ }\V{$if(grad_date)$$grad_date$$else$16 Jul 2016$endif$ }]{thru}{0.17\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhVII][c]{0.2\textwidth}{
@@ -152,42 +152,42 @@
 \hspace{5pt}
 \checkBox{annual}{10bp}{10bp}{On}\hspace{5pt} \small ANNUAL \hspace{5pt}
 \checkBox{final}{10bp}{10bp}{On}\hspace{5pt} \small FINAL \hspace{5pt}
-\checkBox{directed}{10bp}{10bp}{On}\hspace{5pt} \small DIRECTED 
+\checkBox{directed}{10bp}{10bp}{On}\hspace{5pt} \small DIRECTED
 }\\
 \hline
-%==================================================================
-%    Row 8            
-%==================================================================
+% %==================================================================
+% %    Row 8            
+% %==================================================================
 \parbox[][\rhVIII][c]{\textwidth}{
 
 9. NAME AND LOCATION OF SCHOOL OR INSTITUTION\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{school}{0.99\textwidth}{1cm}
+\textField[\TU{ }\V{Graduate School of Engineering and Management, Wright-Patterson AFB OH }]{school}{0.99\textwidth}{0.6cm}
 }\\
 \hline
-%==================================================================
-%    Row 9            
-%==================================================================
+% %==================================================================
+% %    Row 9            
+% %==================================================================
 \parbox[][\rhIX][c]{\textwidth}{
 
 10. NAME OR TITLE OF COURSE\\[1pt]
-\textField[\TU{ }\V{ }]{course}{0.99\textwidth}{0.5cm}
+\textField[\TU{ }\V{Graduate, $if(program)$$program$$else$Aeronautical Engineering$endif$}]{course}{0.99\textwidth}{0.5cm}
 }\\
-\hline
-%==================================================================
-%    Row 10              
-%==================================================================
+ \hline
+% %==================================================================
+% %    Row 10              
+% %==================================================================
 \parbox[][\rhX][c]{\textwidth}{
 
 \textbf{II. REPORT DATA} (Complete as applicable for final report)
 }\\
 \hline
-%==================================================================
-%    Row 11            
-%==================================================================
+% %==================================================================
+% %    Row 11            
+% %==================================================================
 \parbox[][\rhXI][c]{0.5\textwidth}{
 
 1. AFSC/AERO RATING/DEGREE AWARDED\\[5pt]
-\textField[\TU{ }\V{ }]{degree}{0.49\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(degree)$$degree$$else$Master of Science$endif$ in  $if(program)$$program$$else$Aeronautical Engineering$endif$ }]{degree}{0.49\textwidth}{0.5cm}
 }\vrule\hspace{5pt}
 
 \parbox[][\rhXI][c]{0.5\textwidth}{
@@ -196,9 +196,9 @@
 \hspace{20pt}\checkBox{noncomp}{10bp}{10bp}{On}\hspace{25pt} \small COURSE NOT COMPLETED (list reason in item 4 below)
 }\\
 \hline
-%==================================================================
-%    Row 12              
-%==================================================================
+% %==================================================================
+% %    Row 12              
+% %==================================================================
 \parbox[][\rhXII][c]{\textwidth}{
 
 3. \hspace{20pt} \textbf{DISTINGUISHED GRADUATE}\hspace{20pt}
@@ -206,87 +206,108 @@
 \checkBox{dgna}{10bp}{10bp}{On}\hspace{20pt} \small NO DG PROGRAM
 }\\
 \hline
-%==================================================================
-%    Row 13            
-%==================================================================
+% %==================================================================
+% %    Row 13            
+% %==================================================================
 \parbox[][\rhXIII][c]{\textwidth}{
 
 4. DG AWARD CRITERIA/COURSE NONCOMPLETION REASON\\[1pt]
 \textField[\Ff{\FfMultiline}\TU{ }\V{ }]{reason}{0.99\textwidth}{1cm}
 }\\
 \hline
-%==================================================================
-%    Row 14              
-%==================================================================
+% %==================================================================
+% %    Row 14              
+% %==================================================================
 \parbox[][\rhXIV][c]{\textwidth}{
 
 \textbf{III. COMMENTS} (\textit{Mandatory})
 }\\
 \hline
-%==================================================================
-%    Row 15            
-%==================================================================
+% %==================================================================
+% %    Row 15            
+% %==================================================================
 \parbox[][\rhXV][c]{\textwidth}{
 ACADEMIC/TRAINING ACCOMPLISHMENTS\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{accomp}{0.99\textwidth}{4.25cm}
+\textField[\Ff{\FfMultiline}\Ff{\FfRichText}\TU{ }\V{- AFIT GRADUATE PROGRAM: $if(degree)$$degree$$else$Master of Science$endif$ in $if(program)$$program$$else$Aeronautical Engineering$endif$\n
+- FOCUS AREAS:$if(keywords)$$keywords$$else$R programming, \LaTeX typesetting, Other good stuff$endif$\n
+- GPA: on a 4.0 scale\n\n
+- \uppercase{$if(document.type)$\MakeUppercase{$document.type$}$else$THESIS$endif$}: "$if(document.title)$$document.title$$else$A Great Title$endif$"\n
+- RESEARCH SPONSOR: $if(sponsor_org.title)$$sponsor_org.title$$endif$$if(sponsor_org.subtitle)$; $sponsor_org.subtitle$$endif$\n
+- IMPACT:\n
+-\n
+-\n
+- HONORS/DISTINCTIONS:\n
+-\n
+-\n
+}\textSize{11}]{accomp}{0.99\textwidth}{6.25cm}
 }\\
 \hline
-%==================================================================
-%    Row 16            
-%==================================================================
+% %==================================================================
+% %    Row 16            
+% %==================================================================
 \parbox[][\rhXVI][c]{\textwidth}{
 PROFESSIONAL QUALITIES\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{qual}{0.99\textwidth}{2.75cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{
+EXCEPTONAL LEADERSHIP AND/OR SERVICE:\n}]{qual}{0.99\textwidth}{2.75cm}
 }\\
 \hline
-%==================================================================
-%    Row 17            
-%==================================================================
+% %==================================================================
+% %    Row 17            
+% %==================================================================
 \parbox[][\rhVI][c]{\textwidth}{
 
 OTHER COMMENTS\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{other}{0.99\textwidth}{1cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{other}{0.99\textwidth}{0.5cm}
 }\\
 \hline
-%==================================================================
-%    Row 18              
-%==================================================================
+% %==================================================================
+% %    Row 18              
+% %==================================================================
 \parbox[][\rhXVIII][c]{\textwidth}{
 
 \textbf{IV. EVALUATOR}
 }\\
 \hline
-%==================================================================
-%    Row 19            
-%==================================================================
+% %==================================================================
+% %    Row 19            
+% %==================================================================
 \multicolumn{1}{|l|}{
 \parbox[][\rhXIX][c]{0.5\textwidth}{
 
 NAME, RANK BR OR SVC, ORGN, COMD LOCATION\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{eval}{0.49\textwidth}{2cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{
+$if(department.head)$
+  $department.head$
+$else$
+  Department Head
+$endif$\n
+%
+Air Force Institute of Technology (AETC)\n
+Wright-Patterson AFB OH
+}]{eval}{0.49\textwidth}{1.5cm}
 }\vrule
 
 \parbox[][\rhXIX][c]{0.5\textwidth}{
 \parbox[][0.5\rhXIX][c]{0.27\textwidth}{
 \hspace{5pt}\small DUTY TITLE\\[-9pt]
 
-\hspace{5pt} \textField[\TU{ }\V{ }]{evalduty}{0.25\textwidth}{0.8cm}
+\hspace{5pt} \textField[\TU{ }\V{Head, }]{evalduty}{0.25\textwidth}{0.5cm}
 }\vrule\hspace{5pt}
 \parbox[][0.5\rhXIX][c]{0.23\textwidth}{
 \small DATE\\[-9pt]
 
-\textField[\TU{ }\V{ }]{evaldate}{0.22\textwidth}{0.8cm}
+\textField[\TU{ }\V{$if(date)$$date$$endif$ }]{evaldate}{0.22\textwidth}{0.5cm}
 }\\
-\rule{0.522\textwidth}{0.5pt}
-\parbox[][0.5\rhXIX][c]{0.175\textwidth}{
-\hspace{5pt}\small SSN\\[-8pt]
+\rule{0.53\textwidth}{0.5pt}
+\parbox[][0.5\rhXIX][c]{0.1\textwidth}{
+\hspace{5pt}\small SSN\\[-10pt]
 
-\hspace{5pt}\textField[\TU{ }\V{ }]{evalssn}{0.15\textwidth}{0.7cm}
+\hspace{5pt}\textField[\TU{ }\V{ }]{evalssn}{0.075\textwidth}{0.55cm}
 }\vrule\hspace{5pt}
-\parbox[][0.5\rhXIX][c]{0.325\textwidth}{
-\small SIGNATURE\\[-8pt]
+\parbox[][0.5\rhXIX][c]{0.4\textwidth}{
+\small SIGNATURE\\[-10pt]
 
-\sigField{evalsig}{0.324\textwidth}{0.7cm}
+\sigField[\Lock{/Action/All}]{evalsig}{0.39\textwidth}{0.55cm}
 }}}\\
 \hline
 \end{tabular}}

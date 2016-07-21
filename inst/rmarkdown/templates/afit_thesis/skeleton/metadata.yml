@@ -2,16 +2,17 @@ author:
   firstname: 'Jason'
   lastname: 'Freels'
   middle: 'K'
-  department: 'Department of Systems Engineering and Management'
-  ofcsymbol: 'ENV'
+  department: 'ENS'
   service: 'USAF' # Use abbreviation - leave blank if NA
   rank: 'Major'
   afsc: '62E3A'
   currentDegree: 'BS'
-  gettingDegree: 'Master of Science in Systems Engineering'
+program: "Systems Engineering"
+degree: "Master of Science"
+grad_date: '16 June 2016'
 advisor:
   name: 'Robert F. Mills'
-  ofcsymbol: 'ENY' # Use three-letter designator
+  department: 'ENY' # Use three-letter designator
   rank: 'Civilian'
   service: 'usaf' # Use abbreviation - leave blank if NA
   currentDegree: 'PhD'
@@ -39,13 +40,15 @@ document:
   title: "A Capitalized Title: Something about a Package"
   designator: 'AFIT-ENG-DS-16-J-009'
   pages: 30
-  abstract: >
+  keywords: 'LaTeX,Thesis,typesetting'
+  type: 'Thesis'
+abstract: >
   The abstract of the thesis.
-  dedication: >
+dedication: >
   The dedication.
-  acknowledge: >
+acknowledge: >
   The acknowledgement.
-  vita: >
+vita: >
   The vita.
 distribution_statement:
   A: false        # distribution unlimited
@@ -54,7 +57,7 @@ distribution_statement:
   D: false        # DOD and DOD contractors only
   E: false        # DOD components only
   F: false        # Further dissemination only as directed
-why_distribution_not_A:
+why_not_distribution_A:
   dms: false      # Direct Military Support
   swd: false      # Software Documentation
   fgi: false      # Foreign Government Info
@@ -72,16 +75,15 @@ release_authority: 'Org name'
 release_condition: >
   'Under what conditions would you release this'
 sf298:
-  graddate: '16 June 2016'
   contractnum: 'DACA99--99--C--9999'
   grantnum: ''
   programnum: ''
   projectnum: ''
   tasknum: ''
   workunitnum: ''
-  keywords: 'LaTeX,Thesis,typesetting'
 sponsor_org:
-  org_name: 'Department of Engineering Physics'
+  title: 'Air Force Institute of Technology'
+  subtitle: 'Department of Engineering Physics'
   address1: '2950 Hobson Way'
   address2: 'WPAFB OH 45433-7765'
   phone: 'DSN 271-0690, COMM 937-255-3636'
