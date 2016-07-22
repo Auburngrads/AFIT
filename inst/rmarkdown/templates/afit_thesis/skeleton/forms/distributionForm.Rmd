@@ -36,8 +36,5 @@ release_condition: >
   'Under what conditions would you release this'
 dept_head:    "`r AFIT:::noTouch('../metadata.yml')$dept_head`"
 date: "`r format(Sys.Date(), '%d %b %Y')`"
-output: 
-  pdf_document:
-    template: ../scripts/distributionForm2.tex
-    keep_tex: false
+output: AFIT:::distro_form
 ---

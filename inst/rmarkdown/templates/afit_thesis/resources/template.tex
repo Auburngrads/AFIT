@@ -279,10 +279,10 @@ $endif$
 \ReportDate{$date$} \ReportType{Master's Thesis}
 \DatesCovered{Sept 2011 --- Mar 2013}
 
-\Title{\centering \MakeUppercase{$title$}}
+\Title{\centering \MakeUppercase{\mytitle}}
 
 $if(sf298.contractnum)$\ContractNumber{$sf298.contractnum$}$endif$
-$if(sf298.grantnum)$\GrrantNumber{$sf298.grantnum$}$endif$
+$if(sf298.grantnum)$\GrantNumber{$sf298.grantnum$}$endif$
 $if(sf298.programnum)$\ProgramElementNumber{$sf298.programnum$}$endif$
 $if(sf298.projectnum)$\ProjectNumber{$sf298.projectnum$}$endif$
 $if(sf298.tasknum)$\TaskNumber{$sf298.tasknum$}$endif$
@@ -297,14 +297,14 @@ $if(sf298.workunitnum)$\WorkUnitNumber{$sf298.workunitnum$}$endif$
 
 \POReportNumber{$designator$}
 
-\SponsoringAgency{$sponsor_org.org_name$\\[-1pt]
-$sponsor_org.address1$\\[-1pt]
-$sponsor_org.address2$\\[-1pt]
-$sponsor_org.phone$\\[-1pt]
-Email: $sponsor_org.email$ }
+\SponsoringAgency{$sponsor.title$$if(sponsor.subtitle)$; $sponsor.subtitle$$endif$\\[-1pt]
+$sponsor.address1$\\[-1pt]
+$sponsor.address2$\\[-1pt]
+$sponsor.phone$\\[-1pt]
+Email: $sponsor.email$ }
 
 \Acronyms{AFWA}
-%\SMReportNumber{}
+\SMReportNumber{}
 \DistributionStatement{DISTRIBUTION STATEMENT A:\\
 \MakeUppercase{Approved for Public Release; distribution unlimited.}}
 
@@ -323,6 +323,5 @@ Email: $sponsor_org.email$ }
 \RPTelephone{$advisor.phone$, \small{$advisor.email$}}
 
 \MakeRptDocPage
-
 
 \end{document}

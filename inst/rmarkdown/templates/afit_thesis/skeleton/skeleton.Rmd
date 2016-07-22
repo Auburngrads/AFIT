@@ -19,7 +19,7 @@ author:
   prevdegree: 'BS, MS'
 advisor:
   name: 'Robert F. Mills, PhD'
-  department: Office Symbol # Use three-letter designator
+  department: 'env' # Use three-letter designator
   rank: 'Civilian'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
@@ -27,34 +27,34 @@ advisor:
   email: 'jason.freels@afit.edu'
 reader1:
   name: 'Michael R. Grimaila, PhD'  # First Reader
-  department: Office Symbol # Use three-letter designator
+  department: 'env' # Use three-letter designator
   rank: 'Colonel'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
 reader2:
   name: 'Gilbert L. Peterson, PhD'  # Second Reader
-  department: Office Symbol # Use three-letter designator
+  department: 'env' # Use three-letter designator
   rank: 'Lieutenant Colonel'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
 reader3:
   name: 'Steven K. Rogers, PhD'  # Third Reader
-  department: Office Symbol # Use three-letter designator
+  department: 'eny' # Use three-letter designator
   rank: 'Major'
   service: 'usaf' # Use abbreviation - leave blank if NA
   prevdegree: 'BS, MS'
 sf298:
   graddate: '16 June 2016'
   contractnum: 'DACA99--99--C--9999'
-  grantnum: ''
-  programnum: ''
-  projectnum: ''
-  tasknum: ''
-  workunitnum: ''
+  grantnum: '4'
+  programnum: '4'
+  projectnum: '4'
+  tasknum: '4'
+  workunitnum: '4'
   keywords: 'LaTeX,Thesis,typesetting'
-sponsor_org:
-  org_name1: 'Air Force Institute of Technology'
-  org_name2: 'Department of Engineering Physics'
+sponsor:
+  title:  'Air Force Institute of Technology'
+  subtitle: 'Department of Engineering Physics'
   address1: '2950 Hobson Way'
   address2: 'WPAFB OH 45433-7765'
   phone: 'DSN 271-0690, COMM 937-255-3636'

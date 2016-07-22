@@ -17,8 +17,5 @@ reader3:      "`r AFIT:::noTouch('../metadata.yml')$reader3$name`"
 reader4:      "`r AFIT:::noTouch('../metadata.yml')$reader4$name`"
 dept_head:    "`r AFIT:::noTouch('../metadata.yml')$dept_head`"
 date: "`r format(Sys.Date(), '%d %b %Y')`"
-output: 
-  pdf_document:
-    template: ../scripts/signatureForm.tex
-    keep_tex: false
+output: AFIT:::signature_form
 ---

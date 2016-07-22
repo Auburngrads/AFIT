@@ -14,8 +14,5 @@ sponsor_org:
   title: "`r AFIT:::noTouch('../metadata.yml')$sponsor_org$title`"
   subtitle: "`r AFIT:::noTouch('../metadata.yml')$sponsor_org$subtitle`"
 date: "`r AFIT:::noTouch('../metadata.yml')$grad_date`"
-output: 
-  pdf_document:
-    template: ../scripts/trainingReport.tex
-    keep_tex: false
+output: AFIT:::training_report
 ---

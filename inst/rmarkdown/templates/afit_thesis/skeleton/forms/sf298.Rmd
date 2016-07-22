@@ -59,8 +59,5 @@ sponsor_org:
   phone: 'DSN 271-0690, COMM 937-255-3636'
   email: 'amy.magnus@afit.edu'
 date: "`r format(Sys.Date(), '%d %B %Y')`"
-output: 
-  pdf_document:
-    template: ../scripts/sf298.tex
-    keep_tex: false
+output: AFIT:::sf298
 ---

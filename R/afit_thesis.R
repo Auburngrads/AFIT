@@ -17,6 +17,7 @@
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown includes
 #' @examples
 #'
 #' \dontrun{
@@ -32,11 +33,26 @@ afit_thesis <- function(...,
                         template = "template.tex",
                         format = "afit_thesis") {
   
+   sf  <- system.file("rmarkdown",
+                      'templates',
+                      format,
+                      'resources',
+                      'sf.sty',
+                      package = 'AFIT')
+thesis <- system.file("rmarkdown",
+                      'templates',
+                      format,
+                      'resources',
+                      'afitThesis.sty',
+                      package = 'AFIT')
+  
   rmarkdown::pdf_document(...,
-                          template = system.file("rmarkdown", "templates", format, 'resources',template,
+                          template = system.file("rmarkdown",'templates',
+                                                 format,'resources',template,
                           package = "AFIT"),
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
                           pandoc_args = c('--listings'))
+                          #includes = rmarkdown::includes(in_header = list(sf,thesis)))
 }
