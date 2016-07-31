@@ -29,18 +29,18 @@ public_affairs <- function(...,
                             md_extensions = c("-autolink_bare_uris"),
                             fig_caption = FALSE,
                             toc = FALSE,
-                            template = "PAform2.tex",
+                            template = "PAform.tex",
                             format = "afit_prospectus") {
   
-  rmarkdown::pdf_document(...,
-                          template = system.file("rmd", 
-                                                 "tex", 
-                                                 template,
-                                                 package = "AFIT"),
-                          fig_caption = fig_caption,
-                          keep_tex = keep_tex,
-                          toc = toc,
-                          pandoc_args = c('--listings'))
+   rmarkdown::pdf_document(...,
+                           template = system.file("rmd", 
+                                                  "tex", 
+                                                  template,
+                                                  package = "AFIT"),
+                           fig_caption = fig_caption,
+                           keep_tex = keep_tex,
+                           toc = toc,
+                           pandoc_args = c('--listings'))
 }
 
 #' Air Force Institute of Technology Prospectus Template 
@@ -67,17 +67,17 @@ public_affairs <- function(...,
 #'
 #' @export
 distro_form <- function(...,
-                           keep_tex = FALSE,
-                            md_extensions = c("-autolink_bare_uris"),
-                            template = "distributionForm.tex") {
+                        keep_tex = FALSE,
+                        md_extensions = c("-autolink_bare_uris"),
+                        template = "distroForm.tex") {
   
-  rmarkdown::pdf_document(...,
-                          template = system.file("rmd", 
-                                                 "tex", 
-                                                 template,
-                                                 package = "AFIT"),
-                          keep_tex = keep_tex,
-                          pandoc_args = c('--listings'))
+rmarkdown::pdf_document(...,
+                        template = system.file("rmd", 
+                                               "tex", 
+                                               template,
+                                               package = "AFIT"),
+                        keep_tex = keep_tex,
+                        pandoc_args = c('--listings'))
 }
 
 
@@ -109,13 +109,13 @@ sf298 <- function(...,
                   md_extensions = c("-autolink_bare_uris"),
                   template = "sf298.tex") {
   
-  rmarkdown::pdf_document(...,
-                          template = system.file("rmd", 
-                                                 "tex", 
-                                                 template,
-                                                 package = "AFIT"),
-                          keep_tex = keep_tex,
-                          pandoc_args = c('--listings'))
+rmarkdown::pdf_document(...,
+                        template = system.file("rmd", 
+                                               "tex", 
+                                               template,
+                                               package = "AFIT"),
+                        keep_tex = keep_tex,
+                        pandoc_args = c('--listings'))
 }
 
 
@@ -147,13 +147,13 @@ signature_form <- function(...,
                   md_extensions = c("-autolink_bare_uris"),
                   template = "signatureForm.tex") {
   
-  rmarkdown::pdf_document(...,
-                          template = system.file("rmd", 
-                                                 "tex", 
-                                                 template,
-                                                 package = "AFIT"),
-                          keep_tex = keep_tex,
-                          pandoc_args = c('--listings'))
+   rmarkdown::pdf_document(...,
+                           template = system.file("rmd", 
+                                                  "tex", 
+                                                  template,
+                                                  package = "AFIT"),
+                           keep_tex = keep_tex,
+                           pandoc_args = c('--listings'))
 }
 
 
@@ -183,13 +183,13 @@ signature_form <- function(...,
 training_report <- function(...,
                   keep_tex = FALSE,
                   md_extensions = c("-autolink_bare_uris"),
-                  template = "trainingReport2.tex") {
+                  template = "trainingReport.tex") {
   
-  rmarkdown::pdf_document(...,
-                          template = system.file("rmd", 
-                                                 "tex", 
-                                                 template,
-                                                 package = "AFIT"),
-                          keep_tex = keep_tex,
-                          pandoc_args = c('--listings'))
+    rmarkdown::pdf_document(...,
+                            template = system.file("rmd", 
+                                                   "tex", 
+                                                   template,
+                                                   package = "AFIT"),
+                            keep_tex = keep_tex,
+                            pandoc_args = c('--listings'))
 }

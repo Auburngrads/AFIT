@@ -26,25 +26,19 @@
 #'
 #' @export
 afit_thesis <- function(...,
-                        keep_tex = TRUE,
+                        keep_tex = FALSE,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,
-                        template = "template.tex",
+                        template = "templateb.tex",
                         format = "afit_thesis") {
   
-   sf  <- system.file("rmarkdown",
-                      'templates',
-                      format,
-                      'resources',
-                      'sf.sty',
-                      package = 'AFIT')
-thesis <- system.file("rmarkdown",
-                      'templates',
-                      format,
-                      'resources',
-                      'afitThesis.sty',
-                      package = 'AFIT')
+  thesis <- system.file("rmarkdown",
+                        'templates',
+                        format,
+                        'resources',
+                        'afitThesis2.sty',
+                        package = 'AFIT')
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown",'templates',
@@ -54,5 +48,52 @@ thesis <- system.file("rmarkdown",
                           keep_tex = keep_tex,
                           toc = toc,
                           pandoc_args = c('--listings'))
-                          #includes = rmarkdown::includes(in_header = list(sf,thesis)))
+                          #includes = rmarkdown::includes(in_header = list(thesis)))
+  
+#  pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir,
+#                             output_dir) {
+#     #args <- c(input_file = base)
+#     args <- c(args, output_dir = 'final-products')
+#     args <- c(args, rmarkdown::pandoc_variable_arg("kable-scroll", "1"))
+#     args
+# }
+# 
+#  knit_hooks <- {}
+#  knit_hooks$jkf <- knitr::knit_hooks$set(
+#   
+#   jkf_par = function(before, options, envir) {
+#   
+#   if (before) {
+#     
+#     par(cex.lab = 1.05, 
+#         cex.axis = 1.05, 
+#         mgp = c(3.25,0.7, 0), 
+#         tcl = -0.3, 
+#         font.lab = 2, 
+#         font = 2, 
+#         font.axis = 2, 
+#         tck = 0.015, 
+#         family = "serif",
+#         lwd = 2)  }
+# })
+# 
+#  opts_chunk <- list(message = FALSE, 
+#                       warning = FALSE, 
+#                       echo = FALSE, 
+#                       results = "asis", 
+#                       jkf_par = TRUE,
+#                       fig.align = 'center',
+#                       fig.pos = 'h',
+#                       fig.width = 6.25,
+#                       fig.height = 4.5,
+#                       comment = NA)
+#  
+#  rmarkdown::output_format(
+#     knitr = rmarkdown::knitr_options(opts_chunk = opts_chunk,
+#                                      knit_hooks = knit_hooks),
+#     pandoc = NULL,
+#     df_print = "kable",
+#     pre_processor = pre_processor,
+#     base_format =  base)
 }
+

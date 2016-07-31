@@ -23,6 +23,17 @@ noTouch <- function(file = NULL) {
                                  yaml$author$middle),
                                 collapse = ', ')
   
+  yaml$author$sf298name  <- paste(c(yaml$author$lastname,
+                                 yaml$author$firstname,
+                                 yaml$author$middle,
+                                 yaml$author$rank,
+                                 yaml$author$service),
+                                collapse = ', ')
+  
+  yaml$sf298$doctype <- switch(tolower(yaml$document$type),
+                               'thesis' = "Master's Thesis",
+                               'dissertation' = 'Doctoral Dissertation')
+  
   yaml$author$dept <- switch(tolower(yaml$author$department),
                              'env' = 'Department of Systems Engineering and Management',
                              'enc' = 'Department of Mathematics and Statistics',
@@ -46,6 +57,67 @@ noTouch <- function(file = NULL) {
                            'eng' = 'Nathaniel J. Davis IV, PhD',
                            'eny' = 'Bradley S. Liebst, PhD',
                            'enp' = 'Nancy C. Giles, PhD')
+  
+  if(yaml$distribution_statement$A) yaml$distro_state <- 'Distribution A. Approved for public release: distribution unlimited.'
+  if(yaml$distribution_statement$B) yaml$distro_state <- 'Distribution B. Distribution authorized to U.S. Government Agencies'
+  if(yaml$distribution_statement$C) yaml$distro_state <- 'Distribution C. Distribution authorized to U.S. Government Agencies and their contractors'
+  if(yaml$distribution_statement$D) yaml$distro_state <- 'Distribution D. Distribution authorized to Department of Defense and U.S. DoD contractors only'
+  if(yaml$distribution_statement$E) yaml$distro_state <- 'Distribution E. Distribution authorized to DoD components only'
+  if(yaml$distribution_statement$F) yaml$distro_state <- 'Distribution F. Further dissemination only as directed'
+
+  if(!yaml$distribution_statement$F & !yaml$distribution_statement$A) {
+
+  reason <- data.frame()
+  
+  if(yaml$distribution_reason$dms) reason <- c(reason,'Direct Military Support')
+  if(yaml$distribution_reason$swd) reason <- c(reason,'Software Documentation')
+  if(yaml$distribution_reason$fgi) reason <- c(reason,'Foreign Government Information')
+  if(yaml$distribution_reason$cpe) reason <- c(reason,'Contractor Performance Evaluation')
+  if(yaml$distribution_reason$pri) reason <- c(reason,'Proprietary Information')
+  if(yaml$distribution_reason$crt) reason <- c(reason,'Critical Technology')
+  if(yaml$distribution_reason$pre) reason <- c(reason,'Premature Dissemination')
+  if(yaml$distribution_reason$aou) reason <- c(reason,'Administrative of Operational Use')
+  if(yaml$distribution_reason$tne) reason <- c(reason,'Test and Evaluation')
+  if(yaml$distribution_reason$aut) reason <- c(reason,'Specific Authority')
+  if(yaml$distribution_reason$exp) reason <- c(reason,'Export Controlled')
+  if(yaml$distribution_reason$vul) reason <- c(reason,'Vulnerability Information')
+  if(yaml$distribution_reason$ops) reason <- c(reason,'Operations Security')
+
+  yaml$distro_reason <- paste(unlist(reason), collapse = ', ')
+  
+  yaml$distr_extra <- 'Other requests for this document shall be referred to'
+  
+  }
+  
+  checkIT <- function(x) {
+   
+    if(is.na(pmatch('no',yaml::as.yaml(x)))) { return(x)
+      
+    } else { return(NULL)}
+    
+  }
+  
+  yaml$distribution_reason$dms <- checkIT(yaml$distribution_reason$dms)
+  yaml$distribution_reason$swd <- checkIT(yaml$distribution_reason$swd)
+  yaml$distribution_reason$fgi <- checkIT(yaml$distribution_reason$fgi)
+  yaml$distribution_reason$cpe <- checkIT(yaml$distribution_reason$cpe)
+  yaml$distribution_reason$pri <- checkIT(yaml$distribution_reason$pri)
+  yaml$distribution_reason$crt <- checkIT(yaml$distribution_reason$crt)
+  yaml$distribution_reason$pre <- checkIT(yaml$distribution_reason$pre)
+  yaml$distribution_reason$aou <- checkIT(yaml$distribution_reason$aou)
+  yaml$distribution_reason$tne <- checkIT(yaml$distribution_reason$tne)
+  yaml$distribution_reason$aut <- checkIT(yaml$distribution_reason$aut)
+  yaml$distribution_reason$exp <- checkIT(yaml$distribution_reason$exp)
+  yaml$distribution_reason$vul <- checkIT(yaml$distribution_reason$vul)
+  yaml$distribution_reason$ops <- checkIT(yaml$distribution_reason$ops)
+
+  yaml$distribution_statement$A <- checkIT(yaml$distribution_statement$A)
+  yaml$distribution_statement$B <- checkIT(yaml$distribution_statement$B)
+  yaml$distribution_statement$C <- checkIT(yaml$distribution_statement$C)
+  yaml$distribution_statement$D <- checkIT(yaml$distribution_statement$D)
+  yaml$distribution_statement$E <- checkIT(yaml$distribution_statement$E)
+  yaml$distribution_statement$F <- checkIT(yaml$distribution_statement$F)
+
   
   return(yaml)
 }

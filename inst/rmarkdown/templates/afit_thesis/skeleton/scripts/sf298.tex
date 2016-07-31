@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[vmargin = .2in, hmargin = .4in]{geometry}
-\usepackage{hyperref}
 \usepackage{eforms}
 \usepackage[font={bf,footnotesize},labelsep=period]{caption}
 \usepackage{setspace}
@@ -188,7 +187,7 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
  \begin{tabular}{|l|}
 \parbox[][\rhVIII][c]{\textwidth}{
 \small 12. DISTRIBUTION/AVAILABILITY STATEMENT\\[2pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{$if(distro_state)$$distro_state$$endif$$if(distro_reason)$; $distro_reason$$endif$ (1 January 2016). $if(distro_extra)$$distro_extra$$endif$ the RELEASING ORGANIZATION, ORG ADDRESS}]{sf12}{\textwidth}{1.2cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{$if(distro_state)$$distro_state$$endif$$if(distro_rason)$; $distro_reason$$endif$ (1 January 2016). $if(distro_extra)$$distro_extra$$endif$ the RELEASING ORGANIZATION, ORG ADDRESS}]{sf12}{\textwidth}{1.2cm}
 }\bigstrut\\\hline
 
 \parbox[][\rhIX][c]{\textwidth}{
@@ -210,7 +209,7 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 %    		Page 1 - Row 8
 %==================================================================
 \noindent\resizebox{\textwidth}{!}{
- 
+
 \begin{tabular}{|l|l|l|l|l|l|}
 \multicolumn{3}{|l|}{\parbox[][0.2\rhXII][c]{0.30\textwidth}{\small 16. SECURITY CLASSIFICATION OF:}} &
 \multirow{6}{0.15\textwidth}{\parbox[][\rhXII][t]{0.15\textwidth}{\vspace{-35pt}
@@ -229,20 +228,20 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 
 \multirow{5}{0.12\textwidth}{\parbox[][0.8\rhXII][t]{0.12\textwidth}{\vspace{-20pt}
 \small a. REPORT\\[15pt]
-\textField[\Q{1}\TU{ }\V{}]{sf16a}{.12\textwidth}{0.4cm}}} &
+\textField[\Q{1}\TU{ }\V{}]{sf16a}{.12\textwidth}{0.4cm}}} & 
 
 \multirow{5}{0.12\textwidth}{\parbox[][0.8\rhXII][t]{0.12\textwidth}{\vspace{-20pt}
 \small b. ABSTRACT\\[15pt]
-\textField[\Q{1}\TU{ }\V{}]{sf16b}{.12\textwidth}{0.4cm}}} &
+\textField[\Q{1}\TU{ }\V{}]{sf16b}{.12\textwidth}{0.4cm}}} & 
 
 \multirow{5}{0.12\textwidth}{\parbox[][0.8\rhXII][t]{0.12\textwidth}{\vspace{-20pt}
 \small c. THIS PAGE\\[15pt]
-\textField[\Q{1}\TU{ }\V{}]{sf16c}{.12\textwidth}{0.4cm}}} & & & \\
+\textField[\Q{1}\TU{ }\V{}]{sf16c}{.12\textwidth}{0.4cm}}} & & & \\ 
 & & & & & \\ \cline{6-6}
 & & & & & \multirow{3}{0.4\textwidth}{\parbox[][0.5\rhXII][t]{0.4\textwidth}{\vspace{-10pt}
- \small 19b. TELEPHONE NUMBER (Include area code)\\[4pt]
- \textField[\textSize{10}\TU{ }\V{$if(advisor.phone)$$advisor.phone$$else$937-255-3636 x0000$endif$; $if(advisor.email)$$advisor.email$$else$email@afit.edu$endif$}]{sf19b}{.4\textwidth}{0.4cm}}}\\
+\small 19b. TELEPHONE NUMBER (Include area code)\\[4pt]
+\textField[\textSize{10}\TU{ }\V{$if(advisor.phone)$$advisor.phone$$else$(937) 255-3636 x0000$endif$; $if(advisor.email)$$advisor.email$$else$email@afit.edu}]{sf19b}{.4\textwidth}{0.4cm}}} \\
 & & & & & \\
 & & & & & \\ \cline{1-6}
- \end{tabular}}
+\end{tabular}}
 \end{document}

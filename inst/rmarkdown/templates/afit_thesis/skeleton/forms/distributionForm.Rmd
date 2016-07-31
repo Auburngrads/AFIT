@@ -11,29 +11,26 @@ author:
   service:    "`r AFIT:::noTouch('../metadata.yml')$author$service`"
   degree:     "`r AFIT:::noTouch('../metadata.yml')$author$currentDegree`"
 distribution_statement:
-  A: false        # distribution unlimited
-  B: true         # U.S. Government agencies only
-  C: false        # U.S. Government agencies and their Contractors
-  D: false        # DOD and DOD contractors only
-  E: false        # DOD components only
-  F: false        # Further dissemination only as directed
-distribution_statement_reason:
-  dms: false      # Direct Military Support
-  swd: false      # Software Documentation
-  fgi: false      # Foreign Government Info
-  cpe: false      # Contractor Performance Evaluation
-  pri: false      # Proprietary Information
-  crt: false      # Critical Technology
-  pre: false      # Premature Dissemination
-  aou: false      # Administrative Operational Use
-  tne: false      # Test And Evaluation
-  aut: false      # Specific Authority
-  exp: false      # Export Controlled
-distribution_statement_rationale: >
-  'Add some stuff here'
-release_authority: 'Org name'
-release_condition: >
-  'Under what conditions would you release this'
+  A: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$A`"
+  B: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$B`"
+  C: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$C`"
+  D: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$D`"
+  E: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$E`"
+  F: "`r AFIT:::noTouch('../metadata.yml')$distribution_statement$F`"
+distribution_reason:
+  dms: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$dms`"
+  swd: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$swd`"
+  fgi: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$fgi`"
+  cpe: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$cpe`"
+  pri: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$pri`"
+  crt: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$crt`"
+  pre: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$pre`"
+  aou: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$aou`"
+  tne: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$tne`"
+  aut: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$aut`"
+  exp: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$exp`"
+  vul: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$vul`"
+  ops: "`r AFIT:::noTouch('../metadata.yml')$distribution_reason$ops`"
 dept_head:    "`r AFIT:::noTouch('../metadata.yml')$dept_head`"
 date: "`r format(Sys.Date(), '%d %b %Y')`"
 output: AFIT:::distro_form
