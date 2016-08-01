@@ -4,8 +4,8 @@
 \alias{afit_thesis}
 \title{Air Force Institute of Technology Thesis Template}
 \usage{
-afit_thesis(..., keep_tex = TRUE, md_extensions = c("-autolink_bare_uris"),
-  fig_caption = TRUE, toc = TRUE, template = "template.tex",
+afit_thesis(..., keep_tex = FALSE, md_extensions = c("-autolink_bare_uris"),
+  fig_caption = TRUE, toc = TRUE, template = "templateb.tex",
   format = "afit_thesis")
 }
 \arguments{

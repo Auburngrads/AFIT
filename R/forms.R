@@ -195,15 +195,10 @@ training_report <- function(...,
 }
 
 
-#'
-#'
-#'
-#'
-
-makeForms <- function(yml = NULL,...) {
-  
-  forms <- system.file('rmd','forms', package = 'AFIT')
-  forms <- list.files(forms)
-  
-  
-}
+# makeForms <- function(yml = NULL,...) {
+#   
+#   forms <- system.file('rmd','forms', package = 'AFIT')
+#   forms <- list.files(forms)
+#   
+#   
+# }

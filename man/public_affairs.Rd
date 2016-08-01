@@ -6,7 +6,7 @@
 \usage{
 public_affairs(..., keep_tex = FALSE,
   md_extensions = c("-autolink_bare_uris"), fig_caption = FALSE,
-  toc = FALSE, template = "PAform2.tex", format = "afit_prospectus")
+  toc = FALSE, template = "PAform.tex", format = "afit_prospectus")
 }
 \arguments{
 \item{...}{Arguments to \code{rmarkdown::pdf_document}}

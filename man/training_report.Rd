@@ -5,8 +5,7 @@
 \title{Air Force Institute of Technology Prospectus Template}
 \usage{
 training_report(..., keep_tex = FALSE,
-  md_extensions = c("-autolink_bare_uris"),
-  template = "trainingReport2.tex")
+  md_extensions = c("-autolink_bare_uris"), template = "trainingReport.tex")
 }
 \arguments{
 \item{...}{Arguments to \code{rmarkdown::pdf_document}}

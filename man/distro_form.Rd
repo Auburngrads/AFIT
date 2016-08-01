@@ -5,7 +5,7 @@
 \title{Air Force Institute of Technology Prospectus Template}
 \usage{
 distro_form(..., keep_tex = FALSE, md_extensions = c("-autolink_bare_uris"),
-  template = "distributionForm.tex")
+  template = "distroForm.tex")
 }
 \arguments{
 \item{...}{Arguments to \code{rmarkdown::pdf_document}}
