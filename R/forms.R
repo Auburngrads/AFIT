@@ -193,3 +193,17 @@ training_report <- function(...,
                             keep_tex = keep_tex,
                             pandoc_args = c('--listings'))
 }
+
+
+#'
+#'
+#'
+#'
+
+makeForms <- function(yml = NULL,...) {
+  
+  forms <- system.file('rmd','forms', package = 'AFIT')
+  forms <- list.files(forms)
+  
+  
+}
