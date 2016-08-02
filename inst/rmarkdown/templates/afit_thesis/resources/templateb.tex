@@ -1,5 +1,5 @@
 \documentclass[12pt,letterpaper,toc=flat,oneside]{report}
-% \def\code{}
+\def\code{}
 \usepackage[top=1in,bottom=1.25in,hmargin=1.25in]{geometry}
 \usepackage{setspace}
 \usepackage[T1]{fontenc}
@@ -127,7 +127,8 @@
  	      \end{minipage}
  	     }
  	    \vspace*{0.40 in}
- 	    $if(doctype)$\MakeUppercase{$doctype$}$else$THESIS$endif$\\[15pt]
+ 	    $if(document.type)$\MakeUppercase{$document.type$}$else$THESIS$endif$
+ 	    \vspace{15pt}
  	    $if(author.name)$$author.name$$else$Ima B. Smart$endif$$if(author.rank)$, $author.rank$$else$Supreme Allied Commander$endif$\\[-8pt]
  	    $if(designator)$$designator$$endif$\\[20pt]
  	    \begin{bfseries}
@@ -397,7 +398,7 @@ $body$
 \parbox[][\rhIII][c]{.45\textwidth}{
 \vspace{1pt}
 \small 2. REPORT TYPE\\[2pt]
-\textField[\TU{ }\V{$if(doctype)$$doctype$$else$Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(document.type)$$document.type$$else$Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhIII][c]{0.30\textwidth}{

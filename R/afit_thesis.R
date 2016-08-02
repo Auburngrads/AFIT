@@ -33,12 +33,12 @@ afit_thesis <- function(...,
                         template = "templateb.tex",
                         format = "afit_thesis") {
   
-  thesis <- system.file("rmarkdown",
-                        'templates',
-                        format,
-                        'resources',
-                        'afitThesis2.sty',
-                        package = 'AFIT')
+  # thesis <- system.file("rmarkdown",
+  #                       'templates',
+  #                       format,
+  #                       'resources',
+  #                       'afitThesis2.sty',
+  #                       package = 'AFIT')
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown",'templates',

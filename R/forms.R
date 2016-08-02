@@ -220,7 +220,7 @@ rmarkdown::pdf_document(...,
 buildForms <- function(yml = 'metadata.yml',...) {
 
   meta <- readLines(yml)
-  
+  meta <- unlist(lapply(meta, FUN = function(x) {gsub('\"', "'", x)}))
   writeLines(meta, con = system.file('rmd','forms','metadata.yml', package = 'AFIT'))
   
   outdir  <- paste(c(dirname(yml),'forms'), collapse = '/')

@@ -118,6 +118,15 @@ noTouch <- function(file = NULL) {
   yaml$distribution_statement$E <- checkIT(yaml$distribution_statement$E)
   yaml$distribution_statement$F <- checkIT(yaml$distribution_statement$F)
 
+  yaml$advisor$email <- gsub('"','',yaml$advisor$email)
+  yaml$advisor$email <- gsub("'",'',yaml$advisor$email)
+  yaml$advisor$email <- gsub('@','\\\\@',yaml$advisor$email)
+  
+  yaml$author$email <- gsub('"','',yaml$author$email)
+  yaml$author$email <- gsub("'",'',yaml$author$email)
+  yaml$author$email <- gsub('@','\\\\@',yaml$author$email)
+  
+  #yaml <- unlist(lapply(yaml, FUN = function(x) {gsub('\"', '', x)}))
   
   return(yaml)
 }

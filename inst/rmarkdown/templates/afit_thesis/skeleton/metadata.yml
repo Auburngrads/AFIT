@@ -18,7 +18,7 @@ advisor:
   service: 'usaf' # Use abbreviation - leave blank if NA
   currentDegree: 'PhD'
   phone: '937-255-3636 x4676'
-  email: "jason.freelsafit.edu"
+  email: "jason.freels@afit.edu"
 reader1:
   name: 'Michael R. Grimaila'  # First Reader
   department: 'ENV' # Use three-letter designator
