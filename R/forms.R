@@ -17,6 +17,9 @@
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown pandoc_path_arg
+#' @importFrom rmarkdown includes
+#' @importFrom rmarkdown includes_to_pandoc_args
 #' @examples
 #'
 #' \dontrun{
@@ -32,6 +35,9 @@ public_affairs <- function(...,
                             template = "PAform.tex",
                             format = "afit_prospectus") {
   
+   #eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
+   #eforms <- rmarkdown::includes(in_header = eforms)
+   #eforms <- rmarkdown::pandoc_include_args(in_header = eforms)
    rmarkdown::pdf_document(...,
                            template = system.file("rmd", 
                                                   "tex", 
@@ -59,6 +65,7 @@ public_affairs <- function(...,
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown pandoc_path_arg
 #' @examples
 #'
 #' \dontrun{
@@ -71,6 +78,8 @@ distro_form <- function(...,
                         md_extensions = c("-autolink_bare_uris"),
                         template = "distroForm.tex") {
   
+#eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
+  
 rmarkdown::pdf_document(...,
                         template = system.file("rmd", 
                                                "tex", 
@@ -78,6 +87,7 @@ rmarkdown::pdf_document(...,
                                                package = "AFIT"),
                         keep_tex = keep_tex,
                         pandoc_args = c('--listings'))
+                        #includes = rmarkdown::includes(in_header = eforms))
 }
 
 
@@ -97,6 +107,7 @@ rmarkdown::pdf_document(...,
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown pandoc_path_arg
 #' @examples
 #'
 #' \dontrun{
@@ -108,7 +119,9 @@ sf298 <- function(...,
                   keep_tex = FALSE,
                   md_extensions = c("-autolink_bare_uris"),
                   template = "sf298.tex") {
-  
+
+#eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
+
 rmarkdown::pdf_document(...,
                         template = system.file("rmd", 
                                                "tex", 
@@ -116,6 +129,7 @@ rmarkdown::pdf_document(...,
                                                package = "AFIT"),
                         keep_tex = keep_tex,
                         pandoc_args = c('--listings'))
+                        #includes = rmarkdown::includes(in_header = eforms))
 }
 
 
@@ -135,6 +149,7 @@ rmarkdown::pdf_document(...,
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown pandoc_path_arg
 #' @examples
 #'
 #' \dontrun{
@@ -146,14 +161,17 @@ signature_form <- function(...,
                   keep_tex = FALSE,
                   md_extensions = c("-autolink_bare_uris"),
                   template = "signatureForm.tex") {
-  
-   rmarkdown::pdf_document(...,
-                           template = system.file("rmd", 
-                                                  "tex", 
-                                                  template,
-                                                  package = "AFIT"),
-                           keep_tex = keep_tex,
-                           pandoc_args = c('--listings'))
+
+#eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
+
+rmarkdown::pdf_document(...,
+                        template = system.file("rmd", 
+                                               "tex", 
+                                               template,
+                                               package = "AFIT"),
+                        keep_tex = keep_tex,
+                        pandoc_args = c('--listings'))
+                        #includes = rmarkdown::includes(in_header = eforms))
 }
 
 
@@ -173,6 +191,7 @@ signature_form <- function(...,
 #'
 #' @importFrom rmarkdown pdf_document
 #' @importFrom rmarkdown pandoc_highlight_args
+#' @importFrom rmarkdown pandoc_path_arg
 #' @examples
 #'
 #' \dontrun{
@@ -185,20 +204,34 @@ training_report <- function(...,
                   md_extensions = c("-autolink_bare_uris"),
                   template = "trainingReport.tex") {
   
-    rmarkdown::pdf_document(...,
-                            template = system.file("rmd", 
-                                                   "tex", 
-                                                   template,
-                                                   package = "AFIT"),
-                            keep_tex = keep_tex,
-                            pandoc_args = c('--listings'))
+#eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
+  
+rmarkdown::pdf_document(...,
+                        template = system.file("rmd", 
+                                               "tex", 
+                                               template,
+                                               package = "AFIT"),
+                        keep_tex = keep_tex,
+                        pandoc_args = c('--listings'))
+                        #includes = includes(in_header = eforms))
 }
 
 
-# makeForms <- function(yml = NULL,...) {
-#   
-#   forms <- system.file('rmd','forms', package = 'AFIT')
-#   forms <- list.files(forms)
-#   
-#   
-# }
+buildForms <- function(yml = 'metadata.yml',...) {
+
+  meta <- readLines(yml)
+  
+  writeLines(meta, con = system.file('rmd','forms','metadata.yml', package = 'AFIT'))
+  
+  outdir  <- paste(c(dirname(yml),'forms'), collapse = '/')
+  
+  forms <- list(
+  sf298  <- system.file('rmd','forms','sf298.Rmd', package = 'AFIT'),
+  distro <- system.file('rmd','forms','distributionForm.Rmd', package = 'AFIT'),
+  public <- system.file('rmd','forms','PAform.Rmd', package = 'AFIT'),
+  signit <- system.file('rmd','forms','signatureForm.Rmd', package = 'AFIT'),
+  report <- system.file('rmd','forms','trainingReport.Rmd', package = 'AFIT'))
+  
+  lapply(forms, FUN = function(x) {rmarkdown::render(x, output_dir = outdir)})
+
+}
