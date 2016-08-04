@@ -113,7 +113,7 @@
 \scriptsize *NAME & \textField[\TU{ }\V{$if(author.name)$$author.name$$else$Ima B. Smart$endif$}]{autname}{.265\textwidth}{.4cm}\\[4pt]
 \scriptsize *PHONE & \textField[\TU{ }\V{$if(author.phone)$$author.phone$$else$800-555-5555$endif$}]{autphone}{.265\textwidth}{.4cm}\\[4pt]
 \scriptsize ORG/OFC SYMBOL & \textField[\TU{ }\V{AFIT/$if(author.department)$$author.department$$else$EN$endif$}]{autorg}{.265\textwidth}{.4cm}\\[4pt]
-\scriptsize EMAIL & \textField[\TU{ }\V{ima.smart@us.af.mil}]{autemail}{.265\textwidth}{.4cm}
+\scriptsize EMAIL & \textField[\TU{ }\V{$if(author.email1)$$author.email1$$else$ima.smart$endif$@$if(author.email2)$$author.email2$$else$us.af.mil$endif$}]{autemail}{.265\textwidth}{.4cm}
 \end{tabular}
 }\\
 \hline

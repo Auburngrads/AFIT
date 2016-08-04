@@ -1,16 +1,21 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[vmargin = .2in, hmargin = .4in]{geometry}
 \usepackage{hyperref}
 \usepackage{../tex/eforms}
 \usepackage[font={bf,footnotesize},labelsep=period]{caption}
+\usepackage[vmargin = .2in, hmargin = .4in]{geometry}
 \usepackage{setspace}
+\usepackage{color}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{wasysym}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{bigstrut}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{ifthen}
 \usepackage{graphicx}
+\usepackage{color}
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \begin{document}
@@ -73,7 +78,7 @@
 \parbox[][\rhIII][c]{.45\textwidth}{
 \vspace{1pt}
 \small 2. REPORT TYPE\\[2pt]
-\textField[\TU{ }\V{$if(doctype)$$doctype$$else$Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(doctype)$$doctype$$else$Master's Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhIII][c]{0.30\textwidth}{
@@ -91,7 +96,7 @@
 \parbox[][\rhIV][c]{0.65\textwidth}{
 \vspace{-25pt}
 \small 4. TITLE AND SUBTITLE\\[2pt]
-\textField[\Ff{\FfMultiline}\textSize{11}\TU{ }\V{$if(title)$\uppercase{$title$}$else$A GREAT TITLE$endif$}]{sf4}{.64\textwidth}{2.4cm}
+\textField[\Ff{\FfMultiline}\textSize{11}\TU{ }\V{\n\n\textbf{$if(title)$$title$$else$A Great Title$endif$}}]{sf4}{.64\textwidth}{2.4cm}
 }} &
 
 \parbox[][0.33\rhIV][c]{0.35\textwidth}{
@@ -108,7 +113,7 @@
 
 \parbox[][0.33\rhIV][c]{0.35\textwidth}{
 \small 5c. PROGRAM ELEMENT NUMBER\\[2pt]
-\textField[\TU{ }\V{$if(prognum)$$prognum$$endif$}]{sf5c}{.34\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(programnum)$$programnum$$endif$}]{sf5c}{.34\textwidth}{0.4cm}
 }\bigstrut\\\hline
 \end{tabular}}
 %==================================================================
@@ -120,12 +125,12 @@
 \parbox[][\rhV][c]{0.65\textwidth}{
 \vspace{-25pt}
 \small 6. AUTHOR(S)\\[2pt]
-\textField[\textSize{11}\Ff{\FfMultiline}\TU{ }\V{$if(sf298.name)$$sf298.name$$else$Smart, Ima, B. Supreme Allied Commander, USAF$endif$}]{sf6}{.64\textwidth}{2.4cm}
+\textField[\textSize{11}\Ff{\FfMultiline}\TU{ }\V{$if(author)$$author$$else$Smart, Ima, B. Supreme Allied Commander, USAF$endif$}]{sf6}{.64\textwidth}{2.4cm}
 }} & 
 
 \parbox[][0.33\rhIV][c]{0.35\textwidth}{
 \small 5d. PROJECT NUMBER\\[2pt]
-\textField[\TU{ }\V{$if(projnum)$$projnum$$endif$}]{sf5d}{.34\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(projectnum)$$projectnum$$endif$}]{sf5d}{.34\textwidth}{0.4cm}
 }\bigstrut\\\cline{2-2}
 &
 
@@ -137,7 +142,7 @@
 
 \parbox[][0.33\rhIV][c]{0.35\textwidth}{
 \small 5f. WORK UNIT NUMBER\\[2pt]
-\textField[\TU{ }\V{$if(worknum)$$worknum$$endif$}]{sf5f}{.34\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(workunitnum)$$workunitnum$$endif$}]{sf5f}{.34\textwidth}{0.4cm}
 }\bigstrut\\\hline
 \end{tabular}}
 %==================================================================
@@ -149,7 +154,7 @@
 \small 7. PERFORMING ORGANIZATION NAMES(S) AND ADDRESS(ES)\\[2pt]
 \textField[\Ff{\FfMultiline}\TU{ }\V{
 Air Force Institute of Technology\n
-Graduate School of Engineering and Management (AFIT/$if(author.dept)$$author.dept$$else$EN$endif$)\n
+Graduate School of Engineering and Management (AFIT/$if(department)$$department$$else$EN$endif$)\n
 2950 Hobson Way, Building 640\n
 WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 } \vrule\hspace{1pt}
@@ -241,7 +246,7 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 & & & & & \\ \cline{6-6}
 & & & & & \multirow{3}{0.4\textwidth}{\parbox[][0.5\rhXII][t]{0.4\textwidth}{\vspace{-10pt}
  \small 19b. TELEPHONE NUMBER (Include area code)\\[4pt]
- \textField[\textSize{10}\TU{ }\V{$if(advisor.phone)$$advisor.phone$$else$937-255-3636 x0000$endif$; $if(advisor.email)$$advisor.email$$else$email@afit.edu$endif$}]{sf19b}{.4\textwidth}{0.4cm}}}\\
+ \textField[\textSize{10}\TU{ }\V{$if(advisor.phone)$$advisor.phone$$else$937-255-3636 x0000$endif$; $if(advisor.email1)$$advisor.email1$$else$email$endif$@$if(advisor.email2)$$advisor.email2$$else$afit.edu$endif$}]{sf19b}{.4\textwidth}{0.4cm}}}\\
 & & & & & \\
 & & & & & \\ \cline{1-6}
  \end{tabular}}

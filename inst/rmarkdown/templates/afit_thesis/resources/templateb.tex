@@ -7,54 +7,56 @@
 \usepackage[pdftex]{graphicx}
 \DeclareGraphicsExtensions{.jpg, .pdf, .png}
 \usepackage{hyperref}
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
 \usepackage{eforms}
 \usepackage{bigstrut, multirow}
-\usepackage{titlesec}
 \usepackage{ifthen}
 \usepackage[scaled=.8]{helvet}
 \newenvironment{myfont}{\fontfamily{phv}\selectfont}{\par}
-% \usepackage[font={bf,footnotesize},labelsep=period]{caption}
-% \usepackage{indentfirst}
-% \usepackage{float}
-% \usepackage{flafter}
-% \usepackage{amssymb,amsmath,amsfonts}
-% \usepackage{theorem}
-% \usepackage[square]{natbib}
-% \usepackage{varioref} 
-% \usepackage{tocbibind} 
-% \usepackage{xspace}
+\usepackage[font={bf,footnotesize},labelsep=period]{caption}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{flafter}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{theorem}
+\usepackage[square]{natbib}
+\usepackage{varioref} 
+%\usepackage{tocbibind} 
+\usepackage{xspace}
 % \usepackage{fixltx2e}
-% \usepackage{threeparttable}
-% \usepackage{booktabs}
-% \usepackage{url}
-% \usepackage[raggedright]{titlesec}
-% \usepackage{titletoc}
-% \usepackage{ifpdf}
-% \usepackage{lastpage}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[raggedright]{titlesec}
+\usepackage{titletoc}
+\usepackage{ifpdf}
+\usepackage{lastpage}
 \providecommand{\tightlist}{%
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \let\proglang=\textsf
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 \def\code{}
-% %$if(listings)$
-% \usepackage{listings}
-% \usepackage{color}
-% \lstset{ %
-%   backgroundcolor=\color{LTgray},  % choose the background color
-%   basicstyle=\bf\normalsize,        % size of fonts used for the code
-%   breaklines=true,                 % automatic line breaking only at whitespace
-%   captionpos=b,                   % sets the caption-position to bottom
-%   commentstyle=\color{blue},    % comment style
-%   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-%   lineskip=-.5pt,
-%   keywordstyle=\color{Green},       % keyword style
-%   stringstyle=\color{mymauve},     % string literal style
-%   aboveskip=\medskipamount,
-%   belowskip=\medskipamount,
-%   frame=single,
-%   frameround=tttt,
-% }
-%$endif$
+$if(listings)$
+\usepackage{listings}
+\usepackage{color}
+\lstset{ %
+  backgroundcolor=\color{LTgray},  % choose the background color
+  basicstyle=\bf\normalsize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                   % sets the caption-position to bottom
+  commentstyle=\color{blue},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  lineskip=-.5pt,
+  keywordstyle=\color{Green},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  aboveskip=\medskipamount,
+  belowskip=\medskipamount,
+  frame=single,
+  frameround=tttt,
+}
+$endif$
 \def\afittocfootskip{0.41in}      %if above margins change, routines 
                                   %using this command may require 
                                   %retuning (alm)
@@ -73,30 +75,64 @@
 \renewcommand\thesubsubsection {\thesubsection.\arabic{subsubsection}}
 \renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
 \renewcommand\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
-
-%\ifnum\value{chapter}=1
-%{
-% 
+\renewcommand\thefigure        {\arabic{chapter}.\arabic{figure}} 
+%==================================================================
+%    		Customizing Chapter Titles               
+%==================================================================
 \titleformat
-{\chapter} % command
-[block] % shape
-{\bfseries\large\centering\MakeUppercase} % format
-{\thechapter. } % label
-{0ex} % sep
-{\vspace{-20pt}} % before-code
-[] % after-code
-
-%}
-% [\titleformat
-% {\chapter} % command
-% [block] % shape
-% {\bfseries\huge\centering\uppercase} % format
-% {\thechapter. } % label
-% {0ex} % sep
-% {} % before-code
-% [] % after-code
-% ]
-%\fi
+{\chapter}                                % command
+[block]                                   % shape
+{\bfseries\Large\centering\MakeUppercase} % format
+{\thechapter. }                           % label
+{0pt}                                     % sep
+{}                                        % before-code
+[]                                        % after-code
+\titlespacing{\chapter}{0pt}{0pt}{1.5cm}
+\titlecontents{chapter}
+[0.0cm]                                   % left margin
+{\vspace{0pt}}                            % above code
+{\contentslabel{1.5em}}                   % numbered format
+{}                                        % unnumbered format
+{\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
+[\vspace{6pt}]                            % above code
+%==================================================================
+%    		Customizing Section Titles               
+%==================================================================
+\titleformat
+{\section}                              % command
+[block]                                 % shape
+{\bfseries\large}                       % format
+{\thesection}                           % label
+{0pt}                                  % sep
+{}                                      % before-code
+[]                                      % after-code
+\titlespacing{\section}{0pt}{1cm}{1cm}  % Spacing within the document
+\titlecontents{section}
+[0.75cm]                                   % left margin in toc
+{\vspace{0pt}}                            % above code
+{\contentslabel{1.85em}}                   % numbered format
+{}                                        % unnumbered format
+{\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
+[\vspace{-3pt}]                            % above code
+%==================================================================
+%    		Customizing Subsection Titles               
+%==================================================================
+\titleformat
+{\subsection}                             % command
+[block]                                   % shape
+{\bfseries\normalsize\underline}          % format
+{\thesubsection}                          % label
+{0pt}                                     % sep
+{}                                        % before-code
+[]                                        % after-code
+\titlespacing{\subsection}{0pt}{0.5cm}{0.5cm}
+\titlecontents{subsection}
+[0.75cm]                                   % left margin in toc
+{\vspace{0pt}}                            % above code
+{}                                        % numbered format
+{\contentslabel}                          % unnumbered format
+{\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
+[\vspace{-3pt}] 
 
 \begin{document}
 
@@ -118,34 +154,29 @@
 \begin{titlepage}
  	\vfill
  	\begin{center}
- 	    \includegraphics[width=2.8in]{images/afitlogo}~\\
+ 	    \includegraphics[width=2.8in]{images/afitlogo}~\\[15pt]
  	    \centerline{
- 	      \begin{minipage}[t]{4.0in}\singlespace
+ 	      \begin{minipage}[t]{5.0in}\singlespace
  		\begin{center} 
- 		   \bf{$if(title)$\MakeUppercase{$title$}$else$A GREAT TITLE$endif$}
+ 		   \bf{$if(title)$\MakeUppercase{$title$}$else$TITLE NOT SPECIFIED$endif$}
  		\end{center}
  	      \end{minipage}
  	     }
- 	    \vspace*{0.40 in}
- 	    $if(document.type)$\MakeUppercase{$document.type$}$else$THESIS$endif$
- 	    \vspace{15pt}
- 	    $if(author.name)$$author.name$$else$Ima B. Smart$endif$$if(author.rank)$, $author.rank$$else$Supreme Allied Commander$endif$\\[-8pt]
- 	    $if(designator)$$designator$$endif$\\[20pt]
+ 	     \vspace{30pt}
+ 	    $if(doctype)$\MakeUppercase{$doctype$}$else$DOCTYPE NOT SPECIFIED$endif$\\[25pt]
+ 	    $if(author.name)$$author.name$$else$AUTHOR NAME NOT SPECIFIED$endif$$if(author.rank)$, $author.rank$$endif$\\[15pt]
+ 	    $if(designator)$$designator$$else$DESIGNATOR NOT SPECIFIED$endif$\\[15pt]
  	    \begin{bfseries}
- 		\textsf{DEPARTMENT OF THE AIR FORCE}\\
- 		\textsf{AIR UNIVERSITY}\\[20pt]
+ 		\textsf{\large\fontfamily{phv}DEPARTMENT OF THE AIR FORCE}\\[-2pt]
+ 		\textsf{\large\fontfamily{phv}AIR UNIVERSITY}\\[20pt]
  		\textsl{\Large AIR FORCE INSTITUTE OF TECHNOLOGY}\\[-8pt]
- 		\rule{5.8in}{0.8mm}\\[-12pt]
- 		\rule{5.8in}{0.3mm}\\%[-15pt]
+ 		\rule{5.8in}{1mm}\\[-12pt]
+ 		\rule{5.8in}{0.3mm}\\[8pt]
  		\textsf{Wright-Patterson Air Force Base, Ohio}\\[15pt]
  	    \end{bfseries}
- 	    $if(distribution)$
- 	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\[-8pt]
- 	    \MakeUppercase{approved for public release; distribution unlimited}
- 	    $else$
- 	    \MakeUppercase{\textbf{distribution statement a.}}\\[-8pt]
- 	    \MakeUppercase{Approved for Public Release; distribution unlimited}
- 	    $endif$
+ 	    \vspace{10pt}
+ 	    \MakeUppercase{\textbf{distribution statement $if(distro1)$$distro1$$else$A$endif$.}}\\[-1pt]
+ 	    \MakeUppercase{$if(distro2)$$distro2$$else$approved for public release; distribution unlimited$endif$.}
  	\end{center}%
  	\vfill
  	\newpage 
@@ -173,34 +204,29 @@ United States
 %==================================================================
     \begin{titlepage}
 	\thispagestyle{empty}
-	\noindent $designator$  
+	\noindent $if(designator)$$designator$$else$DESIGNATOR NOT SPECIFIED$endif$  
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title$}\par
+	    \MakeUppercase{$if(title)$$title$$else$TITLE NOT SPECIFIED$endif$}\par
 	    \vskip 1cm
-	    \MakeUppercase{thesis}\par
+	    \MakeUppercase{$if(doctype)$$doctype$$else$DOCTYPE NOT SPECIFIED$endif$}\par
 	    \vskip 1cm
 	    Presented to the Faculty\\
-	    $author.department$\\
+	    $if(author.dept)$$author.dept$$else$AUTHOR DEPARTMENT NOT SPECIFIED$endif$\\
 	    Graduate School of Engineering and Management~\\
 	    Air Force Institute of Technology~\\
 	    Air University~\\
 	    Air Education and Training Command~\\
 	    in Partial Fulfillment of the Requirements for the~\\
-	    Degree of $degree$\\
+	    Degree of $if(degree)$$degree$$else$Master of Science$endif$ in $if(program)$$program$$else$Systems Engineering$endif$\\
 	    \vskip 1cm
-	    {$author.name$, $prevdegree$\par}
-	    {$author.rank$$if(author.service)$, \MakeUppercase{$author.service$}$endif$}
+	    {$if(author.name)$$author.name$$else$AUTHOR NAME NOT SPECIFIED$endif$$if(author.prevdegree)$, $author.prevdegree$$endif$\par}
+	    {$if(author.rank)$$author.rank$$endif$$if(author.service)$, \MakeUppercase{$author.service$}$else$USAF$endif$}
 	    \vskip 1cm
-	    $graddate$
+	    $if(graddate)$$graddate$$else$GRAD DATE NOT SPECIFIED$endif$
 	    \vskip 1cm
-	    $if(distribution)$
-	    \MakeUppercase{\textbf{distribution statement $distribution$.}}\\[-8pt]
-	    \MakeUppercase{approved for public release; distribution unlimited}
-	    $else$
-	    \MakeUppercase{\textbf{distribution statement a.}}\\[-8pt]
-	    \MakeUppercase{Approved for Public Release; distribution unlimited}
-	    $endif$	    
+	    \MakeUppercase{\textbf{distribution statement $if(distro1)$$distro1$$else$A$endif$.}}\\[-8pt]
+	    \MakeUppercase{$if(distro2)$$distro2$$else$approved for public release; distribution unlimited$endif$.}
 	    \vfill
 	\end{center}
 	\newpage 
@@ -211,16 +237,16 @@ United States
 %==================================================================
 	\thispagestyle{empty}
 	\setcounter{page}{3}
-	\noindent $designator$
+	\noindent $if(designator)$$designator$$else$DESIGNATOR NOT SPECIFIED$endif$
 	\vfill
 	\begin{center}
-	    \MakeUppercase{$title$}\\[10pt]
-	    \MakeUppercase{thesis}\\[10pt]
+	    \MakeUppercase{$if(title)$$title$$else$TITLE NOT SPECIFIED$endif$}\\[10pt]
+	    \MakeUppercase{$if(doctype)$$doctype$$else$DOCTYPE NOT SPECIFIED$endif$}\\*[10pt]
 	    
 	    \begingroup
   \singlespace
-    $author.name$, $author.prevdegree$\\ 
-    $if(author.rank)$$author.rank$$endif$
+    $if(author.name)$$author.name$$else$AUTHOR NAME NOT SPECIFIED$endif$$if(author.prevdegree)$, $author.prevdegree$$endif$\\ 
+    $if(author.rank)$$author.rank$$else$Provide Rank or 'Civilian'$endif$$if(author.service)$, \MakeUppercase{$author.service$}$endif$
     \par
   \endgroup
   
@@ -230,43 +256,68 @@ United States
 	
 	\begingroup
   \singlespace
-    $advisor.name$, $advisor.prevdegree$\\ 
-    $if(advisor.rank)$$advisor.rank$$endif$
+    $if(advisor.rank)$$advisor.rank$ $endif$$if(advisor.name)$$advisor.name$$else$Provide Advisor Name$endif$$if(author.prevdegree)$, $advisor.prevdegree$$endif$\\ 
+    Chairman
     \par
   \endgroup
   \bigskip\bigskip
   
   \begingroup
   \singlespace
-    $reader1.name$, $reader1.prevdegree$\\ 
-    $if(reader1.rank)$$reader1.rank$$endif$
+    $if(reader1.rank)$$reader1.rank$ $endif$$if(reader1.name)$$reader1.name$$else$Committee Member 1 Name$endif$$if(reader1.prevdegree)$, $reader1.prevdegree$$endif$\\ 
+    Member
     \par
   \endgroup
   \bigskip\bigskip
   
   \begingroup
   \singlespace
-    $reader2.name$, $reader2.prevdegree$\\ 
-    $if(reader2.rank)$$reader2.rank$$endif$
+    $if(reader2.rank)$$reader2.rank$ $endif$$if(reader2.name)$$reader2.name$$else$Committee Member 2 Name$endif$$if(reader2.prevdegree)$, $reader2.prevdegree$$endif$\\ 
+    Member
     \par
   \endgroup
   \bigskip\bigskip
   
+  $if(reader3.name)$
   \begingroup
   \singlespace
-    $reader3.name$, $reader3.prevdegree$\\ 
-    $if(reader3.rank)$$reader3.rank$$endif$
+    $if(reader3.rank)$$reader3.rank$ $endif$$if(reader3.name)$$reader3.name$$else$Committee Member 3 Name$endif$$if(reader3.prevdegree)$, $reader3.prevdegree$$endif$\\ 
+    Member
     \par
   \endgroup
+  \bigskip\bigskip
+  $endif$
+  
+  $if(reader4.name)$
+  \begingroup
+  \singlespace
+    $if(reader4.rank)$$reader4.rank$ $endif$$if(reader4.name)$$reader4.name$$else$Committee Member 4 Name$endif$$if(reader4.prevdegree)$, $reader4.prevdegree$$endif$\\ 
+    Member
+    \par
+  \endgroup
+  \bigskip\bigskip
+  $endif$
+  
+  $if(dissertation)$
+  \bigskip
+  \begingroup
+  \singlespace
+    ADEDEJI B. BADIRU, Ph.D.\\ 
+    Dean, Graduate School of Engineering and Management
+    \par
+  \endgroup
+  $endif$
 	\end{center}
 	\vfill
 	\newpage
+	\setcounter{page}{4}
+	\renewcommand{\thepage}{\roman{page}}
 %==================================================================
 %    		Dedication Environment              
 %==================================================================
 $if(dedication)$
        \noindent 
-       $designator$
+       $if(designator)$$designator$$else$DESIGNATOR NOT SPECIFIED$endif$
        \vfill
        \begin{center}
 	   \em{$dedication$}
@@ -277,15 +328,14 @@ $endif$
 %==================================================================
 %    	        ACKNOWLEDGEMENTS           
 %==================================================================
-$if(acknowledgements)$
-\newenvironment{acknowledgements}{\ackhead}{\acktail}
-\newenvironment{acknowledgments}{\ackhead}{\acktail}
-
- \def\ackhead{\chapter*{Acknowledgements}
-  \addcontentsline{toc}{chapter}{Acknowledgements}
-  \addtocontents{toc}{\protect\addvspace{10\p@}}
- }
- \def\acktail{\par \null\vspace*{.75in}\hspace*{3in} \@author \newpage} 
+$if(acknowledge)$
+\thispagestyle{plain}
+    \begin{center}
+	\Large\bfseries Acknowledgements
+    \end{center}
+    \vspace{3em}
+    $acknowledge$
+ \newpage
 $endif$
 %==================================================================
 %    	        PREFACE           
@@ -294,42 +344,47 @@ $if(preface)$
 \newenvironment{preface}{
 \chapter*{Preface}     
 \addcontentsline{toc}{chapter}{Preface}
-\addtocontents{toc}{\protect\addvspace{10\p@}}
-}{}
+\addtocontents{toc}{\protect\addvspace{5\p@}}
+}{$preface$}
 $endif$
 %==================================================================
 %    		ABSTRACT Environment              
 %==================================================================
     \thispagestyle{plain}
     \addcontentsline{toc}{chapter}{Abstract}
-    \addtocontents{toc}{\protect\addvspace{10pt}}
+    %\addtocontents{toc}{\protect\addvspace{5pt}}
     \noindent $designator$
     \begin{center}
-	\large\bfseries Abstract
+	\Large\bfseries Abstract
     \end{center}
     \vspace{2em}
     $abstract$
 %==================================================================
 %    		Table of Contents              
 %==================================================================
-\renewcommand\contentsname{\centering \large Table of Contents}
+\renewcommand\contentsname{\centering \Large Table of Contents}
 \tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
 \newpage
 %==================================================================
 %    		List of Tables              
 %==================================================================
-\renewcommand\listtablename{\centering \large List of Tables}
+\renewcommand\listtablename{\centering \Large List of Tables}
+\addtocontents{lot}{\textbf{Table}\hfill\textbf{Page}\par}
 \listoftables
 \newpage
 %==================================================================
 %    		List of Figures              
 %==================================================================
-\renewcommand\listfigurename{\centering \large List of Figures}
+\renewcommand\listfigurename{\centering \Large List of Figures}
+\addtocontents{lof}{\textbf{Figure}\hfill\textbf{Page}\par}
 \listoffigures
 \newpage
 %==================================================================
 %    		Document Body              
 %==================================================================
+\setcounter{page}{1}
+	\renewcommand{\thepage}{\arabic{page}}
 $body$
 \newpage
 %==================================================================
@@ -398,7 +453,7 @@ $body$
 \parbox[][\rhIII][c]{.45\textwidth}{
 \vspace{1pt}
 \small 2. REPORT TYPE\\[2pt]
-\textField[\TU{ }\V{$if(document.type)$$document.type$$else$Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(doctype)$$doctype$$else$Master's Thesis$endif$}]{sf2}{.44\textwidth}{0.4cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhIII][c]{0.30\textwidth}{
@@ -492,18 +547,22 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 \multirow{2}*{
 \parbox[][\rhVII][c]{0.70\textwidth}{\vspace{-20pt}
 \small 9. SPONSORING/MONITORING AGENCY NAME(S) AND ADDRESS(ES)\\[2pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{}]{sf9}{.69\textwidth}{1.8cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{$if(sponsor.title)$$sponsor.title$$endif$\n
+$if(sponsor.subtitle)$$sponsor.subtitle$$endif$\n
+$if(sponsor.address1)$$sponsor.address1$$endif$\n
+$if(sponsor.address2)$$sponsor.address2$$endif$\n
+$if(sponsor.phone)$$sponsor.phone$$endif$$if(sponsor.email1)$, $sponsor.email1$$endif$$if(sponsor.email2)$@$sponsor.email2$$endif$}]{sf9}{.69\textwidth}{1.8cm}
 }} & 
 
 \parbox[][0.425\rhVII][c]{0.30\textwidth}{
 \small 10. SPONSOR/MONITOR ACRONYM(S)\\[2pt]
-\textField[\TU{ }\V{$if(date)$\uppercase{$date$}$else$16-07-2016$endif$}]{sf10}{.29\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(sponsor.acronym)$\uppercase{$sponsor.acronym$}$endif$}]{sf10}{.29\textwidth}{0.4cm}
 }\bigstrut\\\cline{2-2}
 &
 
 \parbox[][0.575\rhVII][c]{0.30\textwidth}{\vspace{-10pt}
 \small \begin{spacing}{0.75}\begin{tabbing}11. \=SPONSOR/MONITOR REPORT \\\> NUMBER(S)\end{tabbing}\end{spacing}\vspace{-10pt}
-\textField[\TU{ }\V{$if(date)$\uppercase{$date$}$else$16-07-2016$endif$}]{sf11}{.29\textwidth}{0.4cm}
+\textField[\TU{ }\V{$if(sponsor.rptnum)$$sponsor.rptnum$$endif$}]{sf11}{.29\textwidth}{0.4cm}
 }\bigstrut\\\hline
 \end{tabular}}
 %==================================================================
@@ -566,7 +625,7 @@ WPAFB OH 45433-7301}]{sf7}{.69\textwidth}{1.8cm}
 & & & & & \\ \cline{6-6}
 & & & & & \multirow{3}{0.4\textwidth}{\parbox[][0.5\rhXII][t]{0.4\textwidth}{\vspace{-10pt}
 \small 19b. PHONE NUMBER (Include area code)\\[4pt]
-\textField[\textSize{10}\TU{ }\V{}]{sf19b}{.4\textwidth}{0.4cm}}} \\
+\textField[\textSize{10}\TU{ }\V{$if(advisor.phone)$$advisor.phone$$else$937-255-3636 x5555$endif$$if(advisor.email1)$$advisor.email1$$else$advisor$endif$@$if(advisor.email2)$$advisor.email2$$else$afit.edu$endif$}]{sf19b}{.4\textwidth}{0.4cm}}} \\
 & & & & & \\
 & & & & & \\ \cline{1-6}
 \end{tabular}}

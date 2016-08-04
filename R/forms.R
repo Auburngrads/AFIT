@@ -217,7 +217,7 @@ rmarkdown::pdf_document(...,
 }
 
 
-buildForms <- function(yml = 'metadata.yml',...) {
+buildForms <- function(yml = 'metadata.yml',which = NULL,...) {
 
   meta <- readLines(yml)
   meta <- unlist(lapply(meta, FUN = function(x) {gsub('\"', "'", x)}))
@@ -232,6 +232,11 @@ buildForms <- function(yml = 'metadata.yml',...) {
   signit <- system.file('rmd','forms','signatureForm.Rmd', package = 'AFIT'),
   report <- system.file('rmd','forms','trainingReport.Rmd', package = 'AFIT'))
   
+  if(!is.null(which)) {rmarkdown::render(input = forms[[which]], output_dir = outdir)
+    
+  } else {
+      
   lapply(forms, FUN = function(x) {rmarkdown::render(x, output_dir = outdir)})
-
+  
+    }
 }

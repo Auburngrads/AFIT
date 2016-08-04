@@ -11,7 +11,8 @@ author:
   service:    "`r AFIT:::noTouch('metadata.yml')$author$service`"
   degree:     "`r AFIT:::noTouch('metadata.yml')$author$currentDegree`"
   phone:      "`r AFIT:::noTouch('metadata.yml')$author$phone`"
-  email:      "`r AFIT:::noTouch('metadata.yml')$author$email`"
+  email1:     "`r AFIT:::noTouch('metadata.yml')$author$email1`"
+  email2:     "`r AFIT:::noTouch('metadata.yml')$author$email2`"
 advisor:
   name:       "`r AFIT:::noTouch('metadata.yml')$advisor$name`"
   department: "`r AFIT:::noTouch('metadata.yml')$advisor$ofcsymbol`"
@@ -19,7 +20,8 @@ advisor:
   service:    "`r AFIT:::noTouch('metadata.yml')$advisor$service`"
   degree:     "`r AFIT:::noTouch('metadata.yml')$advisor$currentDegree`"
   phone:      "`r AFIT:::noTouch('metadata.yml')$advisor$phone`"
-  email:      "`r AFIT:::noTouch('metadata.yml')$advisor$email`"
+  email1:     "`r AFIT:::noTouch('metadata.yml')$advisor$email1`"
+  email2:     "`r AFIT:::noTouch('metadata.yml')$advisor$email1`"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT:::public_affairs
 ---

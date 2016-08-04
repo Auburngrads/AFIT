@@ -58,13 +58,21 @@ noTouch <- function(file = NULL) {
                            'eny' = 'Bradley S. Liebst, PhD',
                            'enp' = 'Nancy C. Giles, PhD')
   
-  if(yaml$distribution_statement$A) yaml$distro_state <- 'Distribution A. Approved for public release: distribution unlimited.'
+  if(yaml$distribution_statement$A) yaml$distro_state <- 'Distribution A. Approved for public release; distribution unlimited.'
   if(yaml$distribution_statement$B) yaml$distro_state <- 'Distribution B. Distribution authorized to U.S. Government Agencies'
   if(yaml$distribution_statement$C) yaml$distro_state <- 'Distribution C. Distribution authorized to U.S. Government Agencies and their contractors'
   if(yaml$distribution_statement$D) yaml$distro_state <- 'Distribution D. Distribution authorized to Department of Defense and U.S. DoD contractors only'
   if(yaml$distribution_statement$E) yaml$distro_state <- 'Distribution E. Distribution authorized to DoD components only'
   if(yaml$distribution_statement$F) yaml$distro_state <- 'Distribution F. Further dissemination only as directed'
 
+  if(yaml$distribution_statement$A) yaml$distro_thesis <- c('A','Approved for public release; distribution unlimited.')
+  if(yaml$distribution_statement$B) yaml$distro_thesis <- c('B','Distribution authorized to U.S. Government Agencies')
+  if(yaml$distribution_statement$C) yaml$distro_thesis <- c('C','Distribution authorized to U.S. Government Agencies and their contractors')
+  if(yaml$distribution_statement$D) yaml$distro_thesis <- c('D','Distribution authorized to Department of Defense and U.S. DoD contractors only')
+  if(yaml$distribution_statement$E) yaml$distro_thesis <- c('E','Distribution authorized to DoD components only')
+  if(yaml$distribution_statement$F) yaml$distro-thesis <- c('F','Further dissemination only as directed')
+
+  
   if(!yaml$distribution_statement$F & !yaml$distribution_statement$A) {
 
   reason <- data.frame()
@@ -118,14 +126,25 @@ noTouch <- function(file = NULL) {
   yaml$distribution_statement$E <- checkIT(yaml$distribution_statement$E)
   yaml$distribution_statement$F <- checkIT(yaml$distribution_statement$F)
 
-  yaml$advisor$email <- gsub('"','',yaml$advisor$email)
-  yaml$advisor$email <- gsub("'",'',yaml$advisor$email)
-  yaml$advisor$email <- gsub('@','\\\\@',yaml$advisor$email)
+  if(tolower(yaml$document$type)%in%c('dissertation','prospectus')) {
+    yaml$dissertation <- TRUE
+    
+  } else { FALSE }
   
-  yaml$author$email <- gsub('"','',yaml$author$email)
-  yaml$author$email <- gsub("'",'',yaml$author$email)
-  yaml$author$email <- gsub('@','\\\\@',yaml$author$email)
+  # yaml$dissertation <- 'no'
+  # yaml$dissertation <-  'yes'
+  # yaml$dissertation <- if(tolower(yaml$document$type)=='prospectus')  'yes' 
+  yaml$dissertation <- checkIT(yaml$dissertation)
   
+  yaml$advisor$email1 <- try(unlist(strsplit(yaml$advisor$email,'@'))[1], silent = T)
+  yaml$advisor$email2 <- try(unlist(strsplit(yaml$advisor$email,'@'))[2], silent = T)
+  
+  yaml$author$email1 <- try(unlist(strsplit(yaml$author$email,'@'))[1], silent = T)
+  yaml$author$email2 <- try(unlist(strsplit(yaml$author$email,'@'))[2], silent = T)
+  
+  yaml$sponsor$email1 <- try(unlist(strsplit(yaml$sponsor$email,'@'))[1], silent = T)
+  yaml$sponsor$email2 <- try(unlist(strsplit(yaml$sponsor$email,'@'))[2], silent = T)
+    
   #yaml <- unlist(lapply(yaml, FUN = function(x) {gsub('\"', '', x)}))
   
   return(yaml)
