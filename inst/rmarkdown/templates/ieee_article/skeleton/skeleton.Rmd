@@ -2,7 +2,7 @@
 title: "Untitled"
 author: "Jason K Freels"
 date: "August 2, 2016"
-output: pdf_document
+output: AFIT:::ieee_article
 ---
 
 ```{r setup, include=FALSE}
