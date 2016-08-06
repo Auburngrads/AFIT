@@ -70,13 +70,92 @@ output: AFIT::afit_thesis
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitcitations)
+library(RefManageR)
 source('scripts/setup.R')
-knitcitations::cite_options(cite.style = "numeric")
+cite_options(citation_format = 'pandoc', 
+             cite.style = "numeric")
+bib <- read.bibtex('bibtex/my_bib.bib')
+berger = citet('10.2307/2291285')
 ```
 
-\chapter{Introduction}
+# Introduction
 
-# Background
+## Background
+
+There are many advantages to building your thesis in Rmarkdown, this paper advantage of `r try(berger)`
+
+# Citations
+
+## Citing published journal articles
+
+doi
+
+## Citing published books with an ISBN
+
+ISBN
+
+## Tables
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## plots
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## text
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## equations
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff. In-line equations are included within a line of text like this $y=mx^2+b$
+
+Display Equations stand out from the rest of the text:
+
+```{r}
+N <-30
+Y <-  sample(1:100, size = N)
+N;Y
+```
+
+$$\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}$$
+
+## code chunks
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Chunk options
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## headings
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## quotes
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## bibliography
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Symbols
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## images
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Acronyms
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+
+## Glossary
+
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
 This template demonstrates some of the basic latex you'll need to know to create a JSS article.
 
@@ -88,7 +167,15 @@ Don't use markdown, instead use the more precise latex commands:
 * \pkg{plyr}
 * \code{print("abc")}
 
-# R code
+### R code
+
+> This is a quote in markdown
+
+Paragraph.
+
+\begin{quote}
+This is a quote in \LaTeX
+\end{quote}
 
 Can be inserted in regular R markdown blocks.
 
@@ -96,13 +183,20 @@ Can be inserted in regular R markdown blocks.
 plot(rnorm(100), col = 2, pch = 16)
 ```
 
-\chapter{Literature Review}
+# Literature Review
 
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-\chapter{Methodology}
+# Methodology
 
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-\chapter{Analysis And Results}
+# Analysis And Results
 
+The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-\chapter{Conclusion}
+# Conclusion
+
+```{r, results='asis', message=FALSE}
+write.bibtex(file = 'bibtex/final_bib.bib')
+```
