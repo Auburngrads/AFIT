@@ -4,11 +4,12 @@ subtitle: "Subtitle"
 author: "me"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT::afit_presentation
+logo: images/shields.png
 ---
 
 ```{r echo=FALSE,message=FALSE, warning=FALSE}
 assign('dynamic', TRUE, envir = sys.frame(),immediate = TRUE)
-source(system.file('scripts','R','setup.R', package = 'AFIT'), local = TRUE)
+#source(system.file('scripts','R','setup.R', package = 'AFIT'), local = TRUE)
 library(knitcitations)
 library(AFIT)
 freels <- AFIT:::citeDTIC()

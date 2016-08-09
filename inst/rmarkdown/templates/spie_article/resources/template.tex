@@ -8,18 +8,22 @@
 \def\code{}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{color}
+\definecolor{myblue}{rgb}{0,0,0.6}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
 $if(listings)$
 \usepackage{listings}
-\usepackage{color}
 \lstset{ %
-  backgroundcolor=\color{LTgray},  % choose the background color
+  backgroundcolor=\color{mygray},  % choose the background color
   basicstyle=\bf\normalsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
   captionpos=b,                   % sets the caption-position to bottom
-  commentstyle=\color{blue},    % comment style
+  commentstyle=\color{myblue},    % comment style
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   lineskip=-.5pt,
-  keywordstyle=\color{Green},       % keyword style
+  keywordstyle=\color{mygreen},       % keyword style
   stringstyle=\color{mymauve},     % string literal style
   aboveskip=\medskipamount,
   belowskip=\medskipamount,

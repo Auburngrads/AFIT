@@ -10,7 +10,7 @@
 \hypersetup{%
     pdfborder = {0 0 0}
 }
-\usepackage{eforms}
+\usepackage{scripts/tex/eforms}
 \usepackage{bigstrut, multirow}
 \usepackage{ifthen}
 \usepackage[scaled=.8]{helvet}
@@ -39,15 +39,18 @@
 \let\proglang=\textsf
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 \def\code{}
+\usepackage{color}
+\definecolor{myblue}{rgb}{0,0,0.6}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
 $if(listings)$
 \usepackage{listings}
-\usepackage{color}
 \lstset{ %
-  backgroundcolor=\color{LTgray},  % choose the background color
+  backgroundcolor=\color{mygray},  % choose the background color
   basicstyle=\bf\normalsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
   captionpos=b,                   % sets the caption-position to bottom
-  commentstyle=\color{blue},    % comment style
+  commentstyle=\color{myblue},    % comment style
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   lineskip=-.5pt,
   keywordstyle=\color{Green},       % keyword style

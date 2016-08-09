@@ -66,13 +66,18 @@ graddate:   "`r AFIT:::noTouch('metadata.yml')$grad_date`"
 date:       "`r format(Sys.Date(), '%B %Y')`"
 sf298_date: "`r format(Sys.Date(), '%d-%m-%Y')`"
 dissertation: "`r AFIT:::noTouch('metadata.yml')$dissertation`"
-output: AFIT::afit_thesis
+output: 
+  AFIT::afit_thesis:
+    includes:
+      in_header:    scripts/tex/in_header.tex
+      before_body:  scripts/tex/before_body.tex
+      after_body:   scripts/tex/after_body.tex
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(knitcitations)
 library(RefManageR)
-source('scripts/setup.R')
+source('scripts/R/setup.R')
 cite_options(citation_format = 'pandoc', 
              cite.style = "numeric")
 bib <- read.bibtex('bibtex/my_bib.bib')

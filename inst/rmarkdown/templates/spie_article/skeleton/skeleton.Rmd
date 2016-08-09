@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 # Introduction
-\label{sect:intro}  allows reference to this section
+\label{sect:intro}  <!--This allows reference to this section-->
 This document shows the required format and appearance of a manuscript prepared for SPIE journals. Formatting guidelines must be carefully followed. Authors are advised to print this sample manuscript and use it as a reference while preparing their own paper, to ensure all guidelines are met.
 
 ## Use of This Document
@@ -83,7 +83,7 @@ The article title appears left justified at the top of the first page. The title
 The list of authors immediately follows the title, 18 points below. The font is 12 pt., bold and the author names are left justified. The author affiliations and addresses follow the names, in 10-pt., normal font and left justified. For multiple affiliations, each affiliation should appear on a separate line. Superscript letters (a, b, c, etc.) should be used to associate multiple authors with their respective affiliations. The corresponding author should be identified with an asterisk, and that person's email address should be provided below the keywords.
 
 # Abstract
-The abstract should be a concise summary of the paper. Because the abstract may be used in abstracting journals, it should be self-contained (that is, no numerical references) and substantive in nature, presenting concisely the objectives, methodology used, results obtained, and their significance. It should not exceed 200 words. For further guidelines, please read the brief article titled ``How to Write an Abstract (PDF),'' \\(\linkable{http://spie.org/Documents/Publications/How\%20to\%20Write\%20an\%20Abstract.pdf}) by Philip Koopman. (Courtesy of Philip Koopman, Carnegie Mellon University.) Note the underlined link must be written on a single line in order for the link to function. Thus, a break in the line, created with {\verb+\\+} is required before the link or the preceding text should be edited to gracefully place the link on a single line. This type of adjustment is best done at end of the manuscript-preparation process.
+The abstract should be a concise summary of the paper. Because the abstract may be used in abstracting journals, it should be self-contained (that is, no numerical references) and substantive in nature, presenting concisely the objectives, methodology used, results obtained, and their significance. It should not exceed 200 words. For further guidelines, please read the brief article titled "How to Write an Abstract (PDF)," (\linkable{http://spie.org/Documents/Publications/How\%20to\%20Write\%20an\%20Abstract.pdf}) by Philip Koopman. (Courtesy of Philip Koopman, Carnegie Mellon University.) Note the underlined link must be written on a single line in order for the link to function. Thus, a break in the line, created with {\verb+\\+} is required before the link or the preceding text should be edited to gracefully place the link on a single line. This type of adjustment is best done at end of the manuscript-preparation process.
 
 ## Keywords
 Up to eight keywords should be specified. 
@@ -107,7 +107,7 @@ In the acknowledgments section, which appears just before the references, the au
 ## References
 The References section lists books, articles, and reports that are cited in the paper. This section does not have a section number. The references are numbered in the order in which they are cited. Examples of the format to be followed are given at the end of this document.
 
-The reference list at the end of this document is created using BibTeX, which looks through the file `report.bib` for the entries cited in the LaTeX source file.  The format of the reference list is determined by the bibliography style file `spiejour.bst`, as specified in the \\ \verb|\bibliographystyle{spiejour}| command.  Alternatively, the references may be directly formatted in the LaTeX source file.
+The reference list at the end of this document is created using BibTeX, which looks through the file `report.bib` for the entries cited in the LaTeX source file.  The format of the reference list is determined by the bibliography style file `spiejour.bst`, as specified in the \verb|\bibliographystyle{spiejour}| command.  Alternatively, the references may be directly formatted in the LaTeX source file.
 
 For books\cite{Lamport94,Alred03,Goossens97} the listing includes the list of authors (initials plus last name), book title (in italics), page or chapter numbers, publisher, city, and year of publication.  Journal-article references \cite{Metropolis53,Harris06} include the author list, title of the article (in quotes), journal name (in italics, properly abbreviated), volume number (in bold), inclusive page numbers or citation identifier, and year.  A reference to a proceedings paper or a chapter in an edited book\cite{Gull89a} includes the author list, title of the article (in quotes), conference name (in italics), editors (if appropriate), volume title (in italics), volume number if applicable (in bold), inclusive page numbers, publisher, city, and year.  References to an article in the SPIE Proceedings may include the conference name, as shown in Ref.~\citenum{Hanson93c}.
 
@@ -143,7 +143,7 @@ Figures are numbered in the order in which they are called out in the text. They
 
 Figures, along with their captions, should be separated from the main text by  0.2 in.\ or 5 mm and centered. Figure captions are centered below the figure or graph. Figure captions start with the abbreviation ``Fig'' in front of the figure number, followed by a period, and the text in 10-pt. font. See Fig.~\ref{fig:example} for an example.
 
-Authors may wish to create figures consisting of two or more images, in which case, they should be neatly arranged in a rectangular array.  In no case, should the article's text be wrapped around a figure. Figure~\ref{fig:example2} shows two side-by-side images. When a figure contains more than one image, the author must submit them as a single image file. Further details about figure formatting can be found at \linkable{http://spie.org/x85020.xml\#Artwork}. 
+Authors may wish to create figures consisting of two or more images, in which case, they should be neatly arranged in a rectangular array.  In no case, should the article's text be wrapped around a figure. Figure~\ref{fig:example2} shows two side-by-side images. When a figure contains more than one image, the author must submit them as a single image file. Further details about figure formatting can be found at [http://spie.org/x85020.xml\#Artwork](http://spie.org/x85020.xml\#Artwork). 
 
 ## Tables
 Tables are numbered in the order in which they are referenced. They should appear in the document in numerical order and as close as possible to their first reference in the text. It is preferable to have tables appear at the top or bottom of the page, if possible. Table captions are handled identically to those for figures, except that they appear above the table. See Table~\ref{tab:fonts} for an example.
@@ -152,12 +152,15 @@ Tables are numbered in the order in which they are referenced. They should appea
 Please refer to the multimedia guidelines at \linkable{http://spie.org/x85020.xml\#Multimedia} for specific submission guidelines and requirements. The following types of multimedia files are accepted: QuickTime Non-Streaming video (.qt or .mov), MPEG (.mpg or .mp4). The recommended maximum size for each multimedia file is 10-12 MB. Authors must insert a representative still image from the video file in the manuscript as a figure. This still image will be linked by the publisher to the actual video file, as will the caption label. The video may also be mentioned in an existing figure caption. Multimedia files are treated in the same manner as figures and they will be numbered sequentially with normal figures.  The multimedia file type should be included in parentheses at the end of the figure caption, along with the file size. See Video \ref{vid:satellite} for an example.
 
 
-\appendix    % this command starts appendixes
+\appendix    <!--this command starts appendicies-->
 
 # Miscellaneous Formatting Details
 \label{sect:misc}
 At times it may be desired, for formatting reasons, to break a line without starting a new paragraph. In a LaTeX source file, a linebreak is created with \verb|\\|.
 
+```{r, fig.cap="A first plot"}
+plot(rnorm(100), pch = 16)
+```
 
 ## Formatting Equations
 Equations may appear inline with the text, if they are simple, short, and not of major importance; for example.  Important equations appear on their own line.  Such equations are centered.  For example, ``The expression for the field of view is
