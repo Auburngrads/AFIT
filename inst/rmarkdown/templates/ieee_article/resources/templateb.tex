@@ -245,8 +245,8 @@ $endif$
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
+\author{$if(author1.name)$$author1.name$$else$Author 1$endif$,~\IEEEmembership{$if(author1.affiliation)$$author1.affiliation$$endif$}
+        $if(author2.name)$, $author2.name$$endif$,~\IEEEmembership{$if(author2.affiliation)$$author2.affiliation$$endif$}
         and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
 \IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
 of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
