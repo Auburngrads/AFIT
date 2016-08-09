@@ -47,7 +47,8 @@ afit_thesis <- function(...,
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
-                          pandoc_args = c('--listings'))
+                          pandoc_args = c('--listings'),
+                          citation_package = 'natbib')
                           #includes = rmarkdown::includes(in_header = list(thesis)))
   
 #  pre_processor <- function(metadata, input_file, runtime, knit_meta, files_dir,

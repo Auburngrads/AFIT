@@ -25,27 +25,14 @@
 #' }
 #'
 #' @export
-ieee_article <- function(...,
+spie_article <- function(...,
                         keep_tex = FALSE,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,
-<<<<<<< HEAD
                         template = "template.tex",
-                        format = "ieee_article") {
+                        format = "spie_article") {
   
-  # thesis <- system.file("rmarkdown",
-  #                       'templates',
-  #                       format,
-  #                       'resources',
-  #                       'afitThesis2.sty',
-  #                       package = 'AFIT')
-  
-=======
-                        template = "templateb.tex",
-                        format = "ieee_article") {
-  
->>>>>>> 053477d6fa3744fe3103a30a0d3ad611e243f389
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown",'templates',
                                                  format,'resources',template,
@@ -53,12 +40,7 @@ ieee_article <- function(...,
                           fig_caption = fig_caption,
                           keep_tex = keep_tex,
                           toc = toc,
-<<<<<<< HEAD
-                          pandoc_args = c('--listings'))
-}
-=======
                           pandoc_args = c('--listings'),
                           citation_package = 'natbib')
 }
 
->>>>>>> 053477d6fa3744fe3103a30a0d3ad611e243f389

@@ -21,7 +21,7 @@ advisor:
   degree:     "`r AFIT:::noTouch('metadata.yml')$advisor$currentDegree`"
   phone:      "`r AFIT:::noTouch('metadata.yml')$advisor$phone`"
   email1:     "`r AFIT:::noTouch('metadata.yml')$advisor$email1`"
-  email2:     "`r AFIT:::noTouch('metadata.yml')$advisor$email1`"
+  email2:     "`r AFIT:::noTouch('metadata.yml')$advisor$email2`"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT:::public_affairs
 ---

@@ -10,7 +10,7 @@
 \hypersetup{%
     pdfborder = {0 0 0}
 }
-\usepackage{eforms}
+\usepackage{scripts/tex/eforms}
 \usepackage{bigstrut, multirow}
 \usepackage{ifthen}
 \usepackage[scaled=.8]{helvet}
@@ -21,7 +21,8 @@
 \usepackage{flafter}
 \usepackage{amssymb,amsmath,amsfonts}
 \usepackage{theorem}
-\usepackage[square]{natbib}
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
 \usepackage{varioref} 
 %\usepackage{tocbibind} 
 \usepackage{xspace}
@@ -38,15 +39,18 @@
 \let\proglang=\textsf
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 \def\code{}
+\usepackage{color}
+\definecolor{myblue}{rgb}{0,0,0.6}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
 $if(listings)$
 \usepackage{listings}
-\usepackage{color}
 \lstset{ %
-  backgroundcolor=\color{LTgray},  % choose the background color
+  backgroundcolor=\color{mygray},  % choose the background color
   basicstyle=\bf\normalsize,        % size of fonts used for the code
   breaklines=true,                 % automatic line breaking only at whitespace
   captionpos=b,                   % sets the caption-position to bottom
-  commentstyle=\color{blue},    % comment style
+  commentstyle=\color{myblue},    % comment style
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   lineskip=-.5pt,
   keywordstyle=\color{Green},       % keyword style
@@ -76,63 +80,73 @@ $endif$
 \renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
 \renewcommand\thesubparagraph  {\theparagraph.\arabic{subparagraph}}
 \renewcommand\thefigure        {\arabic{chapter}.\arabic{figure}} 
+\renewcommand\thetable         {\arabic{chapter}.\arabic{table}}
 %==================================================================
 %    		Customizing Chapter Titles               
 %==================================================================
 \titleformat
 {\chapter}                                % command
 [block]                                   % shape
-{\bfseries\Large\centering\MakeUppercase} % format
-{\thechapter. }                           % label
+{\bfseries\Large\centering\singlespace}   % format
+{\ifnum\value{chapter}=1
+\vspace{-30pt}
+	  \begin{spacing}{1.5}
+	  \MakeUppercase{\Large{$if(title)$$title$$else$My title$endif$}}
+	  \end{spacing}
+	  \vspace{35pt}
+	\thechapter.
+	\else
+	\thechapter.
+	\fi}                           % label
 {0pt}                                     % sep
 {}                                        % before-code
 []                                        % after-code
 \titlespacing{\chapter}{0pt}{0pt}{1.5cm}
 \titlecontents{chapter}
 [0.0cm]                                   % left margin
-{\vspace{0pt}}                            % above code
-{\contentslabel{1.5em}}                   % numbered format
+{\vspace{4pt}}                            % above code
+{\bfseries\contentslabel{2.0em}}          % numbered format
 {}                                        % unnumbered format
 {\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
-[\vspace{6pt}]                            % above code
+[\vspace{4pt}]                            % below code
 %==================================================================
 %    		Customizing Section Titles               
 %==================================================================
 \titleformat
 {\section}                              % command
 [block]                                 % shape
-{\bfseries\large}                       % format
-{\thesection}                           % label
+{\singlespace\bfseries\large}           % format
+{\thesection\quad}                           % label
 {0pt}                                  % sep
 {}                                      % before-code
 []                                      % after-code
-\titlespacing{\section}{0pt}{1cm}{1cm}  % Spacing within the document
+\titlespacing{\section}{0pt}{0.75cm}{0.75cm}  % Spacing within the document
 \titlecontents{section}
-[0.75cm]                                   % left margin in toc
-{\vspace{0pt}}                            % above code
-{\contentslabel{1.85em}}                   % numbered format
+[1cm]                                   % left margin in toc
+{\vspace{1pt}}                            % above code
+{\contentslabel{2.5em}}                   % numbered format
 {}                                        % unnumbered format
 {\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
-[\vspace{-3pt}]                            % above code
+[\vspace{1pt}]                            % below code
 %==================================================================
 %    		Customizing Subsection Titles               
 %==================================================================
 \titleformat
 {\subsection}                             % command
 [block]                                   % shape
-{\bfseries\normalsize\underline}          % format
-{\thesubsection}                          % label
+{\bfseries\normalsize\em}          % format
+{\thesubsection\quad}                          % label
 {0pt}                                     % sep
 {}                                        % before-code
 []                                        % after-code
 \titlespacing{\subsection}{0pt}{0.5cm}{0.5cm}
 \titlecontents{subsection}
-[0.75cm]                                   % left margin in toc
-{\vspace{0pt}}                            % above code
+[1cm]                                   % left margin in toc
+{\vspace{1pt}}                            % above code
 {}                                        % numbered format
 {\contentslabel}                          % unnumbered format
 {\titlerule*[0.5pc]{.}\contentspage}      % filler-page-format, e.g dot
-[\vspace{-3pt}] 
+[\vspace{1pt}]                            % below code 
 
 \begin{document}
 
@@ -344,15 +358,14 @@ $if(preface)$
 \newenvironment{preface}{
 \chapter*{Preface}     
 \addcontentsline{toc}{chapter}{Preface}
-\addtocontents{toc}{\protect\addvspace{5\p@}}
 }{$preface$}
 $endif$
 %==================================================================
 %    		ABSTRACT Environment              
 %==================================================================
     \thispagestyle{plain}
-    \addcontentsline{toc}{chapter}{Abstract}
-    %\addtocontents{toc}{\protect\addvspace{5pt}}
+    \addtocontents{toc}{~\hfill\textbf{Page}\par}
+    \addcontentsline{toc}{chapter}{\bfseries Abstract}
     \noindent $designator$
     \begin{center}
 	\Large\bfseries Abstract
@@ -363,14 +376,15 @@ $endif$
 %    		Table of Contents              
 %==================================================================
 \renewcommand\contentsname{\centering \Large Table of Contents}
+\singlespace
 \tableofcontents
-\addtocontents{toc}{~\hfill\textbf{Page}\par}
 \newpage
 %==================================================================
 %    		List of Tables              
 %==================================================================
 \renewcommand\listtablename{\centering \Large List of Tables}
 \addtocontents{lot}{\textbf{Table}\hfill\textbf{Page}\par}
+\addcontentsline{toc}{chapter}{\bfseries List of Tables}
 \listoftables
 \newpage
 %==================================================================
@@ -378,17 +392,41 @@ $endif$
 %==================================================================
 \renewcommand\listfigurename{\centering \Large List of Figures}
 \addtocontents{lof}{\textbf{Figure}\hfill\textbf{Page}\par}
+\addcontentsline{toc}{chapter}{\bfseries List of Figures}
 \listoffigures
 \newpage
 %==================================================================
 %    		Document Body              
 %==================================================================
+\setcounter{chapter}{0}
+\newgeometry{vmargin=1in,hmargin=1in}
+\doublespacing
 \setcounter{page}{1}
 	\renewcommand{\thepage}{\arabic{page}}
 $body$
 \newpage
 %==================================================================
-%    		Document Body              
+%    		Bibliography              
+%==================================================================
+\addcontentsline{toc}{chapter}{\bfseries Bibliography}
+\singlespace
+\bibliography{bibtex/final_bib}
+%==================================================================
+%    		Vita              
+%==================================================================
+$if(vita)$
+    \newpage
+    \addcontentsline{toc}{chapter}{\bfseries Vita}
+    \begin{center}
+	\Large\bfseries Vita
+    \end{center}
+    \vspace{2em}
+    \doublespacing
+    $vita$
+    \newpage
+$endif$
+%==================================================================
+%    		SF298             
 %==================================================================
 \pagestyle{empty}
 \newgeometry{vmargin=0.2in,hmargin=0.4in}
