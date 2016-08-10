@@ -246,13 +246,12 @@ $endif$
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
 \author{$if(author1.name)$$author1.name$$else$Author 1$endif$,~\IEEEmembership{$if(author1.IEEE)$$author1.IEEE$$endif$}$if(author2.name)$, $author2.name$,~\IEEEmembership{$if(author2.IEEE)$$author2.IEEE$$endif$}$endif$$if(author3.name)$, $author3.name$,~\IEEEmembership{$if(author3.IEEE)$$author3.IEEE$$endif$}$endif$% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332.\protect\\
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem $author1.name$ was with the Department of $author1.department$, $author1.organization$, $author1.city$, $author1.state$, $author1.zip$.\protect\\
 % note need leading \protect in front of \\ to get a newline within \thanks as
 % \\ is fragile and will error, could use \hfil\break instead.
-E-mail: see http://www.michaelshell.org/contact.html
-\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+E-mail: $author1.email$
+\IEEEcompsocthanksitem $if(author2.name)$$author2.name$ is with $author2.organization$$endif$.
+\IEEEcompsocthanksitem $if(author3.name)$$author3.name$ is with $author3.organization$$endif$.}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
@@ -319,12 +318,12 @@ $endif$
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+$abstract$
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
+$keywords$
 \end{IEEEkeywords}}
 
 
@@ -395,7 +394,7 @@ IEEEtran.cls version 1.8b and later.
 I wish you the best of success.
 
 \hfill mds
- 
+
 \hfill August 26, 2015
 
 \subsection{Subsection Heading Here}
@@ -603,22 +602,26 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to {\LaTeX}}, 3rd~ed.\hskip 1em plus
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
+\begin{IEEEbiography}{$author1.name$}
+$author1.bio$
 \end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
+$if(author2.name)$
+\begin{IEEEbiographynophoto}{$author2.name$}
+$author2.bio$
 \end{IEEEbiographynophoto}
+$endif$
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
+$if(author3.name)$
+\begin{IEEEbiographynophoto}{$author3.name$}
+$author3.bio$
 \end{IEEEbiographynophoto}
+$endif$
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
