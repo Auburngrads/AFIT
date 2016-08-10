@@ -2,10 +2,13 @@
 title: "Untitled"
 author1: 
   name: "Jason K Freels"
-  IEEE: "IEEE Member"#if not a member leave blank
+  IEEE: "IEEE Member"  #if not a member leave blank
   bio: >
     this is my bio
-author2:
+author2: 
+  name: "Corey DeGroot"
+  IEEE: "AFIT Member"
+author3:
   name:
   IEEE:
 date: "August 2, 2016"
