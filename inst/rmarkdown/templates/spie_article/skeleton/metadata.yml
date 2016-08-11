@@ -1,0 +1,37 @@
+title: "This is my title"
+author1: 
+  name: "Jason K Freels"
+  affiliation: "b"
+  university_name: "AFIT" 
+  faculty_group: 
+  department: "ENV"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: "45420"
+author2: 
+  name: "Chris Twigg"
+  university_name: "AFIT"
+  faculty_group:
+  department: "ENV"
+  street_address: "2440 Homeland Ct"
+  city: "Kettering"
+  state: "OH"
+  country: "USA"
+  postal_code: "45420"
+author3: 
+  name: "Chris Twigg"
+  university_name: "AFIT"
+  faculty_group:
+  department: "ENV"
+  street_address: "2440 Homeland Ct"
+  city: "Kettering"
+  state: "OH"
+  country: "USA"
+  postal_code: "45420"
+author4: 
+  name: "Jason K Freels"
+date: "August 2, 2016"
+keywords: "Maintenance"
+abstract: "awesome abstract"
