@@ -95,7 +95,7 @@
 \parbox[][\rhV][c]{0.4\textwidth}{
 
 1. NAME (Last, First, Middle Initial)\\[-0.5pt]
-\textField[\TU{ }\V{$if(author.trname)$$author.trname$$else$Smart, Ima, B$endif$}]{name}{0.39\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(author.name)$$author.name$$else$Smart, Ima, B$endif$}]{name}{0.39\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhV][c]{0.2\textwidth}{
@@ -107,14 +107,14 @@
 \parbox[][\rhV][c]{0.2\textwidth}{
 
 3. RANK\\[1pt]
-\textField[\TU{ }\V{$if(author.rank)$$author.rank$$else$Supreme Allied Commander$endif$}]{rank}{0.19\textwidth}{0.5cm}
+\textField[\TU{ }\V{$if(author.rank)$$author.rank$$endif$}]{rank}{0.19\textwidth}{0.5cm}
 }\vrule\hspace{1pt}
 
 \parbox[][\rhV][c]{0.2\textwidth}{
 
 4. DUTY AFSC\\[1pt]
 \textField[\TU{ }
-           \V{$if(author.afsc)$$author.afsc$$else$92S0$endif$}]{afsc}{0.19\textwidth}{0.5cm}
+           \V{$if(author.afsc)$$author.afsc$$endif$}]{afsc}{0.19\textwidth}{0.5cm}
 }\\
 \hline
 % %==================================================================
@@ -123,7 +123,7 @@
 \parbox[][\rhVI][c]{\textwidth}{
 
 5. ORGANIZATION, COMMAND, AND LOCATION\\[1pt]
-\textField[\TU{ }\V{\n Air Force Institute of Technology (AETC), Wright-Patterson AFB OH}]{org}{0.99\textwidth}{.6cm}
+\textField[\TU{ }\V{Air Force Institute of Technology (AETC), Wright-Patterson AFB OH}]{org}{0.99\textwidth}{.5cm}
 }\\
 \hline
 % %==================================================================
@@ -150,7 +150,7 @@
 
 8. REASON FOR REPORT\\[5pt]
 \hspace{5pt}
-\radioButton[\Ff{\FfRadio}]{reason}{10bp}{10bp}{ann}\hspace{5pt}\small ANNUAL \hspace{5pt}
+\radioButton{reason}{10bp}{10bp}{ann}\hspace{5pt}\small ANNUAL \hspace{5pt}
 \radioButton{reason}{10bp}{10bp}{fin}\hspace{5pt}\small FINAL \hspace{5pt}
 \radioButton{reason}{10bp}{10bp}{dir}\hspace{5pt}\small DIRECTED
 }\\
@@ -161,7 +161,7 @@
 \parbox[][\rhVIII][c]{\textwidth}{
 
 9. NAME AND LOCATION OF SCHOOL OR INSTITUTION\\[1pt]
-\textField[\TU{ }\V{Graduate School of Engineering and Management, Wright-Patterson AFB OH }]{school}{0.99\textwidth}{0.6cm}
+\textField[\TU{ }\V{Graduate School of Engineering and Management, Wright-Patterson AFB, OH }]{school}{0.99\textwidth}{0.6cm}
 }\\
 \hline
 % %==================================================================
@@ -212,7 +212,7 @@
 \parbox[][\rhXIII][c]{\textwidth}{
 
 4. DG AWARD CRITERIA/COURSE NONCOMPLETION REASON\\[1pt]
-\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{reason}{0.99\textwidth}{1cm}
+\textField[\Ff{\FfMultiline}\TU{ }\V{ }]{criteria}{0.99\textwidth}{1cm}
 }\\
 \hline
 % %==================================================================
@@ -276,8 +276,8 @@ OTHER COMMENTS\\[1pt]
 
 NAME, RANK BR OR SVC, ORGN, COMD LOCATION\\[1pt]
 \textField[\Ff{\FfMultiline}\TU{ }\V{
-$if(department.head)$
-  $department.head$
+$if(dept_head)$
+  $dept_head$
 $else$
   Department Head
 $endif$\n
@@ -291,7 +291,7 @@ Wright-Patterson AFB OH
 \parbox[][0.5\rhXIX][c]{0.27\textwidth}{
 \hspace{5pt}\small DUTY TITLE\\[-9pt]
 
-\hspace{5pt} \textField[\TU{ }\V{Head, }]{evalduty}{0.25\textwidth}{0.5cm}
+\hspace{5pt} \textField[\TU{ }\V{Head, AFIT/\MakeUppercase{$if(author.department)$$author.department$$else$EN$endif$}}]{evalduty}{0.25\textwidth}{0.5cm}
 }\vrule\hspace{5pt}
 \parbox[][0.5\rhXIX][c]{0.23\textwidth}{
 \small DATE\\[-9pt]

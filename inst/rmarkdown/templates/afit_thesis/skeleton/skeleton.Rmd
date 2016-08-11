@@ -77,32 +77,43 @@ output:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(knitcitations)
 library(RefManageR)
+library(xtable)
 source('scripts/R/setup.R')
 cite_options(citation_format = 'pandoc', 
              cite.style = "numeric")
 bib <- read.bibtex('bibtex/my_bib.bib')
 berger = citet('10.2307/2291285')
+knitc <- citet(citation('knitcitations'))
 ```
 
 # Introduction
 
-## Background
+## Welcome to Markdown!
+
+\MakeUppercase{fIrSt ThInGs FiRsT} - \underline{this IS your thesis}.  As you start writing your document, you will replace this example content with your own.  This document is meant to serve as a shell for your thesis and a primer on how to use Markdown.  Throughout this document, you will find several references to resources showing how to include
+
+- text
+- citations & bibliographies
+- plots
+- images
+- tables
+- quotes
+- acronyms
+- glossary terms
+- symbols
+- equations
+- code chunks
+
+
+## What is Markdown and Why Should You Use it?
+
+[Markdown](http://daringfireball.net/projects/markdown/) is intended to be as easy-to-read and easy-to-write as is feasible. This means that  
 
 There are many advantages to building your thesis in Rmarkdown, this paper advantage of `r try(berger)`
 
-# Citations
-
-## Citing published journal articles
-
-doi
-
-## Citing published books with an ISBN
-
-ISBN
-
 ## Tables
 
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+It's really easy to go from a `matrix` or a `data.frame` to a \LaTeX-style table in under 5 seconds
 
 ## plots
 
@@ -118,10 +129,27 @@ The purpose of this is to show stuff to you. And I want to show you some really 
 
 Display Equations stand out from the rest of the text:
 
-```{r}
-N <-30
-Y <-  sample(1:100, size = N)
-N;Y
+```{r, fig.cap='A simple regression model plot'}
+N <- 30
+Y <- rnorm(n = N, sd = 1, mean = 0)
+X <- rnorm(n = N, sd = 1, mean = 0)
+plot(x = sort(X),
+     y = sort(Y), 
+     pch = 16,
+     col = 'red',
+     cex = 1.5,
+     las = 1)
+```
+
+text, text, text
+
+```{r, results='asis'}
+model  <- lm(Y~X)
+xmodel <- xtable(summary(model), 
+                 caption = 'Summary of Model')
+print(xmodel, comment = F,
+      include.rownames = F,
+      caption.placement = 'top')
 ```
 
 $$\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}$$
@@ -185,12 +213,18 @@ This is a quote in \LaTeX
 Can be inserted in regular R markdown blocks.
 
 ```{r, fig.cap='A first plot'}
-plot(rnorm(100), col = 2, pch = 16)
+plot(rnorm(100), col = 2, pch = 16, las = 1)
 ```
 
 # Literature Review
 
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
+## Citing published journal articles
+
+Published articles have a [Digital Object Identifier](http://www.doi.org/), or doi associated with them.  The `knitcitations` [`r try(knitc)`] package allows us to easily cite papers by simply providing the doi.  __Note: This requires an internet connection__ 
+
+## Citing published books with an ISBN
+
+ISBN
 
 # Methodology
 

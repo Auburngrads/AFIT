@@ -13,6 +13,8 @@ title:        "`r AFIT:::noTouch('metadata.yml')$document$title`"
 sponsor_org:
   title:      "`r AFIT:::noTouch('metadata.yml')$sponsor_org$title`"
   subtitle:   "`r AFIT:::noTouch('metadata.yml')$sponsor_org$subtitle`"
-date:         "`r AFIT:::noTouch('metadata.yml')$grad_date`"
+grad_date:    "`r AFIT:::noTouch('metadata.yml')$grad_date`"
+date:         "`r format(Sys.Date(), '%d %b %Y')`"
+dept_head:    "`r AFIT:::noTouch('metadata.yml')$dept_head`"
 output: AFIT:::training_report
 ---
