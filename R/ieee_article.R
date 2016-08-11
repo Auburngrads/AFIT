@@ -26,7 +26,7 @@
 #'
 #' @export
 ieee_article <- function(...,
-                        keep_tex = FALSE,
+                        keep_tex = TRUE,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,

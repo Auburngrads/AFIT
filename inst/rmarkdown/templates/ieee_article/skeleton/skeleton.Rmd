@@ -1,6 +1,6 @@
 ---
 title: "Untitled"
-author1: 
+author1: #nothing here
   name: "Jason K Freels"
   IEEE: "IEEE Member"  #if not a member leave blank
   bio: >
@@ -11,14 +11,15 @@ author1:
   state: "Ohio"
   zip: "45433"
   email: "jason@afit.edu"
-author2: 
+  picture: images/example.png
+author2: #nothing here
   name: "Corey DeGroot"
   IEEE: "AFIT Member"
   organization: "Air Force Institute of Technology"
   bio: >
     went to Colorado State University.
-author3:
-  name: 
+author3: #nothing here
+  name: "Blake"
   IEEE: "No Membership"
   organization: "Air Force Institute of Technology"
   bio: >
@@ -34,14 +35,16 @@ abstract: >
 keywords: "Put keywords here"
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, eval = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(knitcitations)
 cite_options(citation_format='numeric')
 author <- knitcitations::citep('10.1056/NEJMoa1009638')
 ```
 
-## Introduction
+# Introduction
+
+
 
 <!-- Here we have the typical use of a "T" for an initial drop letter
  and "HIS" in caps to complete the first word. -->
@@ -54,39 +57,52 @@ I wish you the best of success.
 
 \hfill mds
  
-\hfill August 26, 2015
+\hfill `r Sys.Date()`
 
-## Subsection Heading Here
 
+## Background
 Subsection text here.
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsubsection{Subsubsection Heading Here}
+\subsubsection{Sub sub section name goes here}
 Subsubsection text here.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R `r try(author)` Markdown see <http://rmarkdown.rstudio.com>.
+\subsection{Problem Statemet}
+Subsection text here.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Literature Review
 
-<!-- ```{r cars} -->
-<!-- summary(cars) -->
-<!-- ``` -->
 
-<!-- ## Including Plots -->
 
-<!-- You can also embed plots, for example: -->
 
-<!-- ```{r pressure, echo=FALSE} -->
-<!-- plot(pressure) -->
-<!-- ``` -->
 
-<!-- Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. -->
 
-<!-- # References -->
 
-<!-- ```{r, results='asis'} -->
-<!-- write.bibtex() -->
-<!-- knitcitations::bibliography() -->
-<!-- ``` -->
+\section{Conclusion}
+The conclusion goes here.
+
+
+
+
+
+% if have a single appendix:
+<!-- \appendix[Proof of the Zonklar Equations] -->
+% or
+\appendices
+\section{}
+
+\section{}
+
+# Stuff
+
+Appendix A text goes here.
+
+
+# References
+
+```{r, results='asis', echo = FALSE, eval=FALSE}
+write.bibtex()
+knitcitations::bibliography()
+```
