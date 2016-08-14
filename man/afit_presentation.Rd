@@ -4,14 +4,17 @@
 \alias{afit_presentation}
 \title{Create an AFIT Presentation}
 \usage{
-afit_presentation(..., template = "default.html",
+afit_presentation(..., logo = NULL, template = "default.html",
   format = "afit_presentation", incremental = FALSE, fig_width = 8,
-  fig_height = 4.9, self_contained = TRUE, smart = FALSE,
-  highlight = "default", pandoc_args = "--mathjax=default",
-  duration = NULL, footer = NULL, font_adjustment = 0)
+  fig_height = 4.9, self_contained = F, smart = FALSE, css = NULL,
+  js = NULL, highlight = "default", pandoc_args = NULL, duration = NULL,
+  footer = NULL, includes = NULL, mathjax = "default",
+  font_adjustment = 0)
 }
 \arguments{
 \item{...}{extra stuff}
+
+\item{logo}{The file path for a image file shown on the title slide (relative to the .Rmd file)}
 
 \item{template}{The HTML template file}
 
@@ -27,6 +30,10 @@ afit_presentation(..., template = "default.html",
 
 \item{smart}{Is this presentation smart}
 
+\item{css}{The file path for a css file (relative to the .Rmd file)}
+
+\item{js}{The file path for a js file (relative to the .Rmd file)}
+
 \item{highlight}{Code highlighting applied}
 
 \item{pandoc_args}{Arguments to apply to Pandoc}
@@ -35,6 +42,10 @@ afit_presentation(..., template = "default.html",
 to add a countdown timer to the slide footer.}
 
 \item{footer}{Footer text (e.g. organization name and/or copyright)}
+
+\item{includes}{Additional content to include using \code{rmarkdown::includes}}
+
+\item{mathjax}{Should mathjax be included}
 
 \item{font_adjustment}{Increase or decrease the default font size
 (e.g. -1 or +1). You can also manually adjust the font size during the

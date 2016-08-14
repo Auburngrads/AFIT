@@ -7,6 +7,7 @@
 #' @inheritParams html_document
 #'
 #' @param ... extra stuff
+#' @param logo The file path for a image file shown on the title slide (relative to the .Rmd file)
 #' @param template The HTML template file
 #' @param format The type of template format type
 #' @param incremental Should bullets be revealed individually?
@@ -14,11 +15,15 @@
 #' @param fig_height The default figure height
 #' @param self_contained How to handle resources
 #' @param smart Is this presentation smart
+#' @param css The file path for a css file (relative to the .Rmd file)
+#' @param js The file path for a js file (relative to the .Rmd file) 
 #' @param highlight Code highlighting applied
 #' @param pandoc_args Arguments to apply to Pandoc
 #' @param duration Duration (in minutes) of the slide deck. This value is used
 #'   to add a countdown timer to the slide footer.
 #' @param footer Footer text (e.g. organization name and/or copyright)
+#' @param includes Additional content to include using \code{rmarkdown::includes}
+#' @param mathjax Should mathjax be included
 #' @param font_adjustment Increase or decrease the default font size
 #'  (e.g. -1 or +1). You can also manually adjust the font size during the
 #'  presentation using the 'S' (smaller) and 'B' (bigger) keys.
@@ -55,43 +60,82 @@ afit_presentation <- function(...,
                               fig_width = 8, 
                               fig_height = 4.9, 
                               self_contained = F,
-                              smart = FALSE, 
+                              smart = FALSE,
+                              css = NULL,
+                              js = NULL,
                               highlight = "default", 
                               pandoc_args = NULL,
                               duration = NULL,
                               footer = NULL,
+                              includes = NULL,
                               mathjax = 'default',
                               font_adjustment = 0) {
 
   Template <- system.file("rmarkdown", "templates", format, 'resources',template,
                           package = "AFIT")
-  # CSS <- system.file("rmarkdown", "templates", format, 'resources','afit-slidy.css',
-  #                         package = "AFIT")
   args <- c()
   
-# for (css_file in css)
-# args <- c(args, "--css", pandoc_path_arg(css_file))
+  #
+  # Add Custom CSS Files
+  #
   
-  if (!is.null(logo)) {
-      logo_path <- logo
-      
-      logo_path <- rmarkdown::pandoc_path_arg(logo_path)
-      
-      args <- c(args, rmarkdown::pandoc_variable_arg("logo", logo_path))
-}
+  this_css <- system.file('rmd','css','afit-slidy.css', package = 'AFIT')
   
-rmarkdown::slidy_presentation(...,
-                          template = Template,
-                          incremental = incremental,
-                          fig_width = fig_width,
-                          fig_height = fig_height,
-                          smart = smart,
-                          self_contained = self_contained,
-                          highlight = highlight,
-                          includes = NULL,
-                          pandoc_args = args,
-                          duration = duration,
-                          footer = footer,
-                          mathjax = mathjax,
-                          font_adjustment = font_adjustment)
+  if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))) {
+    
+      file.create(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))
+    
+  } 
+    
+  that_css <- paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/')  
+  code_css <- readLines(this_css)
+  writeLines(code_css, con = that_css)
+  that_css <- rmarkdown::relative_to(getwd(), that_css)
+  
+  css <- c(css,that_css)
+  
+  for (css_file in css)
+  args <- c(args, "--css", pandoc_path_arg(css_file))
+  
+  #
+  # Add Custom JS code
+  #
+  
+  this_js <- system.file('rmd','js','afit-slidy.js', package = 'AFIT')
+  
+  if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))) {
+    
+      file.create(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))
+  }
+  
+  #
+  # Add Custom R code
+  #
+  
+  this_R <- system.file('rmd','R','setup.R', package = 'AFIT')
+  
+  if(!file.exists(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))) {
+    
+      file.create(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))
+    
+  } 
+    
+  that_R <- paste(c(getwd(),'scripts/setup.R'), collapse = '/')  
+  code_R <- readLines(this_R)
+  writeLines(code_R, con = that_R)
+  
+  rmarkdown::slidy_presentation(...,
+                                template = Template,
+                                incremental = incremental,
+                                fig_width = fig_width,
+                                fig_height = fig_height,
+                                smart = smart,
+                                self_contained = self_contained,
+                                highlight = highlight,
+                                includes = includes,
+                                pandoc_args = args,
+                                duration = duration,
+                                footer = footer,
+                                mathjax = mathjax,
+                                font_adjustment = font_adjustment)
 }

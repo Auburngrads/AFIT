@@ -59,16 +59,19 @@ $for(author)$$author$$sep$<br/>$endfor$
 $if(date)$
   <p class="date">$date$</p>
 $endif$
-<style type="text/css">
 $if(logo)$
-    div.slide.titlepage {
+<aside><img src='$logo$' style="position:absolute;top:5%;right:10%;width:350px;height:350px;"></aside>
+$endif$
+<!--<style type="text/css">
+$if(logo)$
+    div.slide titlepage {
       content: "";
       position: absolute;
       background: url('$logo$') no-repeat 85% 15%;
       background-size: 420px 300px;
     }
 $endif$
-</style>
+</style>-->
 </div>
 $endif$
 $body$
