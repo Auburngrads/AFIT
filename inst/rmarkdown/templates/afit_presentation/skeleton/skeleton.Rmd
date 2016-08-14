@@ -1,10 +1,13 @@
 ---
-title: "title"
-subtitle: "Subtitle"
-author: "me"
+title: "AFIT Presentation Example"
+subtitle: "Built on the W3C Slidy Template"
+author: "Jason K. Freels"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: AFIT::afit_presentation
 logo: images/shields.png
+css: scripts/afit-slidy.css
+js: scripts/jkf-scroll.js
+runtime: shiny
 ---
 
 ```{r echo=FALSE,message=FALSE, warning=FALSE}
@@ -13,58 +16,27 @@ assign('dynamic', TRUE, envir = sys.frame(),immediate = TRUE)
 library(knitcitations)
 library(AFIT)
 freels <- AFIT:::citeDTIC()
-shiny::includeCSS('scripts/afit-slidy.css')
-shiny::includeScript('scripts/jkf-scroll.js')
 ```
 
 # Why Are We Here?
 
 - why `r citet(freels)`
 
-- My
-
-- Balls
-
-- Feel
-
-- Very 
-
-- Happy
-
-- Yes 
-
-- They
-
-- Do
-
-- Really
-
-- Really
-
-- Happy
-
-# Why Are We Here2?
+- why `r citet(freels)`
 
 - why `r citet(freels)`
 
-- My
+- why `r citet(freels)`
 
-- Balls
+# Shiny Example 1
 
-- Feel
+```{r}
+teachingApps:::offbase_libraries()
+```
 
-- Very 
 
-- Happy
+# Shiny Example 1
 
-- Yes 
-
-- They
-
-- Do
-
-- Really
-
-- Really
-
-- Happy
+```{r}
+teachingApps:::maximum_likelihood_full()
+```

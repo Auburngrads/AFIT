@@ -47,33 +47,51 @@
 #'
 #' @export
 
-afit_presentation <- function(..., 
+afit_presentation <- function(...,
+                              logo = NULL,
                               template = 'default.html',
                               format = 'afit_presentation',
-                               incremental = FALSE, 
-                               fig_width = 8, 
-                               fig_height = 4.9, 
-                               self_contained = TRUE,
-                               smart = FALSE, 
-                               highlight = "default", 
-                               pandoc_args = '--mathjax=default',
+                              incremental = FALSE, 
+                              fig_width = 8, 
+                              fig_height = 4.9, 
+                              self_contained = F,
+                              smart = FALSE, 
+                              highlight = "default", 
+                              pandoc_args = NULL,
                               duration = NULL,
                               footer = NULL,
+                              mathjax = 'default',
                               font_adjustment = 0) {
 
+  Template <- system.file("rmarkdown", "templates", format, 'resources',template,
+                          package = "AFIT")
+  # CSS <- system.file("rmarkdown", "templates", format, 'resources','afit-slidy.css',
+  #                         package = "AFIT")
+  args <- c()
+  
+# for (css_file in css)
+# args <- c(args, "--css", pandoc_path_arg(css_file))
+  
+  if (!is.null(logo)) {
+      logo_path <- logo
+      
+      logo_path <- rmarkdown::pandoc_path_arg(logo_path)
+      
+      args <- c(args, rmarkdown::pandoc_variable_arg("logo", logo_path))
+}
+  
 rmarkdown::slidy_presentation(...,
-                          template = system.file("rmarkdown", "templates", format, 'resources',template,
-                          package = "AFIT"),
+                          template = Template,
                           incremental = incremental,
                           fig_width = fig_width,
                           fig_height = fig_height,
                           smart = smart,
                           self_contained = self_contained,
-                          css = NULL, #system.file('scripts','css','afit-slidy.css', package = 'AFIT'),
                           highlight = highlight,
                           includes = NULL,
-                          pandoc_args = pandoc_args,
+                          pandoc_args = args,
                           duration = duration,
                           footer = footer,
+                          mathjax = mathjax,
                           font_adjustment = font_adjustment)
 }

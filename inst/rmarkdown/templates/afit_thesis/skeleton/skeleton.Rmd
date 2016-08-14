@@ -90,7 +90,7 @@ knitc <- citet(citation('knitcitations'))
 
 ## Welcome to Markdown!
 
-\MakeUppercase{fIrSt ThInGs FiRsT} - \underline{this IS your thesis}.  As you start writing your document, you will replace this example content with your own.  This document is meant to serve as a shell for your thesis and a primer on how to use Markdown.  Throughout this document, you will find several references to resources showing how to include
+\MakeUppercase{fIrSt ThInGs FiRsT} - \underline{this IS your thesis}.  As you start writing your document, you will replace this example content with your own.  This document is meant to serve as a shell for your thesis and a primer on how to use Markdown.  Throughout this document, you will find several references and/or resources showing how to include
 
 - text
 - citations & bibliographies
@@ -111,21 +111,35 @@ knitc <- citet(citation('knitcitations'))
 
 There are many advantages to building your thesis in Rmarkdown, this paper advantage of `r try(berger)`
 
+For a quick cheatsheet on how to build an Rmarkdown, you can visit [https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
+
 ## Tables
 
-It's really easy to go from a `matrix` or a `data.frame` to a \LaTeX-style table in under 5 seconds
+It's really easy to go from a `matrix` or a `data.frame` to a \LaTeX-style table in under 5 seconds. For information on how to build a table in R, you can visit [http://www.cyclismo.org/tutorial/R/tables.html](http://www.cyclismo.org/tutorial/R/tables.html). The following resource will get you started on how to get your table in R ready for publication [https://www.r-bloggers.com/making-publication-ready-tables-with-xtable](https://www.r-bloggers.com/making-publication-ready-tables-with-xtable).
 
-## plots
+## Plots
+
+Plots are a useful way to display data. Building plots in R is quick and easy. The following is an example using the data set **mtcars**.
+
+```{r, echo=FALSE}
+plot(mtcars$mpg,mtcars$hp,
+     main="Scatterplot",
+     xlab="Miles per Gallon", 
+     ylab="Horse Power", 
+     col="blue")
+```
+
+For a detailed and in depth desriptions on how to make plots, and the different kinds that R is capable of creating, you can visit <http://www.statmethods.net/graphs/scatterplot.html>.
+
+The ggplot2 package has the ability to offer many more plotting options than the **plot()** command. You can learn more about ggplot2 by going to <http://docs.ggplot2.org/current/ggplot.html>. Creating a plot with ggplot2 will allow you to add layers of data to a single plot, which can be helpful in certain situations.
+
+## Text
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-## text
+## Equations
 
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
-
-## equations
-
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff. In-line equations are included within a line of text like this $y=mx^2+b$
+In-line equations are included within a line of text like this $y=mx^2+b$
 
 Display Equations stand out from the rest of the text:
 
@@ -154,23 +168,35 @@ print(xmodel, comment = F,
 
 $$\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}$$
 
-## code chunks
+## Code Chunks
+
+R gives you the ability to show the code that that was used for any plot, table, or function. You start a code chunk with **```{r}** and end a code chunk with **```**. Let's use the code chunk for building plots above as an example of what you would see in a code chunk.
+
+```{r, eval=FALSE}
+plot(mtcars$mpg,mtcars$hp,
+     main="Scatterplot",
+     xlab="Miles per Gallon", ylab="Horse Power", col="blue")
+```
+
+## Chunk Options
+
+Code chunks have many options. You might choose to display a code chunk, like above. To do that you would add **eval=FALSE**. It would look like this **```{r, eval=FALSE}**. For the purpose of displaying a plot you would add **echo=FALSE** in which case the code chunk would not be displayed at all. For a function, adding **echo=FALSE** would print only the answer to the function. For the function **2 + 2**, it would look like this:
+
+```{r,echo=FALSE}
+2+2
+```
+
+For a complete list of code chunk option, you can visit <http://rmarkdown.rstudio.com/authoring_rcodechunks.html>.
+
+## Headings
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-## Chunk options
+## Quotes
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-## headings
-
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
-
-## quotes
-
-The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
-
-## bibliography
+## Bibliography
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
@@ -178,7 +204,7 @@ The purpose of this is to show stuff to you. And I want to show you some really 
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 
-## images
+## Images
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
 

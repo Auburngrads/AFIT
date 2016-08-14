@@ -31,6 +31,9 @@ $for(css)$
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
    href="$css$" />
 $endfor$
+$for(js)$
+<script type="text/javascript" src="$js$"></script> 
+$endfor$
 $for(header-includes)$
   $header-includes$
 $endfor$
@@ -61,11 +64,8 @@ $if(logo)$
     div.slide.titlepage {
       content: "";
       position: absolute;
-      background: url($logo$) no-repeat 85% 15%;
-      -webkit-background-size: 160px 160px;
-      -moz-background-size: 160px 160px;
-      -o-background-size: 160px 160px;
-      background-size: 180px 180px;
+      background: url('$logo$') no-repeat 85% 15%;
+      background-size: 420px 300px;
     }
 $endif$
 </style>
