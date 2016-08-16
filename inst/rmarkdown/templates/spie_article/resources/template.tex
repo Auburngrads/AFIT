@@ -35,11 +35,12 @@ $endif$
 \title{$if(title)$$title$$else$My Title$endif$}
 
 \author[a]{$if(author1.name)$$author1.name$$else$First Author$endif$}
-\author[a]{$if(author2.name)$$author2.name$$else$Second Author$endif$}
-\author[b]{$if(author3.name)$$author3.name$$else$Third Author$endif$}
+\author[b]{$if(author2.name)$$author2.name$$else$Second Author$endif$}
+\author[c]{$if(author3.name)$$author3.name$$else$Third Author$endif$}
 \author[a,b,*]{$if(author4.name)$$author4.name$$else$Fourth Author$endif$}
-\affil[a]{University Name, Faculty Group, Department, Street Address, City, Country, Postal Code}
-\affil[b]{Company Name, Street Address, City, Country, Postal Code}
+\affil[a]{$if(author1.university_name)$$author1.university_name$$else$$endif$$if(author1.faculty_group)$, $author1.faculty_group$$else$$endif$$if(author1.department)$, $author1.department$$else$$endif$$if(author1.street_address)$, $author1.street_address$$else$$endif$$if(author1.city)$, $author1.city$$else$$endif$$if(author1.country)$, $author1.country$$else$$endif$$if(author1.postal_code)$, $author1.postal_code$$else$$endif$}
+\affil[b]{$if(author2.university_name)$$author2.university_name$$else$$endif$$if(author2.faculty_group)$, $author2.faculty_group$$else$$endif$$if(author2.department)$, $author2.department$$else$$endif$$if(author2.street_address)$, $author2.street_address$$else$$endif$$if(author2.city)$, $author2.city$$else$$endif$$if(author2.state)$, $author2.state$$else$$endif$$if(author2.country)$, $author2.country$$else$$endif$$if(author2.postal_code)$, $author2.postal_code$$else$$endif$}
+\affil[c]
 
 \renewcommand{\cftdotsep}{\cftnodots}
 \cftpagenumbersoff{figure}

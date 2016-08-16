@@ -185,28 +185,6 @@ body
   font-size: 44pt;
 }
 
-/*div.slide:after
-{
-  content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.2;
-    background-image: url('http://afit.imodules.com/s/1448/images/content_images/AFIT_Emblem_Blue_copy_634847723848642889.jpg');
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-} 
-*/
-
 div.background {
 display: none;
   
@@ -222,19 +200,14 @@ div.slide.titlepage {
   font-weight: normal;
   font-size: 24pt;
   line-height: 150%;
-  /* background: url('../images/afitlogo.png');
-    background-repeat: no-repeat;
-    background-position: 85% 15%;
-    background-attachment: fixed; */
-  background-size: 25%;
   color: #2c3e50;
 }
 
 div.slide.titlepage h1.title {
-  margin-top: 25%;
+  top: 55vh;
   padding-top: 0;
   color: #2c3e50;
-  padding-left: 25px;
+  padding-left: 35px;
   margin-right: 0;
   border-bottom: none;
   background: none;
@@ -242,19 +215,31 @@ div.slide.titlepage h1.title {
   font-weight: bold;
   text-transform: capitalize;
   position: relative;
-  
+  transition: none;
 }
 
 div.slide.titlepage h1.subtitle {
   margin-left: 0;
   margin-right: 0;
-  padding-left: 36px;
+  padding-left: 35px;
   padding-top: 10px;
   color: #2c3e50;
   font-size: 30pt;
   background: none;
   text-transform: capitalize;
   position: relative;
+  top: 55vh;
+  transition: none;
+}
+
+.author {
+  position: relative;
+  top: 55vh;
+}
+
+.date {
+  position: relative;
+  top: 55vh;
 }
 
 @media screen and (max-device-width: 1024px) {
