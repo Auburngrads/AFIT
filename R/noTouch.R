@@ -147,5 +147,9 @@ noTouch <- function(file = NULL) {
     
   #yaml <- unlist(lapply(yaml, FUN = function(x) {gsub('\"', '', x)}))
   
+  yaml$author1&affiliation <- a
+  yaml$author1&affiliation <- a
+  
+  
   return(yaml)
 }

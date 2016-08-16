@@ -1,38 +1,59 @@
 ---
 title: "This is my title"
 author1: 
-  name: "Jason K Freels"
+  name: "Test Name 1"
+  affiliation: "a"
+author2: 
+  name: "Test Name 2"
   affiliation: "b"
-  university_name: "AFIT" 
+author3: 
+  name: "Test Name 3"
+  affiliation: "c"
+author4: 
+  name: "Test Name 4"
+  affiliation: "c"
+
+affiliation1:
+  author: "1" 
+  university_name: "Univ 1" 
   faculty_group: 
-  department: "ENV"
+  department: "Dept 1"
   street_address:
   state:
   city:
   country:
-  postal_code: "45420"
-author2: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
-  faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
-author3: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
-  faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
-author4: 
-  name: "Jason K Freels"
+  postal_code: 
+affiliation2:
+  author: "2"
+  university_name: "Univ 2" 
+  faculty_group: 
+  department: "Dept 2"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: 
+affiliation3:
+  author: "3, 4"
+  university_name: "Univ 3" 
+  faculty_group: 
+  department: "Dept 3"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: 
+affiliation4:
+  author:
+  university_name: "Univ 4" 
+  faculty_group: 
+  department: "Dept 4"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: 
+
 date: "August 2, 2016"
 keywords: "Maintenance"
 abstract: "awesome abstract"
