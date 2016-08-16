@@ -19,8 +19,8 @@ author2: #nothing here
   bio: >
     went to Colorado State University.
 author3: #nothing here
-  name: "Blake"
-  IEEE: "No Membership"
+  name: "Blake DeGroot"
+  IEEE: 
   organization: "Air Force Institute of Technology"
   bio: >
     is a registered nurse.
@@ -55,22 +55,26 @@ IEEEtran.cls version 1.8b and later.
 (should never be an issue)-->
 I wish you the best of success.
 
-\hfill mds
- 
-\hfill `r Sys.Date()`
+<!-- \hfill mds -->
+
+<!-- \hfill `r Sys.Date()` -->
 
 
 ## Background
 Subsection text here.
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
+## Problem Statement
 
-\subsubsection{Sub sub section name goes here}
-Subsubsection text here.
+### Research Questions
 
-\subsection{Problem Statemet}
-Subsection text here.
+<!-- % needed in second column of first page if using \IEEEpubid -->
+<!-- %\IEEEpubidadjcol -->
+
+<!-- \subsubsection{Sub sub section name goes here} -->
+<!-- Subsubsection text here. -->
+
+<!-- \subsection{Problem Statemet} -->
+<!-- Subsection text here. -->
 
 # Literature Review
 
@@ -78,9 +82,9 @@ Subsection text here.
 
 
 
+# COnclusion
 
 
-\section{Conclusion}
 The conclusion goes here.
 
 
@@ -88,16 +92,16 @@ The conclusion goes here.
 
 
 % if have a single appendix:
-<!-- \appendix[Proof of the Zonklar Equations] -->
+\appendix[Proof of the Zonklar Equations]
 % or
 \appendices
 \section{}
-
-\section{}
-
-# Stuff
-
 Appendix A text goes here.
+\section{}
+Appendix B text goes here.
+
+
+
 
 
 # References
