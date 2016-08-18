@@ -1,7 +1,7 @@
 ---
-title: "This is my title"
+title:                  "`r AFIT:::dontTouch('metadata.yml')$title`" 
 author1: 
-  name: "Test Name 1"
+  name:                 "`r AFIT:::dontTouch('metadata.yml')$author1$name`" 
   affiliation: "a"
 author2: 
   name: "Test Name 2"
@@ -11,48 +11,12 @@ author3:
   affiliation: "c"
 author4: 
   name: "Test Name 4"
-  affiliation: "c"
+  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author4$affil`"
 
-affiliation1:
-  author: "1" 
-  university_name: "Univ 1" 
-  faculty_group: 
-  department: "Dept 1"
-  street_address:
-  state:
-  city:
-  country:
-  postal_code: 
-affiliation2:
-  author: "2"
-  university_name: "Univ 2" 
-  faculty_group: 
-  department: "Dept 2"
-  street_address:
-  state:
-  city:
-  country:
-  postal_code: 
-affiliation3:
-  author: "3, 4"
-  university_name: "Univ 3" 
-  faculty_group: 
-  department: "Dept 3"
-  street_address:
-  state:
-  city:
-  country:
-  postal_code: 
-affiliation4:
-  author:
-  university_name: "Univ 4" 
-  faculty_group: 
-  department: "Dept 4"
-  street_address:
-  state:
-  city:
-  country:
-  postal_code: 
+affil1:                 "`r AFIT:::dontTouch('metadata.yml')$affil1`"
+affil2:                 "`r AFIT:::dontTouch('metadata.yml')$affil2`"
+affil3:                 "`r AFIT:::dontTouch('metadata.yml')$affil3`"
+affil4:                 "`r AFIT:::dontTouch('metadata.yml')$affil4`"
 
 date: "August 2, 2016"
 keywords: "Maintenance"

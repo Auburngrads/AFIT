@@ -38,13 +38,17 @@ $endif$
 \author[$if(author2.affiliation)$$author2.affiliation$$endif$]{$if(author2.name)$$author2.name$$else$Second Author$endif$}
 \author[$if(author3.affiliation)$$author3.affiliation$$endif$]{$if(author3.name)$$author3.name$$else$Third Author$endif$}
 \author[$if(author3.affiliation)$$author3.affiliation$$endif$]{$if(author4.name)$$author4.name$$else$Fourth Author$endif$}
-\affil[a]{$if(affiliation1.university_name)$$affiliation1.university_name$$else$$endif$$if(affiliation1.faculty_group)$, $affiliation1.faculty_group$$else$$endif$$if(affiliation1.department)$, $affiliation1.department$$else$$endif$$if(affiliation1.street_address)$, $affiliation1.street_address$$else$$endif$$if(affiliation1.city)$, $affiliation1.city$$else$$endif$$if(affiliation1.country)$, $affiliation1.country$$else$$endif$$if(affiliation1.postal_code)$, $affiliation1.postal_code$$else$$endif$}
 
-$if(affiliation2.author)$$
-\affil[b]{$if(affiliation2.university_name)$$affiliation2.university_name$$else$$endif$$if(affiliation2.faculty_group)$, $affiliation2.faculty_group$$else$$endif$$if(affiliation2.department)$, $affiliation2.department$$else$$endif$$if(affiliation2.street_address)$, $affiliation2.street_address$$else$$endif$$if(affiliation2.city)$, $affiliation2.city$$else$$endif$$if(affiliation2.country)$, $affiliation2.country$$else$$endif$$if(affiliation2.postal_code)$, $affiliation2.postal_code$$else$$endif$}
-$$else$$endif$
-
-\affil[c]{$if(affiliation2.university_name)$$affiliation2.university_name$$else$$endif$$if(affiliation2.faculty_group)$, $affiliation2.faculty_group$$else$$endif$$if(affiliation2.department)$, $affiliation2.department$$else$$endif$$if(affiliation2.street_address)$, $affiliation2.street_address$$else$$endif$$if(affiliation2.city)$, $affiliation2.city$$else$$endif$$if(affiliation2.country)$, $affiliation2.country$$else$$endif$$if(affiliation2.postal_code)$, $affiliation2.postal_code$$else$$endif$}
+\affil[a]{$if(affil1)$$affil1$$else$$endif$}
+$if(affil2)$
+\affil[b]{$if(affil2)$$affil2$$else$$endif$}
+$else$$endif$
+$if(affil3)$
+\affil[c]{$if(affil3)$$affil3$$else$$endif$}
+$else$$endif$
+$if(affil4)$
+\affil[d]{$if(affil4)$$affil4$$else$$endif$}
+$else$$endif$
 
 \renewcommand{\cftdotsep}{\cftnodots}
 \cftpagenumbersoff{figure}

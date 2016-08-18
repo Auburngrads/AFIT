@@ -1,37 +1,61 @@
-title: "This is my title"
+title: "Example Title" 
+  
 author1: 
-  name: "Jason K Freels"
-  affiliation: "b"
-  university_name: "AFIT" 
+  name: "Test Name 1"
+
+author2: 
+  name: "Test Name 2"
+
+author3: 
+  name: "Test Name 3"
+  
+author4: 
+  name: "Test Name 4"
+
+affiliation1:
+  author: "1" 
+  university_name: "Air Force Institute of Technology" 
   faculty_group: 
-  department: "ENV"
+  department: "Department of Systems Engineering and Management"
+  street_address: '2590 Hobson Way'
+  state: "OH"
+  city: 'Wright-Patterson AFB'
+  country: 'US'
+  postal_code: '45433' 
+
+affiliation2:
+  author: 
+  university_name: "Univ 2"
+  faculty_group: 
+  department: "Dept 2"
   street_address:
   state:
   city:
   country:
-  postal_code: "45420"
-author2: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
-  faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
-author3: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
-  faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
-author4: 
-  name: "Jason K Freels"
+  postal_code: 
+
+affiliation3:
+  author: "3, 4"
+  university_name: "Univ 3" 
+  faculty_group: 
+  department: "Dept 3"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: 
+
+affiliation4:
+  author:
+  university_name: "Univ 4" 
+  faculty_group: 
+  department: "Dept 4"
+  street_address:
+  state:
+  city:
+  country:
+  postal_code: 
+
 date: "August 2, 2016"
 keywords: "Maintenance"
 abstract: "awesome abstract"
