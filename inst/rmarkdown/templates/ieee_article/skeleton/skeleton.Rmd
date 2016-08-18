@@ -11,7 +11,7 @@ author1: #nothing here
   state: "Ohio"
   zip: "45433"
   email: "jason@afit.edu"
-  picture: images/example.png
+  picture: images/baby.jpg
 author2: #nothing here
   name: "Corey DeGroot"
   IEEE: "AFIT Member"
