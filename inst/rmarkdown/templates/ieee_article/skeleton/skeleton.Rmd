@@ -81,7 +81,7 @@ $\pi = 4*\rho$
 The ratio, $\rho$, can be calculated by randomly selecting XY coordinates and determining if they fall within a circle of radius = 1.
 
 
-```{r echo = F, fig.align = 'center', fig.width = 4, fig.cap = "Estimating Pi"}
+```{r echo = F, fig.align = 'center', fig.width = 3.9, fig.cap = "Estimating Pi"}
 r <- 1
 n <- 100
 count <- 0
@@ -102,12 +102,6 @@ plot(ref, col =  ifelse(ref[,3] == 1,"red", "blue"), asp = 1, xlab = "X", ylab =
 
 ### Research Questions
 
-```{r plot1, echo=FALSE}
-plot(rnorm(100))
-```
-
-```{r plot1, eval = FALSE}
-```
 
 To estimate the value of pi, a Monte Carlo Simulation (MCS) is used to randomly generate XY coordinates between 0 and 1.  The Pythagorean theorem is used to determine if the coordinate pair falls within the area of the circle.
 
@@ -115,7 +109,7 @@ $x^2 + y^2 <= 1$
 
 The ratio, $\rho$, is then calculated by adding up the number of points which fall within the circle and dividing by the total number of points generated.  The code below shows that 1,000,000 trials can consistently estimate the value of pi to 3.14.  The plot shows 100 different runs of the simulation and the estimated value of pi for each run. Refer to figure \ref{fig:hist_pi}
 
-```{r hist_pi, fig.align='center', fig.width = 4, echo = F, fig.cap = "Histogram of Pi Estimation"}
+```{r hist_pi, fig.width = 3.9, echo = F, fig.cap = "Histogram of Pi Estimation"}
 
 r <- 1
 m <- 100
