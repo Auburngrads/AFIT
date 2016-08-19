@@ -32,12 +32,12 @@ $if(listings)$
 }
 $endif$
 
-\title{$if(title)$$title$$else$My Title$endif$}
+\title{$if(title)$$title$$else$Need Title$endif$}
 
 \author[$if(author1.affiliation)$$author1.affiliation$$endif$]{$if(author1.name)$$author1.name$$else$First Author$endif$}
 \author[$if(author2.affiliation)$$author2.affiliation$$endif$]{$if(author2.name)$$author2.name$$else$Second Author$endif$}
 \author[$if(author3.affiliation)$$author3.affiliation$$endif$]{$if(author3.name)$$author3.name$$else$Third Author$endif$}
-\author[$if(author3.affiliation)$$author3.affiliation$$endif$]{$if(author4.name)$$author4.name$$else$Fourth Author$endif$}
+\author[$if(author4.affiliation)$$author4.affiliation$$endif$]{$if(author4.name)$$author4.name$$else$Fourth Author$endif$}
 
 \affil[a]{$if(affil1)$$affil1$$else$$endif$}
 $if(affil2)$
@@ -57,11 +57,11 @@ $else$$endif$
 \maketitle
 
 \begin{abstract}
-$if(abstract)$$abstract$$else$This is my abstract$endif$
+$if(abstract)$$abstract$$else$Need Abstract$endif$
 \end{abstract}
 
 % Include a list of up to six keywords after the abstract
-\keywords{$if(keywords)$$keywords$$else$This is my abstract$endif$}
+\keywords{$if(keywords)$$keywords$$else$Need Keywords$endif$}
 
 % Include email contact information for corresponding author
 {\noindent \footnotesize\textbf{*}Fourth author name,  \linkable{myemail@university.edu} }

@@ -2,25 +2,23 @@
 title:                  "`r AFIT:::dontTouch('metadata.yml')$title`" 
 author1: 
   name:                 "`r AFIT:::dontTouch('metadata.yml')$author1$name`" 
-  affiliation: "a"
+  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author1$affiliation`"
 author2: 
-  name: "Test Name 2"
-  affiliation: "b"
+  name:                 "`r AFIT:::dontTouch('metadata.yml')$author2$name`" 
+  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author2$affiliation`"
 author3: 
-  name: "Test Name 3"
-  affiliation: "c"
+  name:                 "`r AFIT:::dontTouch('metadata.yml')$author3$name`" 
+  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author3$affiliation`"
 author4: 
-  name: "Test Name 4"
-  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author4$affil`"
-
+  name:                 "`r AFIT:::dontTouch('metadata.yml')$author4$name`" 
+  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author4$affiliation`"
 affil1:                 "`r AFIT:::dontTouch('metadata.yml')$affil1`"
 affil2:                 "`r AFIT:::dontTouch('metadata.yml')$affil2`"
 affil3:                 "`r AFIT:::dontTouch('metadata.yml')$affil3`"
 affil4:                 "`r AFIT:::dontTouch('metadata.yml')$affil4`"
-
-date: "August 2, 2016"
-keywords: "Maintenance"
-abstract: "awesome abstract"
+date:                   "`r AFIT:::dontTouch('metadata.yml')$date`"
+keywords:               "`r AFIT:::dontTouch('metadata.yml')$keywords`"
+abstract:               "`r AFIT:::dontTouch('metadata.yml')$abstract`"
 output: AFIT:::spie_article
 ---
 

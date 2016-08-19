@@ -2,15 +2,16 @@ title: "Example Title"
   
 author1: 
   name: "Test Name 1"
-
+  affiliation: "a" # enter corresponding affiliation (a, b, c ...)
 author2: 
   name: "Test Name 2"
-
+  affiliation: "a" # enter corresponding affiliation (a, b, c ...)
 author3: 
   name: "Test Name 3"
-  
+  affiliation: "b" # enter corresponding affiliation (a, b, c ...)
 author4: 
   name: "Test Name 4"
+  affiliation: "a" # enter corresponding affiliation (a, b, c ...)
 
 affiliation1:
   author: "1" 
@@ -35,10 +36,10 @@ affiliation2:
   postal_code: 
 
 affiliation3:
-  author: "3, 4"
-  university_name: "Univ 3" 
+  author: 
+  university_name: 
   faculty_group: 
-  department: "Dept 3"
+  department: 
   street_address:
   state:
   city:
@@ -47,9 +48,9 @@ affiliation3:
 
 affiliation4:
   author:
-  university_name: "Univ 4" 
+  university_name: 
   faculty_group: 
-  department: "Dept 4"
+  department:
   street_address:
   state:
   city:
