@@ -30,7 +30,7 @@ spie_article <- function(...,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,
-                        template = "template.tex",
+                        template = "templateb.tex",
                         format = "spie_article") {
   
   rmarkdown::pdf_document(...,

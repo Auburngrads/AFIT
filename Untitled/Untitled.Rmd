@@ -1,66 +1,33 @@
 ---
-title:                  "`r AFIT:::dontTouch('metadata.yml')$title`" 
+title: "This is my title"
 author1: 
-<<<<<<< HEAD
   name: "Jason K Freels"
-  affiliation: "`r AFIT:::noTouch(affiliation)`"
-  university_name: "AFIT" 
-  faculty_group: 
-  department: "ENV"
+  affiliation: 'AFIT'
+  university_name:
+  faculty_group:
+  department:
   street_address:
-  state:
   city:
   country:
-  postal_code: "45420"
+  postal_code:
 author2: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
+  name: "Jason K Freels"
+  university_name:
   faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
+  department:
+  street_address:
+  city:
+  country:
+  postal_code:
 author3: 
-  name: "Chris Twigg"
-  university_name: "AFIT"
-  faculty_group:
-  department: "ENV"
-  street_address: "2440 Homeland Ct"
-  city: "Kettering"
-  state: "OH"
-  country: "USA"
-  postal_code: "45420"
+  name: "Jason K Freels"
 author4: 
   name: "Jason K Freels"
 date: "August 2, 2016"
 keywords: "Maintenance"
-abstract: "awesome abstract"
-=======
-  name:                 "`r AFIT:::dontTouch('metadata.yml')$author1$name`" 
-  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author1$affiliation`"
-  contact:              "`r AFIT:::dontTouch('metadata.yml')$author1$contact`"
-author2: 
-  name:                 "`r AFIT:::dontTouch('metadata.yml')$author2$name`" 
-  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author2$affiliation`"
-  contact:              "`r AFIT:::dontTouch('metadata.yml')$author2$contact`"
-author3: 
-  name:                 "`r AFIT:::dontTouch('metadata.yml')$author3$name`" 
-  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author3$affiliation`"
-  contact:              "`r AFIT:::dontTouch('metadata.yml')$author3$contact`"
-author4: 
-  name:                 "`r AFIT:::dontTouch('metadata.yml')$author4$name`" 
-  affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author4$affiliation`"
-  contact:              "`r AFIT:::dontTouch('metadata.yml')$author4$contact`"
-affil1:                 "`r AFIT:::dontTouch('metadata.yml')$affil1`"
-affil2:                 "`r AFIT:::dontTouch('metadata.yml')$affil2`"
-affil3:                 "`r AFIT:::dontTouch('metadata.yml')$affil3`"
-affil4:                 "`r AFIT:::dontTouch('metadata.yml')$affil4`"
-date:                   "`r AFIT:::dontTouch('metadata.yml')$date`"
-keywords:               "`r AFIT:::dontTouch('metadata.yml')$keywords`"
-abstract:               "`r AFIT:::dontTouch('metadata.yml')$abstract`"
->>>>>>> 770e14a864dd06d8f85ab5697c124950f083a147
+  
+  
+
 output: AFIT:::spie_article
 ---
 
