@@ -146,6 +146,6 @@ noTouch <- function(file = NULL) {
   yaml$sponsor$email2 <- try(unlist(strsplit(yaml$sponsor$email,'@'))[2], silent = T)
     
   #yaml <- unlist(lapply(yaml, FUN = function(x) {gsub('\"', '', x)}))
-  
+
   return(yaml)
 }
