@@ -26,12 +26,21 @@
 #'
 #' @export
 ieee_article <- function(...,
-                        keep_tex = FALSE,
+                        keep_tex = TRUE,
                         md_extensions = c("-autolink_bare_uris"),
                         fig_caption = TRUE,
                         toc = TRUE,
                         template = "templateb.tex",
-                        format = "ieee_article") {
+                        format = "ieee_article", 
+                        fig_width = 3.9,
+                        fig_align = "left") {
+  
+  # thesis <- system.file("rmarkdown",
+  #                       'templates',
+  #                       format,
+  #                       'resources',
+  #                       'afitThesis2.sty',
+  #                       package = 'AFIT')
   
   rmarkdown::pdf_document(...,
                           template = system.file("rmarkdown",'templates',
@@ -41,6 +50,7 @@ ieee_article <- function(...,
                           keep_tex = keep_tex,
                           toc = toc,
                           pandoc_args = c('--listings'),
-                          citation_package = 'natbib')
+                          citation_package = 'natbib',
+                          fig_width = fig_width)
 }
 
