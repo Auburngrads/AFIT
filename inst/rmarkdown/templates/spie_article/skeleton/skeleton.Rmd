@@ -2,7 +2,7 @@
 title: "This is my title"
 author1: 
   name: "Jason K Freels"
-  affiliation: "b"
+  affiliation: "`r AFIT:::noTouch(affiliation)`"
   university_name: "AFIT" 
   faculty_group: 
   department: "ENV"
