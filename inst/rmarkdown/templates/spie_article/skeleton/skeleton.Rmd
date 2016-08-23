@@ -1,7 +1,6 @@
 ---
 title:                  "`r AFIT:::dontTouch('metadata.yml')$title`" 
 author1: 
-<<<<<<< HEAD
   name: "Jason K Freels"
   affiliation: "`r AFIT:::noTouch(affiliation)`"
   university_name: "AFIT" 
@@ -37,7 +36,6 @@ author4:
 date: "August 2, 2016"
 keywords: "Maintenance"
 abstract: "awesome abstract"
-=======
   name:                 "`r AFIT:::dontTouch('metadata.yml')$author1$name`" 
   affiliation:          "`r AFIT:::dontTouch('metadata.yml')$author1$affiliation`"
   contact:              "`r AFIT:::dontTouch('metadata.yml')$author1$contact`"
@@ -60,7 +58,6 @@ affil4:                 "`r AFIT:::dontTouch('metadata.yml')$affil4`"
 date:                   "`r AFIT:::dontTouch('metadata.yml')$date`"
 keywords:               "`r AFIT:::dontTouch('metadata.yml')$keywords`"
 abstract:               "`r AFIT:::dontTouch('metadata.yml')$abstract`"
->>>>>>> 770e14a864dd06d8f85ab5697c124950f083a147
 output: AFIT:::spie_article
 ---
 

@@ -44,7 +44,6 @@ author <- knitcitations::citep('10.1056/NEJMoa1009638')
 
 # Introduction
 
-<<<<<<< HEAD
 <!-- Here we have the typical use of a "T" for an initial drop letter
  and "HIS" in caps to complete the first word. -->
 \IEEEPARstart{T}{his} demo file is intended to serve as a "starter file"
@@ -69,8 +68,6 @@ Subsection text here.
 Subsubsection text here.
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R `r try(author)` Markdown see <http://rmarkdown.rstudio.com>.
-=======
->>>>>>> e4d3cc1a21c5a99f6f5e0092535b9484c554f991
 
 
 <!-- Here we have the typical use of a "T" for an initial drop letter
