@@ -64,7 +64,11 @@ $if(abstract)$$abstract$$else$Need Abstract$endif$
 \keywords{$if(keywords)$$keywords$$else$Need Keywords$endif$}
 
 % Include email contact information for corresponding author
-{\noindent \footnotesize\textbf{*}Fourth author name,  \linkable{myemail@university.edu} }
+{\noindent \footnotesize\textbf{*}
+$if(author1.contact)$$author1.name$$else$$endif$\linkable{$if(author1.contact)$$author1.contact$$else$$endif$}
+$if(author2.contact)$$author2.name$$else$$endif$\linkable{$if(author2.contact)$$author2.contact$$else$$endif$}
+$if(author3.contact)$$author3.name$$else$$endif$\linkable{$if(author3.contact)$$author3.contact$$else$$endif$}
+$if(author4.contact)$$author4.name$$else$$endif$\linkable{$if(author4.contact)$$author4.contact$$else$$endif$} }
 
 \begin{spacing}{2}   % use double spacing for rest of manuscript
 $body$

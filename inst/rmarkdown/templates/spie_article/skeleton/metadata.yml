@@ -3,15 +3,19 @@ title: "Example Title"
 author1: 
   name: "Test Name 1"
   affiliation: "a" # enter corresponding affiliation (a, b, c ...)
+  contact: "email1@university.edu" # if POC enter email
 author2: 
   name: "Test Name 2"
   affiliation: "a" # enter corresponding affiliation (a, b, c ...)
+  contact: # if POC enter email
 author3: 
   name: "Test Name 3"
   affiliation: "b" # enter corresponding affiliation (a, b, c ...)
+  contact: # if POC enter email
 author4: 
   name: "Test Name 4"
   affiliation: "a" # enter corresponding affiliation (a, b, c ...)
+  contact: "email2@university.edu" # if POC enter email
 
 affiliation1:
   author: "1" 
