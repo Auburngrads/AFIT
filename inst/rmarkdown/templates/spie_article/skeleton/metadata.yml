@@ -1,7 +1,7 @@
 title: "This is my title"
 author1: 
   name: "Jason K Freels"
-  affiliation: "b"
+  affiliation: 1
   university_name: "AFIT" 
   faculty_group: 
   department: "ENV"
@@ -12,6 +12,7 @@ author1:
   postal_code: "45420"
 author2: 
   name: "Chris Twigg"
+  affiliation: '1,2,3' # if same as author one set equal to 1
   university_name: "AFIT"
   faculty_group:
   department: "ENV"
