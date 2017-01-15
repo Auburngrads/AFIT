@@ -10,14 +10,13 @@ vignette: >
 css: 'vignette.css'
 ---
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 library(knitcitations)
 library(RefManageR)
 library(xtable)
-source('scripts/R/setup.R')
+source(system.file('rmd','R','setup.R', package = 'AFIT'))
 cite_options(citation_format = 'pandoc', 
              cite.style = "numeric")
-bib <- read.bibtex('bibtex/my_bib.bib')
 berger = citet('10.2307/2291285')
 knitc <- citet(citation('knitcitations'))
 ```
@@ -70,6 +69,7 @@ For a quick cheatsheet on how to build an Rmarkdown, you can visit <https://www.
 ## Tables
 
 It's really easy to go from a `matrix` or a `data.frame` to a \LaTeX-style table in under 5 seconds. Here is an example:
+
 ```{r, echo=TRUE, results='asis'}
 library(xtable)
 CI <- c('100','99 - 93','92 - 86','85-75','74 - 65','64 - 56','55 - 37','36 - 11','10 - 0')
@@ -88,7 +88,6 @@ Some non-critical subcomponents may suffer from slight degradation or few critic
 rating.table <- data.frame(CI, rating, defn, 
                            stringsAsFactors = F, 
                            row.names = NULL)
-#row.names(rating.table) = stringr::str_wrap(row.names(rating.table), width=50)
 colnames(rating.table) <- c('CI Value','Rating','Rating Definition')
 xrt <- xtable(rating.table, 
               align=c('l','l|','l|','p{4in}'),
@@ -125,22 +124,14 @@ The ggplot2 package has the ability to offer many more plotting options than the
 ## Text
 
 Markdown allows you to add italics, bold, and create headers just like Word, only without the toolbar. Everything is done in place. Lets look at a few basic examples:
-```{markdown}
-Emphasis, aka italics, with *asterisks* or _underscores_.
 
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
+- Emphasis, aka italics, with *asterisks* or _underscores_.
 
-Combined emphasis with **asterisks and _underscores_**.
+- Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
-```
-Emphasis, aka italics, with *asterisks* or _underscores_.
+- Combined emphasis with **asterisks and _underscores_**.
 
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
+- Strikethrough uses two tildes. ~~Scratch this.~~
 
 You can find this and more by visiting <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>. It is a great source for learning how to do many things in a markdown document.
 
@@ -148,21 +139,13 @@ You can find this and more by visiting <https://github.com/adam-p/markdown-here/
 
 In-line equations are included within a line of text like this $A=\pi*r^2$. This is how you would type it into markdown:
 
-```{markdown}
-$A=\pi*r^2$
-```
-
 In order to have it print correctly in markdown you should not have any spaces when using this form. If you want the equation to stand alone in a seperate line, it should be typed into markdown using one of the following forms:
 
-```{markdown}
+$$
 \begin{equation}
   A=\pi*r^2
 \end{equation}
-
-\begin{equation} A=\pi*r^2 \end{equation}
-
-$$ A=\pi*r^2 $$
-```
+$$
 
 In this next example we will use some sample data to display a scatter plot and then show you how you can print the summary data into a form suitible for markdown. First we will create the data and display the plot.
 
@@ -187,10 +170,6 @@ xmodel <- xtable(summary(model),
 print(xmodel, comment = F,
       include.rownames = F,
       caption.placement = 'top')
-```
-
-```{markdown}
-$$\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}$$
 ```
 
 $$\bar{Y}=\frac{\sum_{i=1}^N Y_i}{N}=\frac{`r sum(Y)`}{`r N`}$$
@@ -229,14 +208,7 @@ For a complete list of code chunk option, you can visit <http://rmarkdown.rstudi
 ## Headings
 
 Headers are also a common thing and very easy to do in markdown. Here is an example of how you would make a heading.
-```{markdown}
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-```
+
 # H1
 ## H2
 ### H3
@@ -249,14 +221,8 @@ In R, adding a # will create a line of code that is skipped over and is a great 
 ## Quotes
 
 Adding a quote is simple and useful tool. Here is an example of how you add a quote to a markdown document.
-```{markdown}
-> Blockquotes are very handy.
-> This line is part of the same quote.
 
-Quote break.
 
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
-```
 > Blockquotes are very handy.
 > This line is part of the same quote.
 
@@ -277,20 +243,11 @@ The purpose of this is to show stuff to you. And I want to show you some really 
 ## Images
 
 There are two ways to add a picture to a markdown document. The first is by doing it in-line. This refers to referencing the picture right where you want it in the text. It would look something like this:
-```{markdown}
+
 Here is the logo for R. If you hover your mouse over it in an HTML document you could see an HTLM caption
 
-![alt text](_put your file path here_ "Put your caption in quotes here")
-```
-
 Another way to add a picture would be to reference it. You can do this by naming the picture and then calling the name. This would be useful if you planned on using a picture over and over again. It would look like this:
-```{markdown}
-First give your picture a name and then designate the file location and HTML caption
 
-[logo]: _put your file path here_ "Put your caption in quotes here"
-
-![alt text][logo]
-```
 
 You can find this and more by visiting <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>. It is a great source for learning how to do many things in a markdown document.
 
@@ -332,7 +289,7 @@ plot(rnorm(100), col = 2, pch = 16, las = 1)
 
 ## Citing published journal articles
 
-Published articles have a [Digital Object Identifier](http://www.doi.org/), or doi associated with them.  The `knitcitations` [`r try(knitc)`] package allows us to easily cite papers by simply providing the doi.  __Note: This requires an internet connection__ 
+Published articles have a [Digital Object Identifier](http://www.doi.org/), or doi associated with them.  The `knitcitations` package allows us to easily cite papers by simply providing the doi.  __Note: This requires an internet connection__ 
 
 ## Citing published books with an ISBN
 
@@ -345,9 +302,3 @@ The purpose of this is to show stuff to you. And I want to show you some really 
 # Analysis And Results
 
 The purpose of this is to show stuff to you. And I want to show you some really cool stuff.
-
-# Conclusion
-
-```{r, results='asis', message=FALSE}
-write.bibtex(file = 'bibtex/final_bib.bib')
-```

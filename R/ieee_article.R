@@ -1,6 +1,6 @@
 #' Air Force Institute of Technology Thesis Template 
 #'
-#' Format for creating an AFIT theses
+#' Format for creating AFIT theses
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
 #' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
@@ -31,9 +31,7 @@ ieee_article <- function(...,
                         fig_caption = TRUE,
                         toc = TRUE,
                         template = "templateb.tex",
-                        format = "ieee_article", 
-                        fig_width = 3.9,
-                        fig_align = "left") {
+                        format = "ieee_article") {
   
   # thesis <- system.file("rmarkdown",
   #                       'templates',
@@ -51,6 +49,7 @@ ieee_article <- function(...,
                           toc = toc,
                           pandoc_args = c('--listings'),
                           citation_package = 'natbib',
-                          fig_width = fig_width)
+                          fig_width = 3.9,
+                          fig_align = "left")
 }
 

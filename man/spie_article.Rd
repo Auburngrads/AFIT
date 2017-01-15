@@ -6,7 +6,7 @@
 \usage{
 spie_article(..., keep_tex = FALSE,
   md_extensions = c("-autolink_bare_uris"), fig_caption = TRUE,
-  toc = TRUE, template = "template.tex", format = "spie_article")
+  toc = TRUE, template = "templateb.tex", format = "spie_article")
 }
 \arguments{
 \item{...}{Arguments to \code{rmarkdown::pdf_document}}

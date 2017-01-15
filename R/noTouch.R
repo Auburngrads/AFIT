@@ -70,7 +70,7 @@ noTouch <- function(file = NULL) {
   if(yaml$distribution_statement$C) yaml$distro_thesis <- c('C','Distribution authorized to U.S. Government Agencies and their contractors')
   if(yaml$distribution_statement$D) yaml$distro_thesis <- c('D','Distribution authorized to Department of Defense and U.S. DoD contractors only')
   if(yaml$distribution_statement$E) yaml$distro_thesis <- c('E','Distribution authorized to DoD components only')
-  if(yaml$distribution_statement$F) yaml$distro-thesis <- c('F','Further dissemination only as directed')
+  if(yaml$distribution_statement$F) yaml$distro_thesis <- c('F','Further dissemination only as directed')
 
   
   if(!yaml$distribution_statement$F & !yaml$distribution_statement$A) {
