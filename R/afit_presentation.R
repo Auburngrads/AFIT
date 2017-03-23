@@ -79,50 +79,50 @@ afit_presentation <- function(...,
   # Add Custom CSS Files
   #
   
-  this_css <- system.file('rmd','css','afit-slidy.css', package = 'AFIT')
-  
-  if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))) {
-    
-      file.create(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))
-    
-  } 
-    
-  that_css <- paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/')  
-  code_css <- readLines(this_css)
-  writeLines(code_css, con = that_css)
-  that_css <- rmarkdown::relative_to(getwd(), that_css)
-  
-  css <- c(css,that_css)
-  
-  for (css_file in css)
-  args <- c(args, "--css", pandoc_path_arg(css_file))
-  
-  #
-  # Add Custom JS code
-  #
-  
-  this_js <- system.file('rmd','js','afit-slidy.js', package = 'AFIT')
-  
-  if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))) {
-    
-      file.create(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))
-  }
-  
-  #
-  # Add Custom R code
-  #
-  
-  this_R <- system.file('rmd','R','setup.R', package = 'AFIT')
-  
-  if(!file.exists(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))) {
-    
-      file.create(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))
-    
-  } 
-    
-  that_R <- paste(c(getwd(),'scripts/setup.R'), collapse = '/')  
-  code_R <- readLines(this_R)
-  writeLines(code_R, con = that_R)
+  # this_css <- system.file('rmd','css','afit-slidy.css', package = 'AFIT')
+  # 
+  # if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))) {
+  #   
+  #     file.create(paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/'))
+  #   
+  # } 
+  #   
+  # that_css <- paste(c(getwd(),'scripts/afit-slidy.css'), collapse = '/')  
+  # code_css <- readLines(this_css)
+  # writeLines(code_css, con = that_css)
+  # that_css <- rmarkdown::relative_to(getwd(), that_css)
+  # 
+  # css <- c(css,that_css)
+  # 
+  # for (css_file in css)
+  # args <- c(args, "--css", pandoc_path_arg(css_file))
+  # 
+  # #
+  # # Add Custom JS code
+  # #
+  # 
+  # this_js <- system.file('rmd','js','afit-slidy.js', package = 'AFIT')
+  # 
+  # if(!file.exists(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))) {
+  #   
+  #     file.create(paste(c(getwd(),'scripts/afit-slidy.js'), collapse = '/'))
+  # }
+  # 
+  # #
+  # # Add Custom R code
+  # #
+  # 
+  # this_R <- system.file('rmd','R','setup.R', package = 'AFIT')
+  # 
+  # if(!file.exists(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))) {
+  #   
+  #     file.create(paste(c(getwd(),'scripts/setup.R'), collapse = '/'))
+  #   
+  # } 
+  #   
+  # that_R <- paste(c(getwd(),'scripts/setup.R'), collapse = '/')  
+  # code_R <- readLines(this_R)
+  # writeLines(code_R, con = that_R)
   
   rmarkdown::slidy_presentation(...,
                                 template = Template,
