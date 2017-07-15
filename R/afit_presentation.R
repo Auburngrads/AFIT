@@ -75,7 +75,7 @@ afit_presentation <- function(...,
                           package = "AFIT")
   args <- c()
   
-  #
+ 
   # Add Custom CSS Files
   #
   
