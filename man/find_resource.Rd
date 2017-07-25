@@ -14,4 +14,3 @@ find_resource(template, file)
 \description{
 Helper function to find a resource for a named template
 }
-

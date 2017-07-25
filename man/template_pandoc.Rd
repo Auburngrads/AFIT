@@ -21,4 +21,3 @@ template_pandoc(metadata, template, output, verbose = FALSE)
 \description{
 This is a hacky way to access the pandoc templating engine.
 }
-

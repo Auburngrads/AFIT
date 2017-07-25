@@ -77,4 +77,3 @@ render("afit_presentation.Rmd", slidy_presentation(incremental = TRUE))
 }
 
 }
-

@@ -3,7 +3,6 @@
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -29,11 +28,11 @@
 #' @export
 public_affairs <- function(...,
                            keep_tex = FALSE,
-                            md_extensions = c("-autolink_bare_uris"),
-                            fig_caption = FALSE,
-                            toc = FALSE,
-                            template = "PAform.tex",
-                            format = "afit_prospectus") {
+                           md_extensions = c("-autolink_bare_uris"),
+                           fig_caption = FALSE,
+                           toc = FALSE,
+                           template = "PAform.tex",
+                           format = "afit_prospectus") {
   
    #eforms <- rmarkdown::pandoc_path_arg(system.file('rmd','tex','eforms.sty', package = 'AFIT'))
    #eforms <- rmarkdown::includes(in_header = eforms)
@@ -54,7 +53,6 @@ public_affairs <- function(...,
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -96,7 +94,6 @@ rmarkdown::pdf_document(...,
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -138,7 +135,6 @@ rmarkdown::pdf_document(...,
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -180,7 +176,6 @@ rmarkdown::pdf_document(...,
 #' Format for creating the initial pages of AFIT theses, dissertations, and reports.
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -232,11 +227,14 @@ buildForms <- function(yml = 'metadata.yml',which = NULL,...) {
   signit <- system.file('rmd','forms','signatureForm.Rmd', package = 'AFIT'),
   report <- system.file('rmd','forms','trainingReport.Rmd', package = 'AFIT'))
   
-  if(!is.null(which)) {rmarkdown::render(input = forms[[which]], output_dir = outdir)
+  if(!is.null(which)) {
+    
+    rmarkdown::render(input = forms[[which]], output_dir = outdir)
     
   } else {
       
-  lapply(forms, FUN = function(x) {rmarkdown::render(x, output_dir = outdir)})
+    lapply(forms, FUN = function(x) {rmarkdown::render(x, output_dir = outdir)})
   
-    }
+  }
+  
 }

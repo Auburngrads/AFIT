@@ -33,4 +33,3 @@ rmarkdown::draft("MyThesis.Rmd", template = "afit_prospectus", package = "AFIT")
 }
 
 }
-

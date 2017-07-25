@@ -14,4 +14,3 @@ find_file(template, file)
 \description{
 Helper function to find a file for a named template
 }
-

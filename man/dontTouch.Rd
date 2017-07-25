@@ -12,4 +12,3 @@ dontTouch(file = NULL)
 \description{
 Extract YAML data from metadata.yml
 }
-

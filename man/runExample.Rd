@@ -21,4 +21,3 @@ runExample(pkg, preview.files = TRUE, which = NULL, output = "html",
 \description{
 This function retreives examples stored in the Examples folder for installed packages.
 }
-

@@ -12,4 +12,3 @@ inherit_pdf_document(...)
 \description{
 Calls rmarkdown::pdf_document and marks the return value as inheriting pdf_document
 }
-

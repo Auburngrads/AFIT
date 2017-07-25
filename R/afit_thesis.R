@@ -3,7 +3,6 @@
 #' Format for creating an AFIT theses
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
@@ -24,6 +23,8 @@
 #' rmarkdown::draft("MyThesis.Rmd", template = "afit_thesis", package = "AFIT")
 #' }
 #'
+#' @seealso \code{\link{style_guide(school = 'afit')}}
+#' 
 #' @export
 afit_thesis <- function(...,
                         keep_tex = FALSE,

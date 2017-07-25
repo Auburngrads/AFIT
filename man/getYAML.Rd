@@ -12,4 +12,3 @@ getYAML(file)
 \description{
 Extract YAML metadata from an Rmarkdown file
 }
-

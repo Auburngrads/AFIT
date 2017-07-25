@@ -23,4 +23,3 @@ ISBN.  The result is then formatted into a bibentry-class object using \code{kni
 \details{
 \code{isbn} may contain dashes
 }
-

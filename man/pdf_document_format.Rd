@@ -18,4 +18,3 @@ pdf_document_format(..., format, template, csl = NULL)
 \description{
 Helper function to create a custom format derived from pdf_document that includes a custom LaTeX template and custom CSL definition
 }
-

@@ -3,7 +3,6 @@
 #' Format for creating an AFIT theses
 #' 
 #' Adapted from the STYLE GUIDE FOR AFIT DISSERTATIONS, THESES AND GRADUATE RESEARCH PAPERS - July 2015
-#' \href{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}{http://www.afit.edu/docs/NewAFITStyleGuideJuly2015(2).pdf}
 #'
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #' @param keep_tex Should the raw TeX files be kept?
